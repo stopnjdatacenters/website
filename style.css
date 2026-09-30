@@ -1,0 +1,106 @@
+/* Stop NJ Data Centers — plain placeholder design. Branding comes later. */
+:root {
+  --bg: #fbfaf7;
+  --surface: #ffffff;
+  --text: #1c2321;
+  --muted: #5b6662;
+  --line: #e2e0da;
+  --brand: #1f5c45;
+  --brand-ink: #ffffff;
+  --accent: #b5462a;
+  --radius: 10px;
+  --max: 68rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121615; --surface: #1a201e; --text: #e8ece9; --muted: #a3aeaa;
+    --line: #2c3431; --brand: #5fbf96; --brand-ink: #0d1411; --accent: #ec8a6d;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+a { color: var(--brand); }
+img { max-width: 100%; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 16px; top: 8px; background: var(--surface); padding: 8px; z-index: 10; }
+
+/* Header / footer */
+.site-header { background: var(--surface); border-bottom: 1px solid var(--line); }
+.header-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; padding-top: 14px; padding-bottom: 14px; }
+.brand { font-weight: 800; font-size: 1.15rem; text-decoration: none; color: var(--text); letter-spacing: -0.01em; }
+.brand span { color: var(--accent); }
+nav { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+nav a { text-decoration: none; color: var(--muted); font-weight: 600; }
+nav a:hover, nav a[aria-current="page"] { color: var(--brand); }
+.site-footer { margin-top: 64px; border-top: 1px solid var(--line); background: var(--surface); font-size: 0.95rem; }
+.footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding-top: 28px; padding-bottom: 28px; }
+.footer-inner p { margin: 4px 0 0; }
+.social { list-style: none; margin: 0; padding: 0; }
+.social li { margin: 2px 0; }
+
+/* Sections */
+.hero, .page-head { padding: 56px 0 32px; }
+.hero h1 { font-size: clamp(2rem, 5vw, 3.1rem); line-height: 1.1; margin: 0 0 16px; letter-spacing: -0.02em; }
+.page-head h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); line-height: 1.15; margin: 0 0 12px; }
+.eyebrow { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem; font-weight: 700; color: var(--accent); margin: 0 0 8px; }
+.lede { font-size: 1.15rem; max-width: 42rem; }
+.section { padding-top: 28px; }
+.section h2 { font-size: 1.45rem; margin: 0 0 12px; }
+.muted { color: var(--muted); }
+.small-print { font-size: 0.9rem; margin-top: 16px; }
+.prose { max-width: 42rem; }
+
+/* Buttons */
+.buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.btn { display: inline-block; padding: 10px 18px; border-radius: var(--radius); border: 2px solid var(--brand); color: var(--brand); text-decoration: none; font-weight: 700; }
+.btn.primary { background: var(--brand); color: var(--brand-ink); }
+.btn.small { padding: 6px 12px; font-size: 0.92rem; }
+
+/* Cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 14px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; display: flex; flex-direction: column; align-items: flex-start; }
+.card h3 { margin: 0 0 6px; font-size: 1.08rem; }
+.card p { margin: 0 0 12px; flex: 1; }
+
+/* Facts */
+.facts { margin: 0; border-top: 1px solid var(--line); }
+.facts > div { display: grid; grid-template-columns: 10rem 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.facts dt { font-weight: 700; }
+.facts dd { margin: 0; }
+@media (max-width: 560px) { .facts > div { grid-template-columns: 1fr; gap: 2px; } }
+.cite { font-size: 0.85rem; color: var(--muted); }
+.card .cite { margin-top: auto; }
+
+/* Timeline */
+.timeline { list-style: none; margin: 0; padding: 0; border-left: 3px solid var(--line); }
+.timeline li { position: relative; padding: 0 0 18px 20px; }
+.timeline li::before { content: ""; position: absolute; left: -8px; top: 7px; width: 13px; height: 13px; border-radius: 50%; background: var(--brand); }
+.timeline time { display: block; font-weight: 700; font-size: 0.92rem; color: var(--muted); }
+
+/* Lists */
+.plain, .sources, .follow { list-style: none; padding: 0; margin: 0; }
+.plain li, .sources li { padding: 4px 0; }
+.follow { display: flex; flex-wrap: wrap; gap: 10px; }
+.follow a { display: block; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 14px; text-decoration: none; color: var(--text); }
+.follow strong { color: var(--brand); margin-right: 6px; }
+
+/* Officials */
+.official { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; margin-bottom: 18px; }
+.official > header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 8px 16px; }
+.official h2 { margin: 0; font-size: 1.3rem; }
+.official h3 { font-size: 1rem; margin: 18px 0 6px; }
+.office { margin: 2px 0 0; color: var(--muted); }
+.status { font-size: 0.85rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
+.status-opposes { color: var(--brand); }
+.status-supports { color: var(--accent); }
+.status-mixed, .status-no-statement { color: var(--muted); }
+blockquote { margin: 10px 0; padding: 10px 16px; border-left: 4px solid var(--brand); background: var(--bg); border-radius: 0 var(--radius) var(--radius) 0; }
+blockquote p { margin: 0 0 6px; }
+blockquote footer { font-size: 0.88rem; color: var(--muted); }
+.inquiries time { font-weight: 700; }
+.contact { font-size: 0.95rem; margin-bottom: 0; }

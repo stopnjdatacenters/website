@@ -1,0 +1,16 @@
+{
+  "name": "stopnjdatacenters-website",
+  "version": "1.0.0",
+  "description": "Website for Stop NJ Data Centers",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "js-yaml": "^5.4.2",
+    "wrangler": "^4.145.0"
+  },
+  "private": true,
+  "type": "module"
+}

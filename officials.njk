@@ -1,0 +1,58 @@
+---
+layout: base.njk
+permalink: /officials/
+title: Where Officials Stand
+description: Public statements by elected officials on the South Brunswick data center, with sources.
+---
+{% set labels = {
+  "opposes": "Opposes the project",
+  "supports": "Supports the project",
+  "mixed": "Mixed / defends process",
+  "no-statement": "No public statement found"
+} %}
+<section class="page-head">
+  <div class="wrap">
+    <h1>Where officials stand</h1>
+    <p class="lede">Public statements by the people who represent us, word for word, each linked to where it was said.</p>
+    <p class="muted">Spotted a statement we're missing, or something out of date? Email <a href="mailto:{{ site.email }}">{{ site.email }}</a> with a link.</p>
+  </div>
+</section>
+
+<section class="wrap section">
+  {% for o in officials %}
+  <article class="official" id="{{ o.name | slugify }}">
+    <header>
+      <div>
+        <h2>{{ o.name }}</h2>
+        <p class="office">{{ o.office }}</p>
+      </div>
+      <span class="status status-{{ o.status }}">{{ labels[o.status] or o.status }}</span>
+    </header>
+    {% if o.summary %}<p>{{ o.summary }}{% if o.summary_source_url %} <a class="cite" href="{{ o.summary_source_url }}" rel="noopener">[{{ o.summary_source_title }}]</a>{% endif %}</p>{% endif %}
+    {% if o.inquiries and o.inquiries.length %}
+    <h3>Our requests for comment</h3>
+    <ul class="plain inquiries">
+      {% for q in o.inquiries | newestFirst %}
+      <li><time>{{ q.date | readableDate }}</time>: {{ q.method }}. <strong>{{ q.response }}</strong></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% if o.statements and o.statements.length %}
+    <h3>On the record</h3>
+    {% for st in o.statements | newestFirst %}
+    <blockquote>
+      <p>“{{ st.quote | trim }}”</p>
+      <footer>{{ st.date | readableDate }} · {{ st.where }} · <a href="{{ st.source_url }}" rel="noopener">{{ st.source_title }}</a></footer>
+    </blockquote>
+    {% endfor %}
+    {% endif %}
+    {% if o.contact %}
+    <p class="contact">Contact:
+      {% if o.contact.url %}<a href="{{ o.contact.url }}" rel="noopener">Official website</a>{% endif %}
+      {% if o.contact.email %} · <a href="mailto:{{ o.contact.email }}">{{ o.contact.email }}</a>{% endif %}
+      {% if o.contact.phone %} · {{ o.contact.phone }}{% endif %}
+    </p>
+    {% endif %}
+  </article>
+  {% endfor %}
+</section>

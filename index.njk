@@ -1,0 +1,40 @@
+---
+layout: base.njk
+---
+{% set c = campaigns["south-brunswick"] %}
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">South Brunswick, New Jersey</p>
+    <h1>Stop the data center at 4405 Route 1</h1>
+    <p class="lede">{{ c.summary }}</p>
+    <p class="lede">We're neighbors organizing to stop it, and to make sure every official's position is on the record.</p>
+    <div class="buttons">
+      <a class="btn primary" href="/south-brunswick/">Get the facts</a>
+      <a class="btn" href="/officials/">Where officials stand</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap section">
+  <h2>What you can do now</h2>
+  <div class="cards">
+    {% for a in c.actions %}
+    <div class="card">
+      <h3>{{ a.title }}</h3>
+      <p>{{ a.text }}</p>
+      <a class="btn small" href="{{ a.url }}" rel="noopener">{{ a.button }}</a>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="wrap section">
+  <h2>Follow and get involved</h2>
+  <ul class="follow">
+    {% for s in site.social %}
+    <li><a href="{{ s.url }}" rel="noopener"><strong>{{ s.name }}</strong> {{ s.label }}</a></li>
+    {% endfor %}
+    <li><a href="mailto:{{ site.email }}"><strong>Email</strong> {{ site.email }}</a></li>
+  </ul>
+  <p class="muted small-print">South Brunswick is the first campaign of Stop NJ Data Centers.</p>
+</section>

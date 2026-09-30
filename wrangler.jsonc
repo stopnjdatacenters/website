@@ -1,0 +1,10 @@
+// Cloudflare settings. The site is built by Eleventy into ./_site,
+// and Cloudflare serves those files as-is.
+{
+  "name": "stopnjdatacenters",
+  "compatibility_date": "2026-09-30",
+  "assets": {
+    "directory": "./_site",
+    "not_found_handling": "404-page"
+  }
+}

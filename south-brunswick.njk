@@ -1,0 +1,90 @@
+---
+layout: base.njk
+permalink: /south-brunswick/
+title: South Brunswick
+description: Facts, timeline and sources on the data center at 4405 US Route 1 in South Brunswick, NJ.
+---
+{% set c = campaigns["south-brunswick"] %}
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Active campaign</p>
+    <h1>{{ c.project }}</h1>
+    <p class="lede">{{ c.summary }}</p>
+  </div>
+</section>
+
+<section class="wrap section">
+  <h2>The facts</h2>
+  <p class="muted">Every item links to its source. If we can't source it, we don't publish it.</p>
+  <dl class="facts">
+    {% for f in c.facts %}
+    {% set s = c | sourceById(f.source) %}
+    <div>
+      <dt>{{ f.label }}</dt>
+      <dd>{{ f.text }} <a class="cite" href="{{ s.url }}" rel="noopener">[{{ s.publisher }}]</a></dd>
+    </div>
+    {% endfor %}
+  </dl>
+</section>
+
+<section class="wrap section">
+  <h2>Why it matters here</h2>
+  <div class="cards">
+    {% for k in c.concerns %}
+    {% set s = c | sourceById(k.source) %}
+    <div class="card">
+      <h3>{{ k.title }}</h3>
+      <p>{{ k.text }}</p>
+      <a class="cite" href="{{ s.url }}" rel="noopener">Source: {{ s.publisher }}</a>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="wrap section">
+  <h2>Timeline</h2>
+  <ol class="timeline">
+    {% for t in c.timeline %}
+    {% set s = c | sourceById(t.source) %}
+    <li>
+      <time>{{ t.date | readableDate }}</time>
+      <span>{{ t.text }} <a class="cite" href="{{ s.url }}" rel="noopener">[{{ s.publisher }}]</a></span>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<section class="wrap section">
+  <h2>What you can do</h2>
+  <div class="cards">
+    {% for a in c.actions %}
+    <div class="card">
+      <h3>{{ a.title }}</h3>
+      <p>{{ a.text }}</p>
+      <a class="btn small" href="{{ a.url }}" rel="noopener">{{ a.button }}</a>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="wrap section">
+  <h2>Officials on this project</h2>
+  {% set officials_here = officials | forCampaign(c.id) %}
+  {% if officials_here.length %}
+  <ul class="plain">
+    {% for o in officials_here %}
+    <li><a href="/officials/#{{ o.name | slugify }}">{{ o.name }}</a>, {{ o.office }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  <p><a href="/officials/">See quotes and positions →</a></p>
+</section>
+
+<section class="wrap section">
+  <h2>Coverage and sources</h2>
+  <ul class="sources">
+    {% for s in c.sources %}
+    <li><a href="{{ s.url }}" rel="noopener">{{ s.title }}</a> <span class="muted">{{ s.publisher }}{% if s.date %}, {{ s.date | readableDate }}{% endif %}</span></li>
+    {% endfor %}
+  </ul>
+</section>

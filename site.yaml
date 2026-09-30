@@ -1,0 +1,18 @@
+# Site-wide settings. Edit these values and the whole site updates.
+
+name: Stop NJ Data Centers
+url: https://stopnjdatacenters.org
+email: info@stopnjdatacenters.org
+description: >-
+  Residents organizing against the data center being built at
+  4405 US Route 1 in South Brunswick, New Jersey.
+
+# Social accounts. To add one (e.g. Facebook), copy an entry and change it.
+# To hide one, delete its lines.
+social:
+  - name: Reddit
+    label: r/StopNJDataCenters
+    url: https://www.reddit.com/r/StopNJDataCenters/
+  - name: Bluesky
+    label: "@stopnjdatacenters.bsky.social"
+    url: https://bsky.app/profile/stopnjdatacenters.bsky.social

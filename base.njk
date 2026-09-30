@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{{ title }} · {% endif %}{{ site.name }}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <meta property="og:title" content="{{ title or site.name }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">Stop <span>NJ</span> Data Centers</a>
+      <nav aria-label="Main">
+        <a href="/south-brunswick/" {% if page.url == "/south-brunswick/" %}aria-current="page"{% endif %}>South Brunswick</a>
+        <a href="/officials/" {% if page.url == "/officials/" %}aria-current="page"{% endif %}>Officials</a>
+        <a href="/about/" {% if page.url == "/about/" %}aria-current="page"{% endif %}>About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>
+        <strong>{{ site.name }}</strong>
+        <p>Contact: <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      </div>
+      <ul class="social" aria-label="Social media">
+        {% for s in site.social %}
+        <li><a href="{{ s.url }}" rel="noopener">{{ s.name }}: {{ s.label }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

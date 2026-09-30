@@ -1,0 +1,124 @@
+# One entry per local fight. Right now there is only South Brunswick.
+#
+# RULE: every fact needs a source. Put the source in the "sources" list at the
+# bottom of the campaign, then refer to it by its id (e.g. source: patch-petition).
+# If we can't source it, it doesn't go on the site.
+
+south-brunswick:
+  id: south-brunswick
+  name: South Brunswick
+  project: The data center at 4405 US Route 1
+  summary: >-
+    A data center of roughly 341,000 square feet is being built on the former
+    Princeton Nurseries site at 4405 US Route 1 in South Brunswick. The township
+    Planning Board approved it in May 2025.
+
+  # Key facts, shown as a list on the South Brunswick page.
+  facts:
+    - label: Location
+      text: 4405 US Route 1, South Brunswick (Middlesex County), on the former Princeton Nurseries site
+      source: compute-atlas
+    - label: Site size
+      text: About 143 acres
+      source: patch-petition
+    - label: Building size
+      text: About 341,000 square feet
+      source: princeton-perspectives
+    - label: Developer
+      text: Sentinel Data Centers. The applicant of record is WRV Nurseries South Brunswick Owner, LLC.
+      source: compute-atlas
+    - label: Approval
+      text: Approved by South Brunswick in May 2025
+      source: patch-petition
+    - label: Status
+      text: Listed as under construction, with completion targeted for the end of 2026, according to industry trackers
+      source: compute-atlas
+
+  # Concerns about this specific site. Keep each one tied to a source.
+  concerns:
+    - title: Contaminated soil
+      text: >-
+        The Sierra Club New Jersey Chapter says the property contains soil
+        contaminated with dieldrin and chlordane, two pesticides now banned in
+        the United States, and that construction could disturb capped soil berms.
+      source: sierra-club
+    - title: Water
+      text: >-
+        The Sierra Club resolution notes the site is near wetlands and the
+        Millstone River, which it describes as a drinking water source for the region.
+      source: sierra-club
+    - title: Diesel generators and air quality
+      text: >-
+        The facility will use diesel backup generators. The Sierra Club
+        resolution raises air pollution from them, and Princeton residents
+        have asked for an NJDEP air-permit hearing and local air monitoring.
+      source: sierra-club
+    - title: Noise
+      text: >-
+        According to Mayor Carley, the approval requires sound walls and limits
+        diesel generator testing to daytime hours. Residents will want to see
+        how that is enforced.
+      source: princeton-perspectives
+
+  # Timeline, oldest first.
+  timeline:
+    - date: 2025-03
+      text: Data center proposal announced for the former Princeton Nurseries site.
+      source: compute-atlas
+    - date: 2025-05
+      text: South Brunswick approves the plans.
+      source: patch-petition
+    - date: 2026-06-04
+      text: A resident's petition to stop the project reaches 887 signatures.
+      source: patch-petition
+    - date: 2026-09-23
+      text: About 100 people attend a public meeting on a permit for the data center at the Princeton Marriott.
+      source: tapinto-hearing
+
+  # Things people can do right now. Keep these current.
+  actions:
+    - title: Sign the petition
+      text: A South Brunswick resident's Change.org petition asks the township to stop the project.
+      url: https://www.change.org/p/stop-the-proposed-data-center-development-in-south-brunswick-township
+      button: Open the petition
+    - title: Watch for NJDEP air permit notices
+      text: NJDEP posts public notices for air permits, including comment deadlines.
+      url: https://dep.nj.gov/boss/public-notices/
+      button: NJDEP public notices
+    - title: Join the conversation
+      text: Updates, meeting reminders and discussion on our subreddit.
+      url: https://www.reddit.com/r/StopNJDataCenters/
+      button: Go to r/StopNJDataCenters
+
+  sources:
+    - id: patch-petition
+      title: "Petition Seeks To Stop Proposed Data Center Development In South Brunswick"
+      publisher: Patch
+      date: 2026-06-04
+      url: https://patch.com/new-jersey/southbrunswick/petition-seeks-stop-proposed-data-center-south-brunswick
+    - id: princeton-perspectives
+      title: "Artificial Intelligence Infrastructure Hits Bumps in the Suburbs"
+      publisher: Princeton Perspectives
+      date: 2026-07-15
+      url: https://princetonperspectives.com/artificial-intelligence-infrastructure-hits-bumps-in-the-suburbs/
+    - id: compute-atlas
+      title: "Sentinel Princeton Nurseries DC-1 (4405 Route 1)"
+      publisher: Compute Atlas
+      url: https://www.compute-atlas.com/facilities/sentinel-princeton-nurseries-south-brunswick-nj
+    - id: sierra-club
+      title: "Resolution Regarding a Proposed Data Center at the Princeton Nurseries Redevelopment Property"
+      publisher: Sierra Club New Jersey Chapter
+      url: https://www.sierraclub.org/sites/default/files/2025-03/resolution-regarding-a-proposed-data-center-at-the-princeton-nurseries-redevelopemt-property_0.pdf
+    - id: citizen-portal
+      title: "Residents urge Princeton to seek air permits and monitoring for proposed compressor station and data center"
+      publisher: Citizen Portal
+      date: 2026-04-27
+      url: https://citizenportal.ai/articles/7882467/new-jersey/mercer-county/princeton/residents-urge-princeton-to-seek-air-permits-and-monitoring-for-proposed-compressor-station-and-data-center
+    - id: tapinto-hearing
+      title: "“This Project is Catastrophic” – Data Center Backlash Comes to Princeton"
+      publisher: TAPinto Princeton
+      url: https://www.tapinto.net/towns/princeton/sections/around-new-jersey/articles/this-project-is-catastrophic-data-center-backlash-comes-to-princeton
+    - id: tapinto-appeal
+      title: "Princeton's South Brunswick Neighbors Lose a Round in Court Against Data Center, But Launch an Appeal"
+      publisher: TAPinto Princeton
+      url: https://www.tapinto.net/towns/princeton/sections/around-new-jersey/articles/princeton-s-south-brunswick-neighbors-lose-a-round-in-court-against-data-center-but-launch-an-appeal

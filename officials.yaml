@@ -1,0 +1,47 @@
+# WHERE OFFICIALS STAND
+#
+# One entry per official. To add a new statement, copy an existing
+# "- date:" block under "statements" and fill it in.
+#
+# RULES (these protect the group legally and keep us credible):
+#   1. Quotes must be word-for-word, with a link to where they were said
+#      (article, meeting video, minutes, official post).
+#   2. Keep each quote short (a sentence or three), not whole speeches.
+#   3. "summary" describes their position in neutral words. No insults,
+#      no guessing at motives.
+#
+# status must be one of:
+#   opposes     - has publicly opposed the project
+#   supports    - has publicly supported the project
+#   mixed       - has defended parts of it, or supports conditions/standards
+#   no-statement - no public statement found yet
+
+- name: Charlie Carley
+  office: Mayor, South Brunswick Township
+  level: township            # township, county, or state
+  contact:
+    url: https://southbrunswicknj.gov/
+  campaigns: [south-brunswick]
+  status: mixed
+  summary: >-
+    Has defended the township's approval process and said he welcomes the
+    Legislature setting statewide standards for data centers on water,
+    energy and noise.
+  statements:
+    - date: 2026-06-04
+      campaign: south-brunswick
+      where: Interview with Patch about the petition
+      quote: >-
+        I have confidence in the process. But at the same time, I'm happy that
+        the petition was produced, because it does help us inform future decisions.
+      source_title: Patch
+      source_url: https://patch.com/new-jersey/southbrunswick/petition-seeks-stop-proposed-data-center-south-brunswick
+    - date: 2026-07-15
+      campaign: south-brunswick
+      where: Quoted in Princeton Perspectives
+      quote: >-
+        What's changed is the scale and energy intensity of these newer
+        facilities, which is why I welcome the Legislature setting clear
+        statewide standards on water, energy, and noise.
+      source_title: Princeton Perspectives
+      source_url: https://princetonperspectives.com/artificial-intelligence-infrastructure-hits-bumps-in-the-suburbs/
