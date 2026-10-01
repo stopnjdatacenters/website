@@ -78,17 +78,35 @@ south-brunswick:
       text: A South Brunswick resident's Change.org petition asks the township to stop the project.
       url: https://www.change.org/p/stop-the-proposed-data-center-development-in-south-brunswick-township
       button: Open the petition
+    - title: Request public records
+      text: >-
+        Before you file an OPRA request, check our list of records we're
+        looking for. Someone may already have asked. Pick one marked
+        "Wanted," file it, and email us so we can mark it requested.
+        Already have records, photos or video? Send them too.
+      url: /documents/
+      button: See the records list
     - title: Watch for NJDEP air permit notices
       text: NJDEP posts public notices for air permits, including comment deadlines.
       url: https://dep.nj.gov/boss/public-notices/
       button: NJDEP public notices
-    - title: Share documents
+    - title: Ask for meetings to be streamed and archived
       text: >-
-        Have public records, filings, photos or video about the project?
-        Send them (or a link, for large files). We review everything before
-        publishing and never reveal who sent it.
-      url: mailto:info@stopnjdatacenters.org?subject=Documents%20for%20Stop%20NJ%20Data%20Centers
-      button: Email us your documents
+        Township meetings are [shown live only on local cable](https://southbrunswicknj.gov/access-a-live-meeting/)
+        channels 26 and 45, with no online stream or archive we could find. In 2026, every
+        Council and Planning Board meeting should be streamed online and
+        kept for the public record.
+      url: https://southbrunswicknj.gov/mayor-council/
+      button: Contact the Mayor and Council
+    - title: Demand real notice for big projects
+      text: >-
+        State law ([N.J.S.A. 40:55D-12](https://law.justia.com/codes/new-jersey/2022/title-40/section-40-55d-12/))
+        only requires notifying property owners within 200 feet of a project,
+        10 days before the hearing. For a 143-acre data center, that's almost
+        no one. We're seeking reforms that would require adequate notice to
+        everyone affected.
+      url: https://law.justia.com/codes/new-jersey/2022/title-40/section-40-55d-12/
+      button: Read the notice law
     - title: Join the conversation
       text: Updates, meeting reminders and discussion on our subreddit.
       url: https://www.reddit.com/r/StopNJDataCenters/
@@ -122,6 +140,10 @@ south-brunswick:
       title: "“This Project is Catastrophic” – Data Center Backlash Comes to Princeton"
       publisher: TAPinto Princeton
       url: https://www.tapinto.net/towns/princeton/sections/around-new-jersey/articles/this-project-is-catastrophic-data-center-backlash-comes-to-princeton
+    - id: township-live
+      title: "Access a Live Meeting"
+      publisher: South Brunswick Township
+      url: https://southbrunswicknj.gov/access-a-live-meeting/
     - id: tapinto-appeal
       title: "Princeton's South Brunswick Neighbors Lose a Round in Court Against Data Center, But Launch an Appeal"
       publisher: TAPinto Princeton

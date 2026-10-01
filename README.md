@@ -11,7 +11,7 @@ Almost everything you'll want to change is in three files:
 | `site.yaml` | Site name, contact email, social media links |
 | `campaigns.yaml` | The South Brunswick page: facts, concerns, timeline, actions, sources |
 | `officials.yaml` | The "Where Officials Stand" page |
-| `documents.yaml` | The Documents page (OPRA records, site plans, etc.) |
+| `documents.yaml` | The Documents & Public Records page: every record we want and its status |
 
 To edit on github.com: open the file, click the **pencil icon**, make your change, then click **Commit changes**.
 
@@ -47,14 +47,22 @@ When we contact an official, add it under their `inquiries:` and update `respons
       response: No response as of October 8, 2026
 ```
 
-## Adding a document
+## Tracking public records (OPRA)
+
+`documents.yaml` lists every record we want. Each has a `status`: `wanted`, `requested`, `received`, `posted` or `denied`. Instructions are at the top of the file.
+
+- **Someone files a request:** change `status` to `requested` and add `requested: 2026-10-02`. The site shows the response deadline (7 business days) and flips to **Overdue** on its own if the deadline passes.
+- **Agency extends the deadline:** add `extended_to: 2026-11-03`.
+- **Never record who filed.** That stays in the offline log.
+
+### Posting a document
 
 Documents are stored in Cloudflare R2 (not in this repository) and served from https://docs.stopnjdatacenters.org/.
 
-1. Check the PDF for residents' personal details (home addresses, phone numbers, emails, signatures) and redact them.
-2. Name the file in lowercase with dashes, no spaces, starting with the document's date, e.g. `2025-05-planning-board-resolution.pdf`.
-3. In Cloudflare: **R2 > stopnjdatacenters-docs > Upload**.
-4. In `documents.yaml`, add an entry (the example in the file shows the format). The `url` is `https://docs.stopnjdatacenters.org/` plus the file name.
+1. Redact residents' personal details (home addresses, phone numbers, emails, signatures).
+2. Name the file lowercase with dashes, date first: `2025-05-planning-board-resolution.pdf`.
+3. Cloudflare: **R2 > stopnjdatacenters-docs > Upload**.
+4. In `documents.yaml`: set `status: posted`, and add `url` and `size`.
 
 ## Rules for what goes on the site
 
@@ -64,10 +72,12 @@ These protect the group legally and keep us credible:
 2. **Quotes are word for word**, short, and linked to where they were said.
 3. **Positions and summaries are neutral.** No insults, no guessing at motives.
 4. **Nothing about officials' private lives** (homes, family, personal finances) unless it's directly about their public role and properly sourced.
+5. **Every statute or regulation we cite links to its text.** Common ones are listed under `laws:` in `site.yaml`.
 
 ## For technical helpers
 
 - Built with [Eleventy](https://www.11ty.dev/) into `_site/`. All files are kept in one folder on purpose (no subfolders), so the repo can be updated by drag-and-drop on github.com.
-- Pages: `index.njk`, `south-brunswick.njk`, `officials.njk`, `documents.njk`, `about.md`, `404.njk`. Layout: `base.njk`. Styles: `style.css`.
+- Pages: `index.njk`, `south-brunswick.njk`, `officials.njk`, `documents.njk`, `about.md`, `404.njk`.
+- Short text fields (action `text`, record `description` and `key_question`) accept Markdown links: `[label](https://...)`. Layout: `base.njk`. Styles: `style.css`.
 - Hosted on Cloudflare Workers (static assets); see `wrangler.jsonc`.
 - Preview locally: `npm install` then `npm start`.

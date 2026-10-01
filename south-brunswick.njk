@@ -60,7 +60,7 @@ description: Facts, timeline and sources on the data center at 4405 US Route 1 i
     {% for a in c.actions %}
     <div class="card">
       <h3>{{ a.title }}</h3>
-      <p>{{ a.text }}</p>
+      <p>{{ a.text | mdInline | safe }}</p>
       <a class="btn small" href="{{ a.url }}" rel="noopener">{{ a.button }}</a>
     </div>
     {% endfor %}
@@ -81,10 +81,13 @@ description: Facts, timeline and sources on the data center at 4405 US Route 1 i
 </section>
 
 <section class="wrap section">
-  <h2>Documents</h2>
-  {% set docs_here = documents | docsForCampaign(c.id) %}
-  <p>Public records about this project: site plans, applications, resolutions, permits and reports.{% if docs_here.length %} We have {{ docs_here.length }} so far.{% endif %}</p>
-  <p><a href="/documents/">Browse the documents →</a></p>
+  <h2>Documents and public records</h2>
+  {% set posted = documents | docsForCampaign(c.id, "posted") %}
+  {% set wanted = documents | docsForCampaign(c.id, "wanted") %}
+  <p>We're collecting the public records on this project: site plans, the approval, permits and studies.
+  {% if posted.length %}{{ posted.length }} posted so far.{% endif %}
+  {% if wanted.length %}{{ wanted.length }} still need someone to request them.{% endif %}</p>
+  <p><a href="/documents/">See the records list →</a></p>
 </section>
 
 <section class="wrap section">

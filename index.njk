@@ -16,12 +16,19 @@ layout: base.njk
 </section>
 
 <section class="wrap section">
+  <div class="mission">
+    <h2>Why we're here</h2>
+    <p>Large projects with serious environmental, health and financial impacts should be decided in public. We don't oppose data centers or AI. We oppose building them in our neighborhoods without enforceable limits on noise, emissions, water and power costs, and without giving residents a real voice.</p>
+  </div>
+</section>
+
+<section class="wrap section">
   <h2>What you can do now</h2>
   <div class="cards">
     {% for a in c.actions %}
     <div class="card">
       <h3>{{ a.title }}</h3>
-      <p>{{ a.text }}</p>
+      <p>{{ a.text | mdInline | safe }}</p>
       <a class="btn small" href="{{ a.url }}" rel="noopener">{{ a.button }}</a>
     </div>
     {% endfor %}

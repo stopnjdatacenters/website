@@ -1,36 +1,76 @@
 ---
 layout: base.njk
 permalink: /documents/
-title: Documents
-description: Public records about the data center at 4405 US Route 1 in South Brunswick, NJ.
+title: Documents & Public Records
+description: Every public record we're seeking about the data center at 4405 US Route 1 in South Brunswick, NJ, and where each one stands.
 ---
+{% set groups = [
+  { status: "posted",    heading: "Posted",    note: "" },
+  { status: "requested", heading: "Requested", note: "Someone has already filed for these. Please don't duplicate." },
+  { status: "received",  heading: "Received",  note: "We have these and are reviewing them before posting." },
+  { status: "wanted",    heading: "Wanted",    note: "No one has requested these yet. Pick one and file it." },
+  { status: "denied",    heading: "Denied",    note: "Refused requests, with the agency's stated reason." }
+] %}
+{% set pill = { posted: "Posted", requested: "Requested", received: "Received", wanted: "Wanted", denied: "Denied" } %}
+
 <section class="page-head">
   <div class="wrap">
-    <h1>Documents</h1>
-    <p class="lede">Public records about the project: site plans, applications, resolutions, permits and reports, most obtained through Open Public Records Act (OPRA) requests.</p>
-    <p class="muted">We remove residents' personal details before publishing. Have a document we should add? Email <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+    <h1>Documents &amp; public records</h1>
+    <p class="lede">Every public record we're after for the 4405 Route 1 project, and where each one stands. Before filing an Open Public Records Act (OPRA) request, check here so we don't duplicate each other.</p>
+    <div class="howto">
+      <strong>How to help</strong>
+      <ol>
+        <li>Pick a record marked <span class="pill p-wanted">Wanted</span>.</li>
+        <li>File an OPRA request with the agency listed, using that agency's official request form.</li>
+        <li>Email <a href="mailto:{{ site.email }}?subject=OPRA%20request%20filed">{{ site.email }}</a> with the record and the date you filed, and we'll mark it Requested. We never publish who filed.</li>
+      </ol>
+      <p class="muted small">Agencies must respond within 7 business days under the <a href="{{ site.laws.opra.url }}" rel="noopener">Open Public Records Act ({{ site.laws.opra.cite }})</a>. <a href="{{ site.laws.opra_guide.url }}" rel="noopener">Plain-English guide</a>. Already have records, photos or video? Email them to us. We remove residents' personal details before publishing.</p>
+    </div>
   </div>
 </section>
 
-<section class="wrap section">
-  {% if documents and documents.length %}
-  <ul class="docs">
-    {% for d in documents | newestFirst %}
-    <li class="doc">
-      <div class="doc-main">
-        <p class="doc-meta"><span class="doc-type">{{ d.type }}</span>{% if d.date %} · {{ d.date | readableDate }}{% endif %}</p>
-        <h2><a href="{{ d.url }}" rel="noopener">{{ d.title }}</a></h2>
-        {% if d.description %}<p>{{ d.description }}</p>{% endif %}
-        {% if d.obtained %}<p class="muted small">Source: {{ d.obtained }}</p>{% endif %}
+<section class="wrap">
+  {% for g in groups %}
+  {% set recs = documents | withStatus(g.status) %}
+  {% if recs.length %}
+  <div class="group" id="{{ g.status }}">
+    <h2>{{ g.heading }} <span class="count">{{ recs.length }} record{% if recs.length != 1 %}s{% endif %}</span></h2>
+    {% if g.note %}<p class="muted">{{ g.note }}</p>{% endif %}
+    {% for r in recs %}
+    {% set due = r | responseDue %}
+    <article class="rec"{% if r.status == "requested" and due %} data-due="{{ due }}"{% endif %}>
+      <div class="rec-main">
+        <span class="agency">{{ r.agency }}{% if r.type %} · {{ r.type }}{% endif %}{% if r.date %} · {{ r.date | readableDate }}{% endif %}</span>
+        <h3>{% if r.status == "posted" and r.url %}<a href="{{ r.url }}" rel="noopener">{{ r.title }}</a>{% else %}{{ r.title }}{% endif %}</h3>
+        {% if r.description %}<p>{{ r.description | mdInline | safe }}</p>{% endif %}
+        {% if r.key_question %}<p class="why"><strong>Key question:</strong> {{ r.key_question | mdInline | safe }}</p>{% endif %}
+        {% if r.status == "denied" and r.denial_reason %}<p class="why"><strong>Reason given:</strong> {{ r.denial_reason }}</p>{% endif %}
       </div>
-      <a class="btn small" href="{{ d.url }}" rel="noopener">PDF{% if d.size %} · {{ d.size }}{% endif %}</a>
-    </li>
+      <div class="side">
+        {% if r.status == "requested" %}
+          <span class="pill p-requested js-status">Requested{% if r.requested %} {{ r.requested | shortDate }}{% endif %}</span>
+          {% if due %}<span>{% if r.extended_to %}Extended to{% else %}Response due{% endif %} <strong>{{ due | shortDate }}</strong></span>{% endif %}
+        {% else %}
+          <span class="pill p-{{ r.status }}">{{ pill[r.status] }}</span>
+        {% endif %}
+        {% if r.status == "posted" and r.url %}<a class="btn small" href="{{ r.url }}" rel="noopener">PDF{% if r.size %} · {{ r.size }}{% endif %}</a>{% endif %}
+      </div>
+    </article>
     {% endfor %}
-  </ul>
-  {% else %}
-  <div class="card">
-    <h2 class="h3">Documents are on the way</h2>
-    <p>We're requesting the site plans, Planning Board records and permit files. They'll be posted here as they arrive.</p>
   </div>
   {% endif %}
+  {% endfor %}
 </section>
+
+<script>
+  // Mark requests as Overdue once their response deadline has passed.
+  (function () {
+    var today = new Date().toISOString().slice(0, 10);
+    document.querySelectorAll(".rec[data-due]").forEach(function (el) {
+      if (today > el.getAttribute("data-due")) {
+        var p = el.querySelector(".js-status");
+        if (p) { p.textContent = "Overdue"; p.className = "pill p-overdue js-status"; }
+      }
+    });
+  })();
+</script>

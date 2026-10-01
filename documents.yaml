@@ -1,27 +1,147 @@
-# DOCUMENTS LIBRARY
+# PUBLIC RECORDS
 #
-# To add a document:
-#   1. Check it for residents' personal details (home addresses, phone
-#      numbers, emails, signatures) and redact them.
-#   2. Upload the PDF in Cloudflare: R2 > stopnjdatacenters-docs > Upload.
-#      Name files like: 2025-05-planning-board-resolution.pdf
-#      (lowercase, dashes, no spaces).
-#   3. Copy an entry below (from "- title:" down), paste it at the top of
-#      the list, and fill it in. The url is
-#      https://docs.stopnjdatacenters.org/ followed by the file name.
+# Every record we want, and where each one stands. One entry per record.
+# Volunteers use the "Wanted" list to pick a record to request, so we
+# don't file duplicate OPRA requests.
 #
-# type is one of: Site plan, Application, Resolution, Report, Minutes,
-#   Correspondence, Permit, Other
+# NEVER put the name of the person who filed a request in this file.
+# Keep that in the offline log.
 #
-# Example (delete the # at the start of each line to use it):
+# status is one of:
+#   wanted    - nobody has requested it yet
+#   requested - someone filed an OPRA request (fill in "requested")
+#   received  - we have it and are reviewing it before posting
+#   posted    - uploaded to R2 and available (fill in "url" and "size")
+#   denied    - refused (fill in "denial_reason")
 #
-# - title: Planning Board resolution approving the data center
-#   date: 2025-05
-#   type: Resolution
-#   description: The Board's written approval, including the conditions it set.
-#   obtained: OPRA request to South Brunswick Municipal Clerk, received October 2026
-#   url: https://docs.stopnjdatacenters.org/2025-05-planning-board-resolution.pdf
-#   size: 2 MB
-#   campaign: south-brunswick
+# Dates are written YYYY-MM-DD (e.g. 2026-10-02) or YYYY-MM (e.g. 2025-05).
+#
+# Fields:
+#   title         what the record is
+#   agency        who holds it (who to send the OPRA request to)
+#   type          Site plan, Application, Resolution, Report, Minutes,
+#                 Correspondence, Permit, Agreement, Other
+#   date          date of the document itself, if known
+#   description   one or two plain-English lines
+#   key_question  optional: what we most want to learn from it.
+#                 Links are written [like this](https://example.com)
+#   requested     date the OPRA request was filed
+#   due           optional: exact response deadline from the agency.
+#                 If left out, the site counts 7 business days
+#                 (weekends skipped, holidays not).
+#   extended_to   optional: new deadline if the agency extends it
+#   denial_reason the agency's stated reason (or "No response by deadline")
+#   url           https://docs.stopnjdatacenters.org/ + file name
+#   size          e.g. "2 MB"
+#   campaign      south-brunswick
+#
+# Posting a document:
+#   1. Redact residents' personal details (home addresses, phone numbers,
+#      emails, signatures).
+#   2. Name the file lowercase-with-dashes, date first:
+#      2025-05-planning-board-resolution.pdf
+#   3. Cloudflare: R2 > stopnjdatacenters-docs > Upload.
+#   4. Here: set status to posted and fill in url and size.
 
-[]
+# ---------- South Brunswick Township ----------
+
+- title: Full Planning Board application file
+  agency: South Brunswick Municipal Clerk (Planning Board)
+  type: Application
+  description: >-
+    The complete application for 4405 Route 1: site plan set, environmental
+    impact statement, and traffic and stormwater reports.
+  status: wanted
+  campaign: south-brunswick
+
+- title: Planning Board resolution approving the data center
+  agency: South Brunswick Municipal Clerk (Planning Board)
+  type: Resolution
+  date: 2025-05
+  description: The Board's written approval, including every condition it attached.
+  status: wanted
+  campaign: south-brunswick
+
+- title: Minutes and any video or audio of the Planning Board hearings
+  agency: South Brunswick Municipal Clerk (Planning Board)
+  type: Minutes
+  description: >-
+    Minutes of every hearing on the application, and any recordings,
+    including recordings of the cable TV broadcasts (channels 26 and 45).
+  status: wanted
+  campaign: south-brunswick
+
+- title: Redevelopment study, redevelopment plan and 2024 Council ordinance
+  agency: South Brunswick Municipal Clerk (Township Council)
+  type: Report
+  description: >-
+    The study that designated the Princeton Nurseries site for
+    redevelopment, the plan itself, and the ordinance the Council adopted in 2024.
+  status: wanted
+  campaign: south-brunswick
+
+- title: Redeveloper agreement and any tax agreement (PILOT)
+  agency: South Brunswick Municipal Clerk (Township Council)
+  type: Agreement
+  description: >-
+    Any agreement between the township and the developer, including any
+    payment-in-lieu-of-taxes (PILOT) agreement, if one exists.
+  status: wanted
+  campaign: south-brunswick
+
+- title: Environmental Commission review of the application
+  agency: South Brunswick Municipal Clerk (Environmental Commission)
+  type: Report
+  description: Any review, memo or comments the Environmental Commission provided to the Planning Board.
+  status: wanted
+  campaign: south-brunswick
+
+- title: PSE&G confirmation of electrical capacity
+  agency: South Brunswick Municipal Clerk (Planning Board)
+  type: Correspondence
+  description: >-
+    The Mayor has said PSE&G must confirm it can reliably supply the
+    project. Any letter or filing confirming that capacity, as held by the township.
+  status: wanted
+  campaign: south-brunswick
+
+- title: Noise study and any noise compliance or monitoring reports
+  agency: South Brunswick Municipal Clerk (Planning Board)
+  type: Report
+  description: >-
+    The developer's noise study, plus any reports required by the approval
+    to show the facility meets noise limits.
+  key_question: >-
+    Did the study test the low-frequency octave-band limits (31.5 Hz and
+    63 Hz) in [N.J.A.C. 7:29-1.2](https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-7-29-1-2)
+    at the nearest homes, at the nighttime limits, or only the overall dBA
+    level? Low frequencies travel farther.
+  status: wanted
+  campaign: south-brunswick
+
+# ---------- NJ Department of Environmental Protection ----------
+
+- title: Air permit application for the diesel generators
+  agency: NJDEP (Air Quality)
+  type: Permit
+  description: >-
+    The application for the backup generators: number and size of
+    generators, emissions estimates and testing schedule.
+  status: wanted
+  campaign: south-brunswick
+
+- title: Site Remediation Program records for the property
+  agency: NJDEP (Site Remediation Program)
+  type: Report
+  description: >-
+    Records on the pesticide-contaminated soil (dieldrin and chlordane)
+    and the capped soil berms on the site.
+  status: wanted
+  campaign: south-brunswick
+
+- title: Water allocation and sewer approvals
+  agency: NJDEP (Water Resource Management)
+  type: Permit
+  description: Any water allocation, water supply or sewer approvals for the facility.
+  status: wanted
+  campaign: south-brunswick

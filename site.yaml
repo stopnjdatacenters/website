@@ -16,3 +16,17 @@ social:
   - name: Bluesky
     label: "@stopnjdatacenters.bsky.social"
     url: https://bsky.app/profile/stopnjdatacenters.bsky.social
+
+# Laws we cite. Rule: every statute or regulation on the site links to its text.
+laws:
+  opra:
+    cite: N.J.S.A. 47:1A-1 et seq.
+    url: "https://nj.gov/grc/laws/act/Readable%20Version%20of%20OPRA%20(Sept%202024)(P.L.%202024,%20c.16).pdf"
+  opra_guide:
+    url: "https://www.nj.gov/grc/public/citizens/Citizen%27s%20Guide%20to%20OPRA%20(Oct%202024)(Final).pdf"
+  notice:
+    cite: N.J.S.A. 40:55D-12
+    url: https://law.justia.com/codes/new-jersey/2022/title-40/section-40-55d-12/
+  noise:
+    cite: N.J.A.C. 7:29-1.2
+    url: https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-7-29-1-2

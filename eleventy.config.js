@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { load as loadYaml } from "js-yaml";
+import markdownIt from "markdown-it";
 
 // All files live in one folder (no subfolders), so the site can be
 // uploaded to GitHub by drag-and-drop without breaking.
@@ -30,6 +31,15 @@ export default function (eleventyConfig) {
     return `${months[m - 1]} ${d}, ${y}`;
   });
 
+  // Short date like "Oct 1" (adds the year if it isn't the current one).
+  eleventyConfig.addFilter("shortDate", (value) => {
+    if (!value) return "";
+    const [y, m, d] = String(value).split("-").map(Number);
+    const mon = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][m - 1];
+    const thisYear = new Date().getFullYear();
+    return d ? `${mon} ${d}${y !== thisYear ? ", " + y : ""}` : `${mon} ${y}`;
+  });
+
   // Officials who have spoken about a given campaign (by its id).
   eleventyConfig.addFilter("forCampaign", (officials, id) =>
     (officials || []).filter((o) => (o.statements || []).some((s) => s.campaign === id) || (o.campaigns || []).includes(id))
@@ -43,8 +53,33 @@ export default function (eleventyConfig) {
     return s;
   });
 
-  // Documents belonging to a campaign.
-  eleventyConfig.addFilter("docsForCampaign", (docs, id) => (docs || []).filter((d) => d.campaign === id));
+  // Records belonging to a campaign, optionally only those with a given status.
+  eleventyConfig.addFilter("docsForCampaign", (docs, id, status) =>
+    (docs || []).filter((d) => d.campaign === id && (!status || d.status === status))
+  );
+
+  // Records with a given status.
+  eleventyConfig.addFilter("withStatus", (docs, status) => (docs || []).filter((d) => d.status === status));
+
+  // OPRA response deadline: the agency's stated date if given, otherwise
+  // 7 business days after the request (weekends skipped, holidays not).
+  eleventyConfig.addFilter("responseDue", (rec) => {
+    if (rec.extended_to) return String(rec.extended_to);
+    if (rec.due) return String(rec.due);
+    if (!rec.requested) return "";
+    const d = new Date(String(rec.requested) + "T12:00:00Z");
+    let added = 0;
+    while (added < 7) {
+      d.setUTCDate(d.getUTCDate() + 1);
+      const day = d.getUTCDay();
+      if (day !== 0 && day !== 6) added++;
+    }
+    return d.toISOString().slice(0, 10);
+  });
+
+  // Allow [links](https://...) in short text fields.
+  const md = markdownIt({ html: false, linkify: false });
+  eleventyConfig.addFilter("mdInline", (s) => (s ? md.renderInline(String(s).trim()) : ""));
 
   // Sort statements newest first.
   eleventyConfig.addFilter("newestFirst", (items) =>
