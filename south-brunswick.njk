@@ -81,6 +81,13 @@ description: Facts, timeline and sources on the data center at 4405 US Route 1 i
 </section>
 
 <section class="wrap section">
+  <h2>Documents</h2>
+  {% set docs_here = documents | docsForCampaign(c.id) %}
+  <p>Public records about this project: site plans, applications, resolutions, permits and reports.{% if docs_here.length %} We have {{ docs_here.length }} so far.{% endif %}</p>
+  <p><a href="/documents/">Browse the documents →</a></p>
+</section>
+
+<section class="wrap section">
   <h2>Coverage and sources</h2>
   <ul class="sources">
     {% for s in c.sources %}

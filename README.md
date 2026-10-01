@@ -11,6 +11,7 @@ Almost everything you'll want to change is in three files:
 | `site.yaml` | Site name, contact email, social media links |
 | `campaigns.yaml` | The South Brunswick page: facts, concerns, timeline, actions, sources |
 | `officials.yaml` | The "Where Officials Stand" page |
+| `documents.yaml` | The Documents page (OPRA records, site plans, etc.) |
 
 To edit on github.com: open the file, click the **pencil icon**, make your change, then click **Commit changes**.
 
@@ -46,6 +47,15 @@ When we contact an official, add it under their `inquiries:` and update `respons
       response: No response as of October 8, 2026
 ```
 
+## Adding a document
+
+Documents are stored in Cloudflare R2 (not in this repository) and served from https://docs.stopnjdatacenters.org/.
+
+1. Check the PDF for residents' personal details (home addresses, phone numbers, emails, signatures) and redact them.
+2. Name the file in lowercase with dashes, no spaces, starting with the document's date, e.g. `2025-05-planning-board-resolution.pdf`.
+3. In Cloudflare: **R2 > stopnjdatacenters-docs > Upload**.
+4. In `documents.yaml`, add an entry (the example in the file shows the format). The `url` is `https://docs.stopnjdatacenters.org/` plus the file name.
+
 ## Rules for what goes on the site
 
 These protect the group legally and keep us credible:
@@ -58,6 +68,6 @@ These protect the group legally and keep us credible:
 ## For technical helpers
 
 - Built with [Eleventy](https://www.11ty.dev/) into `_site/`. All files are kept in one folder on purpose (no subfolders), so the repo can be updated by drag-and-drop on github.com.
-- Pages: `index.njk`, `south-brunswick.njk`, `officials.njk`, `about.md`, `404.njk`. Layout: `base.njk`. Styles: `style.css`.
+- Pages: `index.njk`, `south-brunswick.njk`, `officials.njk`, `documents.njk`, `about.md`, `404.njk`. Layout: `base.njk`. Styles: `style.css`.
 - Hosted on Cloudflare Workers (static assets); see `wrangler.jsonc`.
 - Preview locally: `npm install` then `npm start`.

@@ -1,0 +1,36 @@
+---
+layout: base.njk
+permalink: /documents/
+title: Documents
+description: Public records about the data center at 4405 US Route 1 in South Brunswick, NJ.
+---
+<section class="page-head">
+  <div class="wrap">
+    <h1>Documents</h1>
+    <p class="lede">Public records about the project: site plans, applications, resolutions, permits and reports, most obtained through Open Public Records Act (OPRA) requests.</p>
+    <p class="muted">We remove residents' personal details before publishing. Have a document we should add? Email <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+  </div>
+</section>
+
+<section class="wrap section">
+  {% if documents and documents.length %}
+  <ul class="docs">
+    {% for d in documents | newestFirst %}
+    <li class="doc">
+      <div class="doc-main">
+        <p class="doc-meta"><span class="doc-type">{{ d.type }}</span>{% if d.date %} · {{ d.date | readableDate }}{% endif %}</p>
+        <h2><a href="{{ d.url }}" rel="noopener">{{ d.title }}</a></h2>
+        {% if d.description %}<p>{{ d.description }}</p>{% endif %}
+        {% if d.obtained %}<p class="muted small">Source: {{ d.obtained }}</p>{% endif %}
+      </div>
+      <a class="btn small" href="{{ d.url }}" rel="noopener">PDF{% if d.size %} · {{ d.size }}{% endif %}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <div class="card">
+    <h2 class="h3">Documents are on the way</h2>
+    <p>We're requesting the site plans, Planning Board records and permit files. They'll be posted here as they arrive.</p>
+  </div>
+  {% endif %}
+</section>

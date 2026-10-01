@@ -68,9 +68,6 @@ south-brunswick:
     - date: 2025-05
       text: South Brunswick approves the plans.
       source: patch-petition
-    - date: 2026-06-04
-      text: A resident's petition to stop the project reaches 887 signatures.
-      source: patch-petition
     - date: 2026-09-23
       text: About 100 people attend a public meeting on a permit for the data center at the Princeton Marriott.
       source: tapinto-hearing
@@ -85,6 +82,13 @@ south-brunswick:
       text: NJDEP posts public notices for air permits, including comment deadlines.
       url: https://dep.nj.gov/boss/public-notices/
       button: NJDEP public notices
+    - title: Share documents
+      text: >-
+        Have public records, filings, photos or video about the project?
+        Send them (or a link, for large files). We review everything before
+        publishing and never reveal who sent it.
+      url: mailto:info@stopnjdatacenters.org?subject=Documents%20for%20Stop%20NJ%20Data%20Centers
+      button: Email us your documents
     - title: Join the conversation
       text: Updates, meeting reminders and discussion on our subreddit.
       url: https://www.reddit.com/r/StopNJDataCenters/

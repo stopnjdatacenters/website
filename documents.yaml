@@ -1,0 +1,27 @@
+# DOCUMENTS LIBRARY
+#
+# To add a document:
+#   1. Check it for residents' personal details (home addresses, phone
+#      numbers, emails, signatures) and redact them.
+#   2. Upload the PDF in Cloudflare: R2 > stopnjdatacenters-docs > Upload.
+#      Name files like: 2025-05-planning-board-resolution.pdf
+#      (lowercase, dashes, no spaces).
+#   3. Copy an entry below (from "- title:" down), paste it at the top of
+#      the list, and fill it in. The url is
+#      https://docs.stopnjdatacenters.org/ followed by the file name.
+#
+# type is one of: Site plan, Application, Resolution, Report, Minutes,
+#   Correspondence, Permit, Other
+#
+# Example (delete the # at the start of each line to use it):
+#
+# - title: Planning Board resolution approving the data center
+#   date: 2025-05
+#   type: Resolution
+#   description: The Board's written approval, including the conditions it set.
+#   obtained: OPRA request to South Brunswick Municipal Clerk, received October 2026
+#   url: https://docs.stopnjdatacenters.org/2025-05-planning-board-resolution.pdf
+#   size: 2 MB
+#   campaign: south-brunswick
+
+[]

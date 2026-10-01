@@ -104,3 +104,15 @@ blockquote p { margin: 0 0 6px; }
 blockquote footer { font-size: 0.88rem; color: var(--muted); }
 .inquiries time { font-weight: 700; }
 .contact { font-size: 0.95rem; margin-bottom: 0; }
+
+/* Documents */
+.docs { list-style: none; margin: 0; padding: 0; }
+.doc { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 10px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; margin-bottom: 12px; }
+.doc-main { flex: 1 1 22rem; }
+.doc h2 { font-size: 1.12rem; margin: 2px 0 6px; }
+.doc h2 a { text-decoration: none; }
+.doc p { margin: 0 0 6px; }
+.doc-meta { font-size: 0.88rem; color: var(--muted); }
+.doc-type { font-weight: 700; color: var(--accent); }
+.small { font-size: 0.9rem; }
+.h3 { font-size: 1.08rem; margin: 0 0 6px; }

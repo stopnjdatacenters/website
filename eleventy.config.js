@@ -10,6 +10,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addGlobalData("site", yamlFile("site.yaml"));
   eleventyConfig.addGlobalData("campaigns", yamlFile("campaigns.yaml"));
   eleventyConfig.addGlobalData("officials", yamlFile("officials.yaml"));
+  eleventyConfig.addGlobalData("documents", yamlFile("documents.yaml"));
 
   // Files that are not pages.
   eleventyConfig.ignores.add("README.md");
@@ -41,6 +42,9 @@ export default function (eleventyConfig) {
     if (!s) throw new Error(`Unknown source id "${id}" in campaign "${campaign.id}"`);
     return s;
   });
+
+  // Documents belonging to a campaign.
+  eleventyConfig.addFilter("docsForCampaign", (docs, id) => (docs || []).filter((d) => d.campaign === id));
 
   // Sort statements newest first.
   eleventyConfig.addFilter("newestFirst", (items) =>
