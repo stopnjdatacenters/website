@@ -58,7 +58,7 @@ description: Facts, timeline and sources on the data center at 4405 US Route 1 i
   <h2>What you can do</h2>
   <div class="cards">
     {% for a in c.actions %}
-    <div class="card">
+    <div class="card{% if a.until %} timely{% endif %}"{% if a.until %} data-until="{{ a.until }}"{% endif %}>
       <h3>{{ a.title }}</h3>
       <p>{{ a.text | mdInline | safe }}</p>
       <a class="btn small" href="{{ a.url }}" rel="noopener">{{ a.button }}</a>

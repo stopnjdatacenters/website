@@ -49,10 +49,11 @@ south-brunswick:
       source: sierra-club
     - title: Diesel generators and air quality
       text: >-
-        The facility will use diesel backup generators. The Sierra Club
-        resolution raises air pollution from them, and Princeton residents
-        have asked for an NJDEP air-permit hearing and local air monitoring.
-      source: sierra-club
+        NJDEP's draft air permit covers twelve 3,620 kW diesel generators,
+        about 43 MW. It sets limits on their emissions but requires no
+        monitoring of those emissions. Only hours of operation and fuel
+        deliveries are tracked.
+      source: draft-air-permit
     - title: Noise
       text: >-
         According to Mayor Carley, the approval requires sound walls and limits
@@ -68,12 +69,24 @@ south-brunswick:
     - date: 2025-05
       text: South Brunswick approves the plans.
       source: patch-petition
+    - date: 2026-08
+      text: NJDEP releases a draft air permit for the facility's twelve diesel generators for public comment.
+      source: draft-air-permit
     - date: 2026-09-23
       text: About 100 people attend a public meeting on a permit for the data center at the Princeton Marriott.
       source: tapinto-hearing
 
   # Things people can do right now. Keep these current.
   actions:
+    - title: Comment on the draft air permit by October 7
+      text: >-
+        NJDEP is taking written comments on the draft permit for the
+        facility's 12 diesel generators until October 7, 2026. The draft
+        sets emission limits but requires no emissions monitoring.
+        [Read the permit and our key points](/documents/#posted).
+      url: https://dep.nj.gov/boss/public-notices/
+      button: NJDEP public notice
+      until: 2026-10-07
     - title: Sign the petition
       text: A South Brunswick resident's Change.org petition asks the township to stop the project.
       url: https://www.change.org/p/stop-the-proposed-data-center-development-in-south-brunswick-township
@@ -102,9 +115,9 @@ south-brunswick:
       text: >-
         State law ([N.J.S.A. 40:55D-12](https://law.justia.com/codes/new-jersey/2022/title-40/section-40-55d-12/))
         only requires notifying property owners within 200 feet of a project,
-        10 days before the hearing. For a 143-acre data center, that's almost
-        no one. We're seeking reforms that would require adequate notice to
-        everyone affected.
+        10 days before the hearing. A large data center affects people far
+        beyond its next-door neighbors. We're seeking reforms that require
+        notice across the whole area of a project's foreseeable impacts.
       url: https://law.justia.com/codes/new-jersey/2022/title-40/section-40-55d-12/
       button: Read the notice law
     - title: Join the conversation
@@ -140,6 +153,15 @@ south-brunswick:
       title: "“This Project is Catastrophic” – Data Center Backlash Comes to Princeton"
       publisher: TAPinto Princeton
       url: https://www.tapinto.net/towns/princeton/sections/around-new-jersey/articles/this-project-is-catastrophic-data-center-backlash-comes-to-princeton
+    - id: draft-air-permit
+      title: "Draft Air Pollution Control Preconstruction Permit, PN-DC 1 (PCP250001)"
+      publisher: NJDEP
+      date: 2026-08
+      url: https://docs.stopnjdatacenters.org/2026-08-draft-air-permit-pcp250001.pdf
+    - id: njdep-notices
+      title: "Bureau of Stationary Sources: Public Notices"
+      publisher: NJDEP
+      url: https://dep.nj.gov/boss/public-notices/
     - id: township-live
       title: "Access a Live Meeting"
       publisher: South Brunswick Township

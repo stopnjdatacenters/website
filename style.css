@@ -134,3 +134,8 @@ blockquote footer { font-size: 0.88rem; color: var(--muted); }
 .mission { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; max-width: 46rem; }
 .mission h2 { margin: 0 0 6px; font-size: 1.2rem; }
 .mission p { margin: 0; }
+.points { font-size: 0.94rem; background: var(--bg); border-left: 3px solid var(--brand); padding: 8px 12px; margin: 10px 0 2px; border-radius: 0 6px 6px 0; }
+.points.questions { border-left-color: var(--accent); }
+.points ul { margin: 4px 0 0; padding-left: 18px; }
+.points li { margin: 4px 0; }
+.card.timely { border: 2px solid var(--accent); }

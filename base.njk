@@ -44,5 +44,14 @@
       </ul>
     </div>
   </footer>
+  <script>
+    // Hide time-limited cards (e.g. comment deadlines) after their last day.
+    (function () {
+      var d = new Date(), today = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+      document.querySelectorAll("[data-until]").forEach(function (el) {
+        if (today > el.getAttribute("data-until")) el.remove();
+      });
+    })();
+  </script>
 </body>
 </html>

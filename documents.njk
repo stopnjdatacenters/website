@@ -43,6 +43,18 @@ description: Every public record we're seeking about the data center at 4405 US 
         <span class="agency">{{ r.agency }}{% if r.type %} · {{ r.type }}{% endif %}{% if r.date %} · {{ r.date | readableDate }}{% endif %}</span>
         <h3>{% if r.status == "posted" and r.url %}<a href="{{ r.url }}" rel="noopener">{{ r.title }}</a>{% else %}{{ r.title }}{% endif %}</h3>
         {% if r.description %}<p>{{ r.description | mdInline | safe }}</p>{% endif %}
+        {% if r.key_points and r.key_points.length %}
+        <div class="points">
+          <strong>Key points</strong>
+          <ul>{% for k in r.key_points %}<li>{{ k | mdInline | safe }}</li>{% endfor %}</ul>
+        </div>
+        {% endif %}
+        {% if r.open_questions and r.open_questions.length %}
+        <div class="points questions">
+          <strong>Open questions</strong>
+          <ul>{% for k in r.open_questions %}<li>{{ k | mdInline | safe }}</li>{% endfor %}</ul>
+        </div>
+        {% endif %}
         {% if r.key_question %}<p class="why"><strong>Key question:</strong> {{ r.key_question | mdInline | safe }}</p>{% endif %}
         {% if r.status == "denied" and r.denial_reason %}<p class="why"><strong>Reason given:</strong> {{ r.denial_reason }}</p>{% endif %}
       </div>

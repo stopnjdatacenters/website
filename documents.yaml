@@ -25,6 +25,9 @@
 #   description   one or two plain-English lines
 #   key_question  optional: what we most want to learn from it.
 #                 Links are written [like this](https://example.com)
+#   key_points    optional list: what the document shows, with the
+#                 document's own section/condition numbers
+#   open_questions optional list: questions the document raises
 #   requested     date the OPRA request was filed
 #   due           optional: exact response deadline from the agency.
 #                 If left out, the site counts 7 business days
@@ -42,6 +45,47 @@
 #      2025-05-planning-board-resolution.pdf
 #   3. Cloudflare: R2 > stopnjdatacenters-docs > Upload.
 #   4. Here: set status to posted and fill in url and size.
+
+# ---------- Posted ----------
+
+- title: NJDEP draft air permit for the diesel generators (PCP250001)
+  agency: NJDEP (Bureau of Stationary Sources)
+  type: Permit
+  date: 2026-08
+  description: >-
+    Draft preconstruction permit and certificate to operate for the
+    facility's backup generators, released for public comment. Written
+    comments to NJDEP are due October 7, 2026.
+  key_points:
+    - >-
+      Covers twelve 3,620 kW Caterpillar diesel generators, about 43 MW of
+      generating capacity. (Section A; Equipment Inventory)
+    - >-
+      Sets hourly and annual limits for NOx, particulate matter, carbon
+      monoxide, benzene, formaldehyde and other pollutants, but lists
+      "None" as the monitoring and recordkeeping requirement for every one
+      of those limits. (Section D, U1 OS Summary Ref. 3–16; OS1–OS12 Ref. 2–13)
+    - >-
+      What is tracked: hours of operation (hour meter and log) and fuel
+      quality from delivery paperwork. (Section D, U1 OS Summary Ref. 1, 17, 18)
+    - >-
+      Compliance with engine emission standards is shown by keeping the
+      manufacturer's certification. No stack testing is required.
+      (Section D, OS1–OS12 Ref. 16, 21)
+  open_questions:
+    - >-
+      The annual limits equal 12 engines × 28 testing hours × the hourly
+      limit (for NOx: 12 × 28 × 75.28 lb ÷ 2,000 = 12.65 tons). Do they
+      apply to emergency operation, which has no hourly cap? If so, how is
+      compliance shown?
+    - >-
+      The Equipment Inventory lists installation dates of March–June 2026
+      for 10 of the 12 generators, before this draft permit. Were any
+      generators installed before a permit was issued?
+  status: posted
+  url: https://docs.stopnjdatacenters.org/2026-08-draft-air-permit-pcp250001.pdf
+  size: 0.9 MB
+  campaign: south-brunswick
 
 # ---------- South Brunswick Township ----------
 
@@ -143,5 +187,24 @@
   agency: NJDEP (Water Resource Management)
   type: Permit
   description: Any water allocation, water supply or sewer approvals for the facility.
+  status: wanted
+  campaign: south-brunswick
+
+- title: Record or transcript of the September 23, 2026 public hearing
+  agency: NJDEP
+  type: Minutes
+  date: 2026-09-23
+  description: >-
+    The official record of the public comment session held at the Princeton
+    Marriott, including who spoke.
+  status: wanted
+  campaign: south-brunswick
+
+- title: NJDEP response to public comments on the permit
+  agency: NJDEP
+  type: Report
+  description: >-
+    NJDEP's written response to the comments it received. Usually issued with
+    the final permit decision, so it may not exist yet.
   status: wanted
   campaign: south-brunswick
