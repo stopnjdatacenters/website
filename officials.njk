@@ -51,6 +51,7 @@ description: Public statements by elected officials on the South Brunswick data 
       {% if o.contact.url %}<a href="{{ o.contact.url }}" rel="noopener">Official website</a>{% endif %}
       {% if o.contact.email %} · <a href="mailto:{{ o.contact.email }}">{{ o.contact.email }}</a>{% endif %}
       {% if o.contact.phone %} · {{ o.contact.phone }}{% endif %}
+      {% if o.write_to %} · <a href="/write/">Write to them</a>{% endif %}
     </p>
     {% endif %}
   </article>

@@ -49,3 +49,50 @@
         aspects of the built environment.
       source_title: Princeton Perspectives
       source_url: https://princetonperspectives.com/artificial-intelligence-infrastructure-hits-bumps-in-the-suburbs/
+
+- name: Andrew Zwicker
+  office: State Senator, Legislative District 16
+  level: state
+  write_to: true
+  email: senzwicker@njleg.org
+  contact:
+    url: https://www.njsendems.org/senators/andrew-zwicker/
+    email: senzwicker@njleg.org
+    phone: (908) 308-8672
+    mail: 2 Clerico Lane, Building 1, Suite 106, Hillsborough, NJ 08844
+  campaigns: [south-brunswick]
+  status: no-statement
+  statements: []
+
+- name: Mitchelle Drulis
+  office: Assemblywoman, Legislative District 16
+  level: state
+  write_to: true
+  email: asmdrulis@njleg.org
+  contact:
+    url: https://www.assemblydems.com/directory.aspx?EID=28
+    email: asmdrulis@njleg.org
+    phone: (908) 968-4329
+    mail: 50 Main Street, 2nd Floor, Flemington, NJ 08822
+  campaigns: [south-brunswick]
+  status: no-statement
+  inquiries:
+    - date: 2026-10-08
+      campaign: south-brunswick
+      method: Contacted by phone
+      response: No public position yet
+  statements: []
+
+- name: Roy Freiman
+  office: Assemblyman, Legislative District 16
+  level: state
+  write_to: true
+  email: asmfreiman@njleg.org
+  contact:
+    url: https://www.assemblydems.com/directory.aspx?EID=29
+    email: asmfreiman@njleg.org
+    phone: (908) 829-4191
+    mail: 390 Amwell Road, Suite 301, Hillsborough, NJ 08844
+  campaigns: [south-brunswick]
+  status: no-statement
+  statements: []

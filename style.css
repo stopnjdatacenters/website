@@ -139,3 +139,19 @@ blockquote footer { font-size: 0.88rem; color: var(--muted); }
 .points ul { margin: 4px 0 0; padding-left: 18px; }
 .points li { margin: 4px 0; }
 .card.timely { border: 2px solid var(--accent); }
+
+/* Write your legislators */
+.steps { padding-left: 22px; max-width: 46rem; }
+.steps li { margin: 8px 0; }
+.factlist { padding-left: 20px; max-width: 50rem; }
+.factlist li { margin: 8px 0; }
+.starter { display: grid; gap: 14px; max-width: 42rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+.starter label { display: grid; gap: 4px; font-weight: 600; }
+.starter label.check { display: flex; gap: 8px; align-items: flex-start; font-weight: 400; font-size: 0.95rem; }
+.starter label.check input { margin-top: 5px; }
+.starter input[type="text"], .starter textarea { font: inherit; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--text); width: 100%; }
+.starter fieldset { border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; display: grid; gap: 6px; }
+.starter legend { font-weight: 600; padding: 0 4px; }
+.starter button { font: inherit; cursor: pointer; background: none; }
+.starter .btn.primary { background: var(--brand); }
+[hidden] { display: none !important; }

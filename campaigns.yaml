@@ -78,15 +78,13 @@ south-brunswick:
 
   # Things people can do right now. Keep these current.
   actions:
-    - title: Comment on the draft air permit by October 7
+    - title: Write to your state legislators
       text: >-
-        NJDEP is taking written comments on the draft permit for the
-        facility's 12 diesel generators until October 7, 2026. The draft
-        sets emission limits but requires no emissions monitoring.
-        [Read the permit and our key points](/documents/#posted).
-      url: https://dep.nj.gov/boss/public-notices/
-      button: NJDEP public notice
-      until: 2026-10-07
+        Senator Zwicker and Assembly members Drulis and Freiman represent
+        South Brunswick. Tell them, in your own words, what this project
+        means for you. We'll help you get started.
+      url: /write/
+      button: Write your letter
     - title: Sign the petition
       text: A South Brunswick resident's Change.org petition asks the township to stop the project.
       url: https://www.change.org/p/stop-the-proposed-data-center-development-in-south-brunswick-township

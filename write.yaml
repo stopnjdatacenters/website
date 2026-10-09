@@ -1,0 +1,78 @@
+# WRITE YOUR LEGISLATORS page.
+#
+# These are FACTS people can point to, not sentences for them to copy.
+# Every fact needs a link. Letters should be in each person's own words.
+
+facts:
+  - id: permit
+    fact: >-
+      NJDEP's draft air permit covers 12 Caterpillar diesel generators (about
+      43 MW). It sets emission limits but requires no monitoring or testing
+      of those emissions.
+    link_label: Draft air permit
+    url: https://docs.stopnjdatacenters.org/2026-08-draft-air-permit-pcp250001.pdf
+  - id: installed
+    fact: >-
+      The permit application lists installation dates between March and
+      June 2026 for 8 of the 12 generators, before the permit was issued.
+    link_label: Draft air permit, Equipment Inventory
+    url: https://docs.stopnjdatacenters.org/2026-08-draft-air-permit-pcp250001.pdf
+  - id: notice
+    fact: >-
+      State law only requires notifying property owners within 200 feet,
+      10 days before the hearing.
+    link_label: N.J.S.A. 40:55D-12
+    url: https://law.justia.com/codes/new-jersey/2022/title-40/section-40-55d-12/
+  - id: noise
+    fact: >-
+      New Jersey's noise rule sets limits on low frequencies (down to 31.5 Hz).
+      We don't know whether the project's noise study tested them.
+    link_label: N.J.A.C. 7:29-1.2
+    url: https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-7-29-1-2
+  - id: vineland
+    fact: >-
+      In September 2026, NJDEP fined the Vineland data center's operator
+      about $1 million for installing 62 generators without permits.
+    link_label: New Jersey Monitor
+    url: https://newjerseymonitor.com/2026/09/22/nj-vineland-data-center-fined/
+  - id: tenant
+    fact: >-
+      No tenant or end user for the facility has been publicly identified.
+    link_label: Our public records list
+    url: https://stopnjdatacenters.org/documents/
+  - id: fairshare
+    fact: >-
+      On July 7, 2026, Governor Sherrill signed the Data Center Fair Share
+      law (S731/A796), which makes data centers pay for the energy and grid
+      infrastructure they use.
+    link_label: Office of the Governor
+    url: https://www.nj.gov/governor/news/2026/20260707a.shtml
+  - id: meetings
+    fact: >-
+      Township meetings are shown live only on local cable, with no online
+      stream or archive.
+    link_label: South Brunswick Township
+    url: https://southbrunswicknj.gov/access-a-live-meeting/
+
+# Short phrases people can tick in the letter starter. Keep them short.
+# Legislators make laws; the Governor runs NJDEP and the BPU.
+asks:
+  - Oppose this project
+  - Require notice to everyone within a project's foreseeable impacts
+  - Require emissions monitoring and testing for backup generators
+  - Set enforceable limits on low-frequency noise
+  - Require disclosure of who will own and use these facilities
+  - Require large data centers to use clean power
+
+governor_asks:
+  - Direct NJDEP to require emissions monitoring and testing in data center generator permits
+  - Enforce against generators installed without permits
+  - Set statewide siting and noise standards for data centers
+  - Make sure residents near data centers are notified and heard
+
+governor:
+  name: Governor Mikie Sherrill
+  form_url: https://www.nj.gov/governor/contact/
+  mail: Office of the Governor, PO Box 001, Trenton, NJ 08625-0001
+
+find_legislators_url: https://njleg.gov/legislative-roster

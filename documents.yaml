@@ -54,8 +54,8 @@
   date: 2026-08
   description: >-
     Draft preconstruction permit and certificate to operate for the
-    facility's backup generators, released for public comment. Written
-    comments to NJDEP are due October 7, 2026.
+    facility's backup generators, released for public comment. The public
+    comment period closed October 7, 2026.
   key_points:
     - >-
       Covers twelve 3,620 kW Caterpillar diesel generators, about 43 MW of
@@ -79,9 +79,10 @@
       apply to emergency operation, which has no hourly cap? If so, how is
       compliance shown?
     - >-
-      The Equipment Inventory lists installation dates of March–June 2026
-      for 10 of the 12 generators, before this draft permit. Were any
-      generators installed before a permit was issued?
+      The Equipment Inventory lists installation dates between March and
+      June 2026 for 8 of the 12 generators (the other 4 on November 1, 2026),
+      before this draft permit. Were any generators installed before a
+      permit was issued?
   status: posted
   url: https://docs.stopnjdatacenters.org/2026-08-draft-air-permit-pcp250001.pdf
   size: 0.9 MB
@@ -171,6 +172,11 @@
   description: >-
     The application for the backup generators: number and size of
     generators, emissions estimates and testing schedule.
+  key_question: >-
+    What are the generator enclosure type and rated sound level, the exhaust
+    muffler grade, and the sound data for the remote radiators? The draft
+    permit lists Caterpillar C175-20 engines (5,166 hp, 1,800 rpm) but gives
+    no noise information.
   status: wanted
   campaign: south-brunswick
 

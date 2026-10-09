@@ -1,0 +1,179 @@
+---
+layout: base.njk
+permalink: /write/
+title: Write Your Legislators and the Governor
+description: Tell South Brunswick's state legislators, in your own words, what the data center at 4405 Route 1 means for you.
+---
+{% set reps = officials | selectattr("write_to") %}
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Take action</p>
+    <h1>Write to your legislators and the Governor</h1>
+    <p class="lede">Senator Andrew Zwicker, Assemblywoman Mitchelle Drulis and Assemblyman Roy Freiman represent South Brunswick and Princeton in Trenton. Governor Mikie Sherrill oversees NJDEP, which is reviewing the air permit. Personal letters get read. Form letters get counted as one. So we won't give you a script, just the facts and a few questions to get you started.</p>
+  </div>
+</section>
+
+<section class="wrap section">
+  <h2>Who to write to</h2>
+  <div class="cards">
+    {% for o in reps %}
+    <div class="card">
+      <h3>{{ o.name }}</h3>
+      <p class="muted small">{{ o.office }}</p>
+      <p><a href="mailto:{{ o.contact.email }}">{{ o.contact.email }}</a><br>{{ o.contact.phone }}<br><span class="small">{{ o.contact.mail }}</span></p>
+    </div>
+    {% endfor %}
+    <div class="card">
+      <h3>{{ write.governor.name }}</h3>
+      <p class="muted small">Governor of New Jersey · anyone in the state can write</p>
+      <p><a href="{{ write.governor.form_url }}" rel="noopener">Online contact form</a><br><span class="small">{{ write.governor.mail }}</span></p>
+    </div>
+  </div>
+  <p class="muted small">Don't live in South Brunswick or Princeton? Your own legislators are on the <a href="{{ write.find_legislators_url }}" rel="noopener">Legislature's roster</a> (filter by municipality), and anyone in New Jersey can write the Governor.</p>
+  <p class="muted small">Include your home address so they know you're a constituent. A mailed letter to the district office stands out even more than an email. Prefer to call? Tell the staffer your name, where you live, and the one thing you most want them to know.</p>
+</section>
+
+<section class="wrap section">
+  <h2>Four questions to answer in your own words</h2>
+  <ol class="steps">
+    <li><strong>Who are you?</strong> Where do you live, roughly how far from the site, and for how long?</li>
+    <li><strong>What worries you most?</strong> Pick one or two. The facts below can help, but say why it matters to <em>you</em>.</li>
+    <li><strong>What would it mean for your life?</strong> Your kids, your health, your sleep, your home, how you found out about this.</li>
+    <li><strong>What do you want them to do?</strong> One or two clear asks.</li>
+  </ol>
+</section>
+
+<section class="wrap section">
+  <h2>Facts you can point to</h2>
+  <p class="muted">These are facts, not sentences to copy. Each links to its source.</p>
+  <ul class="factlist">
+    {% for f in write.facts %}
+    <li>{{ f.fact }} <a class="cite" href="{{ f.url }}" rel="noopener">[{{ f.link_label }}]</a></li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="wrap section" id="starter">
+  <h2>Letter starter (optional)</h2>
+  <p class="muted">Type your answers and we'll open your email app with your words in order, addressed to all three legislators. Nothing you type here is sent to us or stored anywhere. It stays in your browser.</p>
+
+  <form class="starter" id="starter-form" onsubmit="return false;">
+    <fieldset>
+      <legend>Who are you writing to?</legend>
+      <label class="check"><input type="radio" name="w-to" value="leg" checked> Senator Zwicker, Assemblywoman Drulis and Assemblyman Freiman (email)</label>
+      <label class="check"><input type="radio" name="w-to" value="gov"> Governor Sherrill (online form or mail)</label>
+    </fieldset>
+    <label>Your town (used in the subject line)
+      <input type="text" id="w-town" placeholder="e.g. Kingston">
+    </label>
+    <label>1. Who are you?
+      <textarea id="w-who" rows="3"></textarea>
+    </label>
+    <label>2. What worries you most, and why?
+      <textarea id="w-worry" rows="4"></textarea>
+    </label>
+    <fieldset>
+      <legend>Add source links for facts you mention (optional)</legend>
+      {% for f in write.facts %}
+      <label class="check"><input type="checkbox" class="w-fact" data-label="{{ f.link_label }}" data-url="{{ f.url }}"> {{ f.fact | truncate(90) }}</label>
+      {% endfor %}
+    </fieldset>
+    <label>3. What would it mean for your life?
+      <textarea id="w-life" rows="4"></textarea>
+    </label>
+    <fieldset>
+      <legend>4. What do you want them to do?</legend>
+      <div class="asks-leg">
+      {% for a in write.asks %}
+      <label class="check"><input type="checkbox" class="w-ask" value="{{ a }}"> {{ a }}</label>
+      {% endfor %}
+      </div>
+      <div class="asks-gov" hidden>
+      {% for a in write.governor_asks %}
+      <label class="check"><input type="checkbox" class="w-ask" value="{{ a }}"> {{ a }}</label>
+      {% endfor %}
+      </div>
+      <label>Anything else you'd like to ask, in your words
+        <textarea id="w-ask-other" rows="2"></textarea>
+      </label>
+    </fieldset>
+    <label>Your name
+      <input type="text" id="w-name">
+    </label>
+    <label>Your home address
+      <textarea id="w-address" rows="2"></textarea>
+    </label>
+
+    <div class="buttons only-leg">
+      <button type="button" class="btn primary" id="w-open">Open in my email app</button>
+      <button type="button" class="btn" id="w-copy">Copy letter</button>
+    </div>
+    <div class="buttons only-gov" hidden>
+      <button type="button" class="btn primary" id="w-gov">Copy letter and open the Governor's form</button>
+    </div>
+    <p class="muted small only-gov" hidden>Paste your letter into the message box on the Governor's form. Or print it and mail it to {{ write.governor.mail }}.</p>
+    <p class="muted small only-leg">The email goes to all three legislators, with <strong>{{ site.email }}</strong> as a blind copy so we can count how many letters are sent. We don't publish letters or names. If your email app doesn't open, or cuts off a long letter, use "Copy letter" and paste it into a new email.</p>
+    <p class="small" id="w-status" role="status"></p>
+  </form>
+</section>
+
+<script>
+(function () {
+  var to = [{% for o in reps %}"{{ o.contact.email }}"{% if not loop.last %},{% endif %}{% endfor %}];
+  var bcc = "{{ site.email }}";
+  var govForm = "{{ write.governor.form_url }}";
+  function mode() { return document.querySelector('input[name="w-to"]:checked').value; }
+  function applyMode() {
+    var gov = mode() === "gov";
+    document.querySelector(".asks-leg").hidden = gov;
+    document.querySelector(".asks-gov").hidden = !gov;
+    document.querySelectorAll(".only-gov").forEach(function (el) { el.hidden = !gov; });
+    document.querySelectorAll(".only-leg").forEach(function (el) { el.hidden = gov; });
+  }
+  document.querySelectorAll('input[name="w-to"]').forEach(function (r) { r.addEventListener("change", applyMode); });
+  function val(id) { return (document.getElementById(id).value || "").trim(); }
+  function letter() {
+    var parts = [];
+    var greet = mode() === "gov" ? "Dear Governor Sherrill," : "Dear Senator Zwicker, Assemblywoman Drulis and Assemblyman Freiman,";
+    parts.push(greet);
+    ["w-who", "w-worry", "w-life"].forEach(function (id) { if (val(id)) parts.push(val(id)); });
+    var box = mode() === "gov" ? ".asks-gov" : ".asks-leg";
+    var asks = Array.prototype.slice.call(document.querySelectorAll(box + " .w-ask:checked")).map(function (c) { return "- " + c.value; });
+    if (val("w-ask-other")) asks.push("- " + val("w-ask-other"));
+    if (asks.length) parts.push("I'm asking you to:\n" + asks.join("\n"));
+    var sign = ["Sincerely,", val("w-name"), val("w-address")].filter(Boolean).join("\n");
+    parts.push(sign);
+    var facts = Array.prototype.slice.call(document.querySelectorAll(".w-fact:checked")).map(function (c) { return c.getAttribute("data-label") + ": " + c.getAttribute("data-url"); });
+    if (facts.length) parts.push("Sources:\n" + facts.join("\n"));
+    return parts.join("\n\n");
+  }
+  function subject() {
+    var t = val("w-town");
+    return "Data center at 4405 Route 1" + (t ? ", from a " + t + " resident" : "");
+  }
+  function status(msg) { document.getElementById("w-status").textContent = msg; }
+  document.getElementById("w-open").addEventListener("click", function () {
+    if (!val("w-who") && !val("w-worry") && !val("w-life")) { status("Add a few words in your own voice first."); return; }
+    var href = "mailto:" + to.join(",") + "?bcc=" + encodeURIComponent(bcc) +
+      "&subject=" + encodeURIComponent(subject()) + "&body=" + encodeURIComponent(letter());
+    window.location.href = href;
+    status("Opening your email app. Read it over before you send.");
+  });
+  document.getElementById("w-gov").addEventListener("click", function () {
+    if (!val("w-who") && !val("w-worry") && !val("w-life")) { status("Add a few words in your own voice first."); return; }
+    var text = "Subject: " + subject() + "\n\n" + letter();
+    var openForm = function () { window.open(govForm, "_blank", "noopener"); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { status("Copied. Paste it into the message box on the Governor's form."); openForm(); },
+        function () { status("Couldn't copy automatically. Select your text and copy it by hand, then use the Governor's form."); openForm(); });
+    } else { status("Couldn't copy automatically. Select your text and copy it by hand."); openForm(); }
+  });
+  document.getElementById("w-copy").addEventListener("click", function () {
+    var text = "To: " + to.join(", ") + "\nBcc: " + bcc + "\nSubject: " + subject() + "\n\n" + letter();
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { status("Copied. Paste it into a new email."); },
+        function () { status("Couldn't copy automatically. Select the text in each box and copy it by hand."); });
+    } else { status("Couldn't copy automatically. Select the text in each box and copy it by hand."); }
+  });
+})();
+</script>

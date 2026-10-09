@@ -12,6 +12,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addGlobalData("campaigns", yamlFile("campaigns.yaml"));
   eleventyConfig.addGlobalData("officials", yamlFile("officials.yaml"));
   eleventyConfig.addGlobalData("documents", yamlFile("documents.yaml"));
+  eleventyConfig.addGlobalData("write", yamlFile("write.yaml"));
 
   // Files that are not pages.
   eleventyConfig.ignores.add("README.md");

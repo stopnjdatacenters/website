@@ -11,6 +11,7 @@ Almost everything you'll want to change is in three files:
 | `site.yaml` | Site name, contact email, social media links |
 | `campaigns.yaml` | The South Brunswick page: facts, concerns, timeline, actions, sources |
 | `officials.yaml` | The "Where Officials Stand" page |
+| `write.yaml` | The Write Your Legislators page: fact list and suggested asks (facts only, never sample sentences) |
 | `documents.yaml` | The Documents & Public Records page: every record we want and its status |
 
 To edit on github.com: open the file, click the **pencil icon**, make your change, then click **Commit changes**.
