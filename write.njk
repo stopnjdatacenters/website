@@ -26,7 +26,7 @@ description: Tell South Brunswick's state legislators, in your own words, what t
     <div class="card">
       <h3>{{ write.governor.name }}</h3>
       <p class="muted small">Governor of New Jersey · anyone in the state can write</p>
-      <p><a href="{{ write.governor.form_url }}" rel="noopener">Online contact form</a><br><span class="small">{{ write.governor.mail }}</span></p>
+      <p><a href="{{ write.governor.form_url }}" rel="noopener">Online contact form</a><br>{{ write.governor.phone }}<br><span class="small">{{ write.governor.mail }}</span></p>
     </div>
   </div>
   <p class="muted small">Don't live in South Brunswick or Princeton? Your own legislators are on the <a href="{{ write.find_legislators_url }}" rel="noopener">Legislature's roster</a> (filter by municipality), and anyone in New Jersey can write the Governor.</p>
@@ -109,9 +109,16 @@ description: Tell South Brunswick's state legislators, in your own words, what t
       <button type="button" class="btn" id="w-copy">Copy letter</button>
     </div>
     <div class="buttons only-gov" hidden>
-      <button type="button" class="btn primary" id="w-gov">Copy letter and open the Governor's form</button>
+      <button type="button" class="btn primary" id="w-copy-gov">Copy letter</button>
     </div>
-    <p class="muted small only-gov" hidden>Paste your letter into the message box on the Governor's form. Or print it and mail it to {{ write.governor.mail }}.</p>
+    <div class="only-gov govsend" hidden>
+      <p><strong>Then send it one of these ways:</strong></p>
+      <ul>
+        <li>Paste it into the <a href="{{ write.governor.form_url }}" target="_blank" rel="noopener">Governor's online contact form</a></li>
+        <li>Print it and mail it to {{ write.governor.mail }}</li>
+        <li>Or call the Governor's office at {{ write.governor.phone }} and share the main point</li>
+      </ul>
+    </div>
     <p class="muted small only-leg">The email goes to all three legislators, with <strong>{{ site.email }}</strong> as a blind copy so we can count how many letters are sent. We don't publish letters or names. If your email app doesn't open, or cuts off a long letter, use "Copy letter" and paste it into a new email.</p>
     <p class="small" id="w-status" role="status"></p>
   </form>
@@ -121,7 +128,6 @@ description: Tell South Brunswick's state legislators, in your own words, what t
 (function () {
   var to = [{% for o in reps %}"{{ o.contact.email }}"{% if not loop.last %},{% endif %}{% endfor %}];
   var bcc = "{{ site.email }}";
-  var govForm = "{{ write.governor.form_url }}";
   function mode() { return document.querySelector('input[name="w-to"]:checked').value; }
   function applyMode() {
     var gov = mode() === "gov";
@@ -159,14 +165,13 @@ description: Tell South Brunswick's state legislators, in your own words, what t
     window.location.href = href;
     status("Opening your email app. Read it over before you send.");
   });
-  document.getElementById("w-gov").addEventListener("click", function () {
+  document.getElementById("w-copy-gov").addEventListener("click", function () {
     if (!val("w-who") && !val("w-worry") && !val("w-life")) { status("Add a few words in your own voice first."); return; }
-    var text = "Subject: " + subject() + "\n\n" + letter();
-    var openForm = function () { window.open(govForm, "_blank", "noopener"); };
+    var text = letter();
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(function () { status("Copied. Paste it into the message box on the Governor's form."); openForm(); },
-        function () { status("Couldn't copy automatically. Select your text and copy it by hand, then use the Governor's form."); openForm(); });
-    } else { status("Couldn't copy automatically. Select your text and copy it by hand."); openForm(); }
+      navigator.clipboard.writeText(text).then(function () { status("Copied. Now paste it into the Governor's form, or print and mail it."); },
+        function () { status("Couldn't copy automatically. Select the text in each box and copy it by hand."); });
+    } else { status("Couldn't copy automatically. Select the text in each box and copy it by hand."); }
   });
   document.getElementById("w-copy").addEventListener("click", function () {
     var text = "To: " + to.join(", ") + "\nBcc: " + bcc + "\nSubject: " + subject() + "\n\n" + letter();

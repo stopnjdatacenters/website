@@ -155,3 +155,4 @@ blockquote footer { font-size: 0.88rem; color: var(--muted); }
 .starter button { font: inherit; cursor: pointer; background: none; }
 .starter .btn.primary { background: var(--brand); }
 [hidden] { display: none !important; }
+.govsend ul { margin: 4px 0 0; padding-left: 20px; } .govsend p { margin: 0; }
