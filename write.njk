@@ -1,15 +1,15 @@
 ---
 layout: base.njk
 permalink: /write/
-title: Write Your Legislators and the Governor
+title: Write Your Legislators
 description: Tell South Brunswick's state legislators, in your own words, what the data center at 4405 Route 1 means for you.
 ---
 {% set reps = officials | selectattr("write_to") %}
 <section class="page-head">
   <div class="wrap">
     <p class="eyebrow">Take action</p>
-    <h1>Write to your legislators and the Governor</h1>
-    <p class="lede">Senator Andrew Zwicker, Assemblywoman Mitchelle Drulis and Assemblyman Roy Freiman represent South Brunswick and Princeton in Trenton. Governor Mikie Sherrill oversees NJDEP, which is reviewing the air permit. Personal letters get read. Form letters get counted as one. So we won't give you a script, just the facts and a few questions to get you started.</p>
+    <h1>Write to your state legislators</h1>
+    <p class="lede">Senator Andrew Zwicker, Assemblywoman Mitchelle Drulis and Assemblyman Roy Freiman represent South Brunswick and Princeton in Trenton. Personal letters get read. Form letters get counted as one. So we won't give you a script, just the facts and a few questions to get you started.</p>
   </div>
 </section>
 
@@ -26,7 +26,7 @@ description: Tell South Brunswick's state legislators, in your own words, what t
     <div class="card">
       <h3>{{ write.governor.name }}</h3>
       <p class="muted small">Governor of New Jersey · anyone in the state can write</p>
-      <p><a href="{{ write.governor.form_url }}" rel="noopener">Online contact form</a><br>{{ write.governor.phone }}<br><span class="small">{{ write.governor.mail }}</span></p>
+      <p><a href="{{ write.governor.form_url }}" rel="noopener">Contact the Governor</a></p>
     </div>
   </div>
   <p class="muted small">Don't live in South Brunswick or Princeton? Your own legislators are on the <a href="{{ write.find_legislators_url }}" rel="noopener">Legislature's roster</a> (filter by municipality), and anyone in New Jersey can write the Governor.</p>
@@ -58,11 +58,6 @@ description: Tell South Brunswick's state legislators, in your own words, what t
   <p class="muted">Type your answers and we'll open your email app with your words in order, addressed to all three legislators. Nothing you type here is sent to us or stored anywhere. It stays in your browser.</p>
 
   <form class="starter" id="starter-form" onsubmit="return false;">
-    <fieldset>
-      <legend>Who are you writing to?</legend>
-      <label class="check"><input type="radio" name="w-to" value="leg" checked> Senator Zwicker, Assemblywoman Drulis and Assemblyman Freiman (email)</label>
-      <label class="check"><input type="radio" name="w-to" value="gov"> Governor Sherrill (online form or mail)</label>
-    </fieldset>
     <label>Your town (used in the subject line)
       <input type="text" id="w-town" placeholder="e.g. Kingston">
     </label>
@@ -83,16 +78,9 @@ description: Tell South Brunswick's state legislators, in your own words, what t
     </label>
     <fieldset>
       <legend>4. What do you want them to do?</legend>
-      <div class="asks-leg">
       {% for a in write.asks %}
       <label class="check"><input type="checkbox" class="w-ask" value="{{ a }}"> {{ a }}</label>
       {% endfor %}
-      </div>
-      <div class="asks-gov" hidden>
-      {% for a in write.governor_asks %}
-      <label class="check"><input type="checkbox" class="w-ask" value="{{ a }}"> {{ a }}</label>
-      {% endfor %}
-      </div>
       <label>Anything else you'd like to ask, in your words
         <textarea id="w-ask-other" rows="2"></textarea>
       </label>
@@ -104,22 +92,11 @@ description: Tell South Brunswick's state legislators, in your own words, what t
       <textarea id="w-address" rows="2"></textarea>
     </label>
 
-    <div class="buttons only-leg">
+    <div class="buttons">
       <button type="button" class="btn primary" id="w-open">Open in my email app</button>
       <button type="button" class="btn" id="w-copy">Copy letter</button>
     </div>
-    <div class="buttons only-gov" hidden>
-      <button type="button" class="btn primary" id="w-copy-gov">Copy letter</button>
-    </div>
-    <div class="only-gov govsend" hidden>
-      <p><strong>Then send it one of these ways:</strong></p>
-      <ul>
-        <li>Paste it into the <a href="{{ write.governor.form_url }}" target="_blank" rel="noopener">Governor's online contact form</a></li>
-        <li>Print it and mail it to {{ write.governor.mail }}</li>
-        <li>Or call the Governor's office at {{ write.governor.phone }} and share the main point</li>
-      </ul>
-    </div>
-    <p class="muted small only-leg">The email goes to all three legislators, with <strong>{{ site.email }}</strong> as a blind copy so we can count how many letters are sent. We don't publish letters or names. If your email app doesn't open, or cuts off a long letter, use "Copy letter" and paste it into a new email.</p>
+    <p class="muted small">The email goes to all three legislators, with <strong>{{ site.email }}</strong> as a blind copy so we can count how many letters are sent. We don't publish letters or names. If your email app doesn't open, or cuts off a long letter, use "Copy letter" and paste it into a new email.</p>
     <p class="small" id="w-status" role="status"></p>
   </form>
 </section>
@@ -128,23 +105,13 @@ description: Tell South Brunswick's state legislators, in your own words, what t
 (function () {
   var to = [{% for o in reps %}"{{ o.contact.email }}"{% if not loop.last %},{% endif %}{% endfor %}];
   var bcc = "{{ site.email }}";
-  function mode() { return document.querySelector('input[name="w-to"]:checked').value; }
-  function applyMode() {
-    var gov = mode() === "gov";
-    document.querySelector(".asks-leg").hidden = gov;
-    document.querySelector(".asks-gov").hidden = !gov;
-    document.querySelectorAll(".only-gov").forEach(function (el) { el.hidden = !gov; });
-    document.querySelectorAll(".only-leg").forEach(function (el) { el.hidden = gov; });
-  }
-  document.querySelectorAll('input[name="w-to"]').forEach(function (r) { r.addEventListener("change", applyMode); });
   function val(id) { return (document.getElementById(id).value || "").trim(); }
   function letter() {
     var parts = [];
-    var greet = mode() === "gov" ? "Dear Governor Sherrill," : "Dear Senator Zwicker, Assemblywoman Drulis and Assemblyman Freiman,";
+    var greet = "Dear Senator Zwicker, Assemblywoman Drulis and Assemblyman Freiman,";
     parts.push(greet);
     ["w-who", "w-worry", "w-life"].forEach(function (id) { if (val(id)) parts.push(val(id)); });
-    var box = mode() === "gov" ? ".asks-gov" : ".asks-leg";
-    var asks = Array.prototype.slice.call(document.querySelectorAll(box + " .w-ask:checked")).map(function (c) { return "- " + c.value; });
+    var asks = Array.prototype.slice.call(document.querySelectorAll(".w-ask:checked")).map(function (c) { return "- " + c.value; });
     if (val("w-ask-other")) asks.push("- " + val("w-ask-other"));
     if (asks.length) parts.push("I'm asking you to:\n" + asks.join("\n"));
     var sign = ["Sincerely,", val("w-name"), val("w-address")].filter(Boolean).join("\n");
@@ -164,14 +131,6 @@ description: Tell South Brunswick's state legislators, in your own words, what t
       "&subject=" + encodeURIComponent(subject()) + "&body=" + encodeURIComponent(letter());
     window.location.href = href;
     status("Opening your email app. Read it over before you send.");
-  });
-  document.getElementById("w-copy-gov").addEventListener("click", function () {
-    if (!val("w-who") && !val("w-worry") && !val("w-life")) { status("Add a few words in your own voice first."); return; }
-    var text = letter();
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(function () { status("Copied. Now paste it into the Governor's form, or print and mail it."); },
-        function () { status("Couldn't copy automatically. Select the text in each box and copy it by hand."); });
-    } else { status("Couldn't copy automatically. Select the text in each box and copy it by hand."); }
   });
   document.getElementById("w-copy").addEventListener("click", function () {
     var text = "To: " + to.join(", ") + "\nBcc: " + bcc + "\nSubject: " + subject() + "\n\n" + letter();

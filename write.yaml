@@ -55,7 +55,6 @@ facts:
     url: https://southbrunswicknj.gov/access-a-live-meeting/
 
 # Short phrases people can tick in the letter starter. Keep them short.
-# Legislators make laws; the Governor runs NJDEP and the BPU.
 asks:
   - Oppose this project
   - Require notice to everyone within a project's foreseeable impacts
@@ -64,16 +63,9 @@ asks:
   - Require disclosure of who will own and use these facilities
   - Require large data centers to use clean power
 
-governor_asks:
-  - Direct NJDEP to require emissions monitoring and testing in data center generator permits
-  - Enforce against generators installed without permits
-  - Set statewide siting and noise standards for data centers
-  - Make sure residents near data centers are notified and heard
 
 governor:
   name: Governor Mikie Sherrill
   form_url: https://www.nj.gov/governor/contact/
-  mail: Office of the Governor, PO Box 001, Trenton, NJ 08625-0001
-  phone: (609) 292-6000
 
 find_legislators_url: https://njleg.gov/legislative-roster
