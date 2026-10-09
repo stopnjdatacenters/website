@@ -62,8 +62,24 @@
     phone: (908) 308-8672
     mail: 2 Clerico Lane, Building 1, Suite 106, Hillsborough, NJ 08844
   campaigns: [south-brunswick]
-  status: no-statement
-  statements: []
+  status: no-position
+  statements:
+    - date: 2026-10-02
+      campaign: south-brunswick
+      where: Letter to NJDEP Commissioner Ed Potosnak requesting more time for public comment, signed with Assemblywoman Drulis and Assemblyman Freiman, as quoted by Patch
+      quote: >-
+        This permit has generated significant concern among residents of
+        South Brunswick, Princeton, and neighboring communities.
+      source_title: Patch
+      source_url: https://patch.com/new-jersey/southbrunswick/dep-extends-public-comment-south-brunswick-data-center-permit
+    - date: 2026-10-02
+      campaign: south-brunswick
+      where: Same letter, as quoted by Patch
+      quote: >-
+        …additional time is reasonable and necessary to ensure residents have
+        a meaningful opportunity to provide input.
+      source_title: Patch
+      source_url: https://patch.com/new-jersey/southbrunswick/dep-extends-public-comment-south-brunswick-data-center-permit
 
 - name: Mitchelle Drulis
   office: Assemblywoman, Legislative District 16
@@ -76,13 +92,29 @@
     phone: (908) 968-4329
     mail: 50 Main Street, 2nd Floor, Flemington, NJ 08822
   campaigns: [south-brunswick]
-  status: no-statement
+  status: no-position
   inquiries:
     - date: 2026-10-08
       campaign: south-brunswick
       method: Contacted by phone
       response: No public position yet
-  statements: []
+  statements:
+    - date: 2026-10-02
+      campaign: south-brunswick
+      where: Letter to NJDEP Commissioner Ed Potosnak requesting more time for public comment, signed with Sen. Zwicker and Assemblyman Freiman, as quoted by Patch
+      quote: >-
+        This permit has generated significant concern among residents of
+        South Brunswick, Princeton, and neighboring communities.
+      source_title: Patch
+      source_url: https://patch.com/new-jersey/southbrunswick/dep-extends-public-comment-south-brunswick-data-center-permit
+    - date: 2026-10-02
+      campaign: south-brunswick
+      where: Same letter, as quoted by Patch
+      quote: >-
+        …additional time is reasonable and necessary to ensure residents have
+        a meaningful opportunity to provide input.
+      source_title: Patch
+      source_url: https://patch.com/new-jersey/southbrunswick/dep-extends-public-comment-south-brunswick-data-center-permit
 
 - name: Roy Freiman
   office: Assemblyman, Legislative District 16
@@ -95,5 +127,21 @@
     phone: (908) 829-4191
     mail: 390 Amwell Road, Suite 301, Hillsborough, NJ 08844
   campaigns: [south-brunswick]
-  status: no-statement
-  statements: []
+  status: no-position
+  statements:
+    - date: 2026-10-02
+      campaign: south-brunswick
+      where: Letter to NJDEP Commissioner Ed Potosnak requesting more time for public comment, signed with Sen. Zwicker and Assemblywoman Drulis, as quoted by Patch
+      quote: >-
+        This permit has generated significant concern among residents of
+        South Brunswick, Princeton, and neighboring communities.
+      source_title: Patch
+      source_url: https://patch.com/new-jersey/southbrunswick/dep-extends-public-comment-south-brunswick-data-center-permit
+    - date: 2026-10-02
+      campaign: south-brunswick
+      where: Same letter, as quoted by Patch
+      quote: >-
+        …additional time is reasonable and necessary to ensure residents have
+        a meaningful opportunity to provide input.
+      source_title: Patch
+      source_url: https://patch.com/new-jersey/southbrunswick/dep-extends-public-comment-south-brunswick-data-center-permit

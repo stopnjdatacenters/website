@@ -73,9 +73,24 @@ south-brunswick:
     - date: 2026-09-23
       text: About 100 people attend a public meeting on a permit for the data center at the Princeton Marriott.
       source: tapinto-hearing
+    - date: 2026-10
+      text: At the request of Sen. Zwicker, Assemblywoman Drulis and Assemblyman Freiman, NJDEP extends the comment period on the air permit to November 9, 2026.
+      source: patch-extension
 
   # Things people can do right now. Keep these current.
   actions:
+    - title: Comment on the draft air permit by November 9
+      text: >-
+        At the request of our state legislators, NJDEP extended the public
+        comment period on the permit for the facility's 12 diesel
+        generators. Comments are due November 9, 2026. By mail, send to
+        Nibras Mir, NJDEP, 401 E State Street, 2nd Floor, PO Box 420,
+        Mail Code 401-02, Trenton, NJ 08625-0420, referencing "Draft Permit
+        Comments for PN-DC1, PI 19525 PCP250001."
+        [Read the permit and our key points](/documents/#posted).
+      url: https://dep.nj.gov/boss/permit-comment-form/
+      button: NJDEP comment form
+      until: 2026-11-09
     - title: Write to your state legislators
       text: >-
         Senator Zwicker and Assembly members Drulis and Freiman represent
@@ -134,6 +149,16 @@ south-brunswick:
       title: "“This Project is Catastrophic” – Data Center Backlash Comes to Princeton"
       publisher: TAPinto Princeton
       url: https://www.tapinto.net/towns/princeton/sections/around-new-jersey/articles/this-project-is-catastrophic-data-center-backlash-comes-to-princeton
+    - id: patch-extension
+      title: "DEP Extends Public Comment On South Brunswick Data Center Permit"
+      publisher: Patch
+      date: 2026-10-07
+      url: https://patch.com/new-jersey/southbrunswick/dep-extends-public-comment-south-brunswick-data-center-permit
+    - id: amended-notice
+      title: "Notice of Opportunity for Public Comment for PN-DC1 (amended)"
+      publisher: NJDEP
+      date: 2026-10
+      url: https://docs.stopnjdatacenters.org/2026-10-amended-public-notice-pcp250001.pdf
     - id: dcd
       title: "Former Princeton Nurseries site in New Jersey could host data center"
       publisher: DatacenterDynamics
