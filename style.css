@@ -98,7 +98,7 @@ nav a:hover, nav a[aria-current="page"] { color: var(--brand); }
 .status { font-size: 0.85rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
 .status-opposes { color: var(--brand); }
 .status-supports { color: var(--accent); }
-.status-mixed, .status-no-statement { color: var(--muted); }
+.status-mixed, .status-no-statement, .status-no-position { color: var(--muted); }
 blockquote { margin: 10px 0; padding: 10px 16px; border-left: 4px solid var(--brand); background: var(--bg); border-radius: 0 var(--radius) var(--radius) 0; }
 blockquote p { margin: 0 0 6px; }
 blockquote footer { font-size: 0.88rem; color: var(--muted); }

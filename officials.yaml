@@ -14,6 +14,7 @@
 #   opposes     - has publicly opposed the project
 #   supports    - has publicly supported the project
 #   mixed       - has defended parts of it, or supports conditions/standards
+#   no-position - has spoken publicly but taken no position on the project
 #   no-statement - no public statement found yet
 
 - name: Charlie Carley
@@ -22,7 +23,7 @@
   contact:
     url: https://southbrunswicknj.gov/
   campaigns: [south-brunswick]
-  status: mixed
+  status: no-position
   summary: >-
     Has defended the township's approval process and said he welcomes the
     Legislature setting statewide standards for data centers on water,
@@ -30,7 +31,7 @@
   statements:
     - date: 2026-06-04
       campaign: south-brunswick
-      where: Interview with Patch about the petition
+      where: Quoted in Patch, on the petition
       quote: >-
         I have confidence in the process. But at the same time, I'm happy that
         the petition was produced, because it does help us inform future decisions.

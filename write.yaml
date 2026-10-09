@@ -7,20 +7,23 @@ facts:
   - id: permit
     fact: >-
       NJDEP's draft air permit covers 12 Caterpillar diesel generators (about
-      43 MW). It sets emission limits but requires no monitoring or testing
-      of those emissions.
+      43 MW). It sets emission limits but requires no routine monitoring or
+      testing of those emissions. NJDEP can request testing but isn't
+      required to.
     link_label: Draft air permit
     url: https://docs.stopnjdatacenters.org/2026-08-draft-air-permit-pcp250001.pdf
   - id: installed
     fact: >-
-      The permit application lists installation dates between March and
-      June 2026 for 8 of the 12 generators, before the permit was issued.
+      The draft permit's equipment list shows installation dates between
+      March and June 2026 for 8 of the 12 generators, before any permit was
+      issued.
     link_label: Draft air permit, Equipment Inventory
     url: https://docs.stopnjdatacenters.org/2026-08-draft-air-permit-pcp250001.pdf
   - id: notice
     fact: >-
-      State law only requires notifying property owners within 200 feet,
-      10 days before the hearing.
+      When public notice is required, state law requires mailing it only to
+      property owners within 200 feet, plus a newspaper notice, 10 days
+      before the hearing. Some site plan applications need no notice at all.
     link_label: N.J.S.A. 40:55D-12
     url: https://law.justia.com/codes/new-jersey/2022/title-40/section-40-55d-12/
   - id: noise
@@ -31,13 +34,15 @@ facts:
     url: https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-7-29-1-2
   - id: vineland
     fact: >-
-      In September 2026, NJDEP fined the Vineland data center's operator
-      about $1 million for installing 62 generators without permits.
+      In September 2026, NJDEP fined DataOne, the company behind the Vineland
+      data center, about $1 million for installing 62 generators without
+      permits.
     link_label: New Jersey Monitor
     url: https://newjerseymonitor.com/2026/09/22/nj-vineland-data-center-fined/
   - id: tenant
     fact: >-
-      No tenant or end user for the facility has been publicly identified.
+      No tenant or end user for the facility has been publicly identified,
+      as far as we can find.
     link_label: Our public records list
     url: https://stopnjdatacenters.org/documents/
   - id: fairshare
@@ -47,12 +52,6 @@ facts:
       infrastructure they use.
     link_label: Office of the Governor
     url: https://www.nj.gov/governor/news/2026/20260707a.shtml
-  - id: meetings
-    fact: >-
-      Township meetings are shown live only on local cable, with no online
-      stream or archive.
-    link_label: South Brunswick Township
-    url: https://southbrunswicknj.gov/access-a-live-meeting/
 
 # Short phrases people can tick in the letter starter. Keep them short.
 asks:

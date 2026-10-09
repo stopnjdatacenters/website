@@ -9,30 +9,30 @@ south-brunswick:
   name: South Brunswick
   project: The data center at 4405 US Route 1
   summary: >-
-    A data center of roughly 341,000 square feet is being built on the former
+    A data center of roughly 341,000 square feet is being developed on the former
     Princeton Nurseries site at 4405 US Route 1 in South Brunswick. The township
     Planning Board approved it in May 2025.
 
   # Key facts, shown as a list on the South Brunswick page.
   facts:
     - label: Location
-      text: 4405 US Route 1, South Brunswick (Middlesex County), on the former Princeton Nurseries site
-      source: compute-atlas
-    - label: Site size
-      text: About 143 acres
+      text: 4405 US Route 1, South Brunswick (Middlesex County)
+      source: draft-air-permit
+    - label: Site
+      text: About 143 acres of the former Princeton Nurseries site
       source: patch-petition
     - label: Building size
       text: About 341,000 square feet
       source: princeton-perspectives
     - label: Developer
-      text: Sentinel Data Centers. The applicant of record is WRV Nurseries South Brunswick Owner, LLC.
-      source: compute-atlas
+      text: Sentinel Data Centers, the company named on NJDEP's draft air permit for the facility
+      source: draft-air-permit
+    - label: Applicant
+      text: WRV Nurseries South Brunswick LLC applied to the Planning Board to build the data center
+      source: dcd
     - label: Approval
       text: Approved by South Brunswick in May 2025
       source: patch-petition
-    - label: Status
-      text: Listed as under construction, with completion targeted for the end of 2026, according to industry trackers
-      source: compute-atlas
 
   # Concerns about this specific site. Keep each one tied to a source.
   concerns:
@@ -50,27 +50,25 @@ south-brunswick:
     - title: Diesel generators and air quality
       text: >-
         NJDEP's draft air permit covers twelve 3,620 kW diesel generators,
-        about 43 MW. It sets limits on their emissions but requires no
-        monitoring of those emissions. Only hours of operation and fuel
-        deliveries are tracked.
+        about 43 MW. It sets limits on their emissions but requires no routine
+        monitoring or testing of those emissions. Only hours of operation and
+        fuel deliveries are tracked. NJDEP can request testing but isn't
+        required to.
       source: draft-air-permit
     - title: Noise
       text: >-
-        According to Mayor Carley, the approval requires sound walls and limits
-        diesel generator testing to daytime hours. Residents will want to see
-        how that is enforced.
+        According to Mayor Carley, the approval sets sound wall height
+        standards and restricts diesel generator testing to daytime hours.
+        Residents will want to see how that is enforced.
       source: princeton-perspectives
 
   # Timeline, oldest first.
   timeline:
-    - date: 2025-03
-      text: Data center proposal announced for the former Princeton Nurseries site.
-      source: compute-atlas
     - date: 2025-05
       text: South Brunswick approves the plans.
       source: patch-petition
     - date: 2026-08
-      text: NJDEP releases a draft air permit for the facility's twelve diesel generators for public comment.
+      text: NJDEP prepares a draft air permit for the facility's twelve diesel generators (dated August 2026), later released for public comment.
       source: draft-air-permit
     - date: 2026-09-23
       text: About 100 people attend a public meeting on a permit for the data center at the Princeton Marriott.
@@ -101,20 +99,14 @@ south-brunswick:
       text: NJDEP posts public notices for air permits, including comment deadlines.
       url: https://dep.nj.gov/boss/public-notices/
       button: NJDEP public notices
-    - title: Ask for meetings to be streamed and archived
-      text: >-
-        Township meetings are [shown live only on local cable](https://southbrunswicknj.gov/access-a-live-meeting/)
-        channels 26 and 45, with no online stream or archive we could find. In 2026, every
-        Council and Planning Board meeting should be streamed online and
-        kept for the public record.
-      url: https://southbrunswicknj.gov/mayor-council/
-      button: Contact the Mayor and Council
     - title: Demand real notice for big projects
       text: >-
-        State law ([N.J.S.A. 40:55D-12](https://law.justia.com/codes/new-jersey/2022/title-40/section-40-55d-12/))
-        only requires notifying property owners within 200 feet of a project,
-        10 days before the hearing. A large data center affects people far
-        beyond its next-door neighbors. We're seeking reforms that require
+        When public notice is required, state law
+        ([N.J.S.A. 40:55D-12](https://law.justia.com/codes/new-jersey/2022/title-40/section-40-55d-12/))
+        requires mailing it only to property owners within 200 feet, plus a
+        newspaper notice, 10 days before the hearing. Some site plan
+        applications need no public notice at all. A large data center
+        affects people far beyond its next-door neighbors. We're seeking reforms that require
         notice across the whole area of a project's foreseeable impacts.
       url: https://law.justia.com/codes/new-jersey/2022/title-40/section-40-55d-12/
       button: Read the notice law
@@ -134,23 +126,18 @@ south-brunswick:
       publisher: Princeton Perspectives
       date: 2026-07-15
       url: https://princetonperspectives.com/artificial-intelligence-infrastructure-hits-bumps-in-the-suburbs/
-    - id: compute-atlas
-      title: "Sentinel Princeton Nurseries DC-1 (4405 Route 1)"
-      publisher: Compute Atlas
-      url: https://www.compute-atlas.com/facilities/sentinel-princeton-nurseries-south-brunswick-nj
     - id: sierra-club
       title: "Resolution Regarding a Proposed Data Center at the Princeton Nurseries Redevelopment Property"
       publisher: Sierra Club New Jersey Chapter
       url: https://www.sierraclub.org/sites/default/files/2025-03/resolution-regarding-a-proposed-data-center-at-the-princeton-nurseries-redevelopemt-property_0.pdf
-    - id: citizen-portal
-      title: "Residents urge Princeton to seek air permits and monitoring for proposed compressor station and data center"
-      publisher: Citizen Portal
-      date: 2026-04-27
-      url: https://citizenportal.ai/articles/7882467/new-jersey/mercer-county/princeton/residents-urge-princeton-to-seek-air-permits-and-monitoring-for-proposed-compressor-station-and-data-center
     - id: tapinto-hearing
       title: "“This Project is Catastrophic” – Data Center Backlash Comes to Princeton"
       publisher: TAPinto Princeton
       url: https://www.tapinto.net/towns/princeton/sections/around-new-jersey/articles/this-project-is-catastrophic-data-center-backlash-comes-to-princeton
+    - id: dcd
+      title: "Former Princeton Nurseries site in New Jersey could host data center"
+      publisher: DatacenterDynamics
+      url: https://www.datacenterdynamics.com/en/news/former-nursery-site-in-new-jersey-could-host-data-center/
     - id: draft-air-permit
       title: "Draft Air Pollution Control Preconstruction Permit, PN-DC 1 (PCP250001)"
       publisher: NJDEP
@@ -160,10 +147,6 @@ south-brunswick:
       title: "Bureau of Stationary Sources: Public Notices"
       publisher: NJDEP
       url: https://dep.nj.gov/boss/public-notices/
-    - id: township-live
-      title: "Access a Live Meeting"
-      publisher: South Brunswick Township
-      url: https://southbrunswicknj.gov/access-a-live-meeting/
     - id: tapinto-appeal
       title: "Princeton's South Brunswick Neighbors Lose a Round in Court Against Data Center, But Launch an Appeal"
       publisher: TAPinto Princeton
