@@ -85,10 +85,10 @@ south-brunswick:
   demands:
     - title: No diesel generators.
       text: >-
-        Require cleaner backup power, such as battery storage. A data center
-        isn't a hospital. Batteries can protect equipment and allow a safe
-        shutdown; keeping servers running through a multi-day outage isn't
-        worth our air.
+        Require cleaner backup power. A data center isn't a hospital.
+        Protecting equipment and shutting down safely is reasonable; keeping
+        servers running on diesel through a multi-day outage isn't worth our
+        air.
     - title: Until then, put "emergency" in writing.
       text: >-
         Cap all generator hours in the permit, emergencies included, and count
@@ -185,6 +185,15 @@ south-brunswick:
       publisher: Facilities Dive
       date: 2026-10-01
       url: https://www.facilitiesdive.com/news/45-foot-thick-walls-needed-to-absorb-data-center-noise-researcher/831843/
+    - id: power-eng-heat
+      title: "Grid operators issue emergency alerts in response to early summer heat wave"
+      publisher: Power Engineering
+      date: 2025-06-24
+      url: https://www.power-eng.com/business/policy-and-regulation/grid-operators-issue-emergency-alerts-in-response-to-early-summer-heat-wave/
+    - id: epa-smog
+      title: "Nutrient Pollution: Where It Occurs (Air)"
+      publisher: EPA
+      url: https://www.epa.gov/nutrientpollution/where-occurs-air
     - id: njdep-notices
       title: "Bureau of Stationary Sources: Public Notices"
       publisher: NJDEP

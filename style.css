@@ -209,3 +209,5 @@ details.more-box > summary { cursor: pointer; font-weight: 700; color: var(--bra
   .steps-big > li { padding-left: 50px; }
   .steps-big > li .btn.primary { width: 100%; text-align: center; }
 }
+.stance { color: var(--muted); margin: 0 0 12px; max-width: 42rem; }
+.cosigned { margin: 0 0 12px; }

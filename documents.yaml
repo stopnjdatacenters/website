@@ -233,6 +233,18 @@
   status: wanted
   campaign: south-brunswick
 
+- title: Health risk assessment for the generators
+  agency: NJDEP (Air Quality)
+  type: Report
+  description: >-
+    The assessment NJDEP cites in its public notice as finding the health
+    risk "negligible." It isn't included with the draft permit or notice.
+  key_question: >-
+    Did it model all 12 engines running at once during a long outage, or
+    only routine testing?
+  status: wanted
+  campaign: south-brunswick
+
 - title: Record or transcript of the September 23, 2026 public hearing
   agency: NJDEP
   type: Minutes

@@ -34,7 +34,7 @@ In `officials.yaml`, find the official and add a block under `statements:`:
 
 ## Adding a new official
 
-Copy an entire existing official (from `- name:` down to just before the next `- name:`), paste it at the bottom, and change the details. Set `status` to one of: `opposes`, `supports`, `mixed`, `no-statement`.
+Copy an entire existing official (from `- name:` down to just before the next `- name:`), paste it at the bottom, and change the details. Set `status` to one of: `opposes`, `supports`, `mixed`, `no-position` (has spoken but taken no position), `no-statement` (nothing on the record).
 
 ## Logging a request for comment
 

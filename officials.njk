@@ -38,8 +38,13 @@ description: Public statements by elected officials on the South Brunswick data 
       {% endfor %}
     </ul>
     {% endif %}
-    {% if o.statements and o.statements.length %}
+    {% if (o.statements and o.statements.length) or (o.cosigned and o.cosigned.length) %}
     <h3>On the record</h3>
+    {% endif %}
+    {% for cs in o.cosigned %}
+    <p class="cosigned"><time>{{ cs.date | readableDate }}</time>: {{ cs.text }} <a href="{{ cs.link }}">See the quotes</a></p>
+    {% endfor %}
+    {% if o.statements and o.statements.length %}
     {% for st in o.statements | newestFirst %}
     <blockquote>
       <p>“{{ st.quote | trim }}”</p>

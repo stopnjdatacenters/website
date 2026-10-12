@@ -14,9 +14,9 @@ facts:
     url: https://docs.stopnjdatacenters.org/2026-08-draft-air-permit-pcp250001.pdf
   - id: installed
     fact: >-
-      The draft permit's equipment list shows installation dates between
-      March and June 2026 for 8 of the 12 generators, before any permit was
-      issued.
+      The draft permit's equipment list gives installation dates between
+      March and June 2026 for 8 of the 12 generators, earlier than the draft
+      permit itself. Were any installed before a permit was issued?
     link_label: Draft air permit, Equipment Inventory
     url: https://docs.stopnjdatacenters.org/2026-08-draft-air-permit-pcp250001.pdf
   - id: notice
@@ -34,9 +34,9 @@ facts:
     url: https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-7-29-1-2
   - id: vineland
     fact: >-
-      In September 2026, NJDEP fined DataOne, the company behind the Vineland
-      data center, about $1 million for installing 62 generators without
-      permits.
+      In a separate case, NJDEP fined DataOne, the company behind a Vineland
+      data center, about $1 million in September 2026 for installing 62
+      generators without permits. DataOne is a different company.
     link_label: New Jersey Monitor
     url: https://newjerseymonitor.com/2026/09/22/nj-vineland-data-center-fined/
   - id: tenant
@@ -48,8 +48,9 @@ facts:
   - id: fairshare
     fact: >-
       On July 7, 2026, Governor Sherrill signed the Data Center Fair Share
-      law (S731/A796), which makes data centers pay for the energy and grid
-      infrastructure they use.
+      law (S731/A796). The Governor's office says it makes data centers pay
+      for their own energy use and grid infrastructure, and "requires data
+      centers to cut back before residential ratepayers are impacted."
     link_label: Office of the Governor
     url: https://www.nj.gov/governor/news/2026/20260707a.shtml
 

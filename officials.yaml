@@ -66,7 +66,7 @@
   statements:
     - date: 2026-10-02
       campaign: south-brunswick
-      where: Letter to NJDEP Commissioner Ed Potosnak requesting more time for public comment, signed with Assemblywoman Drulis and Assemblyman Freiman, as quoted by Patch
+      where: Joint letter from Sen. Zwicker, Assemblywoman Drulis, and Assemblyman Freiman to NJDEP Commissioner Ed Potosnak requesting more time for public comment, as quoted by Patch
       quote: >-
         This permit has generated significant concern among residents of
         South Brunswick, Princeton, and neighboring communities.
@@ -98,23 +98,13 @@
       campaign: south-brunswick
       method: Contacted by phone
       response: No public position yet
-  statements:
+  cosigned:
     - date: 2026-10-02
       campaign: south-brunswick
-      where: Letter to NJDEP Commissioner Ed Potosnak requesting more time for public comment, signed with Sen. Zwicker and Assemblyman Freiman, as quoted by Patch
-      quote: >-
-        This permit has generated significant concern among residents of
-        South Brunswick, Princeton, and neighboring communities.
-      source_title: Patch
-      source_url: https://patch.com/new-jersey/southbrunswick/dep-extends-public-comment-south-brunswick-data-center-permit
-    - date: 2026-10-02
-      campaign: south-brunswick
-      where: Same letter, as quoted by Patch
-      quote: >-
-        …additional time is reasonable and necessary to ensure residents have
-        a meaningful opportunity to provide input.
-      source_title: Patch
-      source_url: https://patch.com/new-jersey/southbrunswick/dep-extends-public-comment-south-brunswick-data-center-permit
+      text: >-
+        Co-signed the joint letter with Sen. Zwicker and Assemblyman Freiman asking NJDEP for
+        more time for public comment.
+      link: "#andrew-zwicker"
 
 - name: Roy Freiman
   office: Assemblyman, Legislative District 16
@@ -128,20 +118,10 @@
     mail: 390 Amwell Road, Suite 301, Hillsborough, NJ 08844
   campaigns: [south-brunswick]
   status: no-position
-  statements:
+  cosigned:
     - date: 2026-10-02
       campaign: south-brunswick
-      where: Letter to NJDEP Commissioner Ed Potosnak requesting more time for public comment, signed with Sen. Zwicker and Assemblywoman Drulis, as quoted by Patch
-      quote: >-
-        This permit has generated significant concern among residents of
-        South Brunswick, Princeton, and neighboring communities.
-      source_title: Patch
-      source_url: https://patch.com/new-jersey/southbrunswick/dep-extends-public-comment-south-brunswick-data-center-permit
-    - date: 2026-10-02
-      campaign: south-brunswick
-      where: Same letter, as quoted by Patch
-      quote: >-
-        …additional time is reasonable and necessary to ensure residents have
-        a meaningful opportunity to provide input.
-      source_title: Patch
-      source_url: https://patch.com/new-jersey/southbrunswick/dep-extends-public-comment-south-brunswick-data-center-permit
+      text: >-
+        Co-signed the joint letter with Sen. Zwicker and Assemblywoman Drulis asking NJDEP for
+        more time for public comment.
+      link: "#andrew-zwicker"
