@@ -1,21 +1,61 @@
 ---
 layout: base.njk
 permalink: /south-brunswick/
-title: South Brunswick
-description: Facts, timeline and sources on the data center at 4405 US Route 1 in South Brunswick, NJ.
+title: The Facts
+description: "Power, noise, air, and land: the facts and sources on the data center at 4405 US Route 1 in South Brunswick, NJ."
 ---
 {% set c = campaigns["south-brunswick"] %}
+{% set permit = "https://docs.stopnjdatacenters.org/2026-08-draft-air-permit-pcp250001.pdf" %}
 <section class="page-head">
   <div class="wrap">
-    <p class="eyebrow">Active campaign</p>
-    <h1>{{ c.project }}</h1>
+    <p class="eyebrow">{{ c.project }}</p>
+    <h1>The facts</h1>
     <p class="lede">{{ c.summary }}</p>
+    <p class="jump"><a href="#power">Power</a> · <a href="#noise">Noise</a> · <a href="#air">Air</a> · <a href="#land">Land and water</a> · <a href="#project">The project</a> · <a href="#math">How we calculated</a></p>
   </div>
 </section>
 
-<section class="wrap section">
-  <h2>The facts</h2>
-  <p class="muted">Every item links to its source. If we can't source it, we don't publish it.</p>
+<div class="facts-page">
+
+<section class="wrap section topic" id="power">
+  <h2>Power</h2>
+  <p>A data center runs around the clock. <a class="cite" href="https://www.eia.gov/todayinenergy/detail.php?id=28232" rel="noopener">[EIA]</a> This one likely uses more electricity than every home in South Brunswick combined.<sup><a href="#m-homes" id="r-homes">1</a></sup></p>
+  <p>Its 12 backup generators total about 43 megawatts.<sup><a href="#m-capacity" id="r-capacity">2</a></sup> For scale, every home in South Brunswick together uses about 15 megawatts on average. Our assumption, a reasonable one for a data center, is that the backup is sized to carry the whole facility. If so, the 43 megawatts is a clue to how much power the data center itself draws, every hour of every day.<sup><a href="#m-homes">1</a></sup></p>
+  <p>New Jersey's Data Center Fair Share law requires data centers to cut their grid use when the grid is strained. <a class="cite" href="https://www.nj.gov/governor/news/2026/20260707a.shtml" rel="noopener">[Governor's office]</a> Unless NJDEP restricts it, the easiest way to do that is to switch on the diesel generators. See <a href="#air">Air</a>.</p>
+</section>
+
+<section class="wrap section topic" id="noise">
+  <h2>Noise</h2>
+  <p>Data centers run around the clock, and so does their cooling equipment. <a class="cite" href="https://www.eia.gov/todayinenergy/detail.php?id=28232" rel="noopener">[EIA]</a> On top of that, the draft permit allows routine testing of the 12 diesel engines: one at a time between 8 a.m. and 8 p.m., and up to six at once between noon and 4 p.m.<sup><a href="#m-testing" id="r-testing">3</a></sup></p>
+  <p>Large engines like these make a deep hum, with strong tones near 30 and 300 cycles per second.<sup><a href="#m-tones" id="r-tones">4</a></sup> Low-frequency noise from large cooling systems travels farther and passes through walls and windows with little loss. One researcher estimates it would take a wall about 4.5 feet thick to block a 63 Hz hum. <a class="cite" href="https://www.facilitiesdive.com/news/45-foot-thick-walls-needed-to-absorb-data-center-noise-researcher/831843/" rel="noopener">[Facilities Dive]</a> New Jersey's noise rule sets separate limits for low-frequency bands (<a href="{{ site.laws.noise.url }}" rel="noopener">{{ site.laws.noise.cite }}</a>), but no one has shown whether the developer's noise study measured them.</p>
+  {% for k in c.concerns %}{% if k.area == "noise" %}{% set s = c | sourceById(k.source) %}
+  <p>{{ k.text }} <a class="cite" href="{{ s.url }}" rel="noopener">[{{ s.publisher }}]</a></p>
+  {% endif %}{% endfor %}
+  <p class="muted small">We're asking for the noise study. <a href="/documents/">See the records list</a>.</p>
+</section>
+
+<section class="wrap section topic" id="air">
+  <div class="callout">
+    <h2>Air: a diesel power plant in our backyard</h2>
+    <p>The data center is seeking a state permit for 12 diesel generators, about 43 megawatts of capacity.<sup><a href="#m-capacity">2</a></sup> When all 12 run, the draft permit allows them to emit up to 900 pounds of nitrogen oxides (NOx) an hour.<sup><a href="#m-nox" id="r-nox">5</a></sup> That's as much as a 600-megawatt coal plant, or about 14 times the average coal plant per unit of electricity.<sup><a href="#m-coal" id="r-coal">6</a></sup></p>
+    <p>NOx forms smog and worsens asthma, especially in children and older adults. Diesel exhaust causes cancer.<sup><a href="#m-health" id="r-health">7</a></sup></p>
+    <p>Sentinel will say the generators rarely run, but only testing is capped. Emergency use has no hourly limit, and the permit lets them run whenever the regional grid is strained, often on the hottest, smoggiest days.<sup><a href="#m-hours" id="r-hours">8</a></sup> NOAA expects one of the strongest El Niños on record this winter, and NASA says the last strong El Niño helped make 2024 the warmest year on record.<sup><a href="#m-elnino" id="r-elnino">9</a></sup> Nothing in the permit requires monitoring what comes out of these stacks.<sup><a href="#m-monitor" id="r-monitor">10</a></sup></p>
+    <p class="cta" data-until="2026-11-09"><strong>Tell NJDEP what you think by November 9.</strong> <a href="/comment/">How to comment</a><sup><a href="#m-deadline" id="r-deadline">11</a></sup></p>
+  </div>
+</section>
+
+<section class="wrap section topic" id="land">
+  <h2>Land and water</h2>
+  <ul class="plainlist">
+    {% for k in c.concerns %}{% if k.area == "land" %}{% set s = c | sourceById(k.source) %}
+    <li><strong>{{ k.title }}.</strong> {{ k.text }} <a class="cite" href="{{ s.url }}" rel="noopener">[{{ s.publisher }}]</a></li>
+    {% endif %}{% endfor %}
+    <li><strong>Notice.</strong> When public notice is required, state law (<a href="{{ site.laws.notice.url }}" rel="noopener">{{ site.laws.notice.cite }}</a>) requires mailing it only to property owners within 200 feet, plus a newspaper notice. Some site plan applications need no public notice at all.</li>
+  </ul>
+</section>
+
+<section class="wrap section" id="project">
+  <h2>The project</h2>
   <dl class="facts">
     {% for f in c.facts %}
     {% set s = c | sourceById(f.source) %}
@@ -25,76 +65,79 @@ description: Facts, timeline and sources on the data center at 4405 US Route 1 i
     </div>
     {% endfor %}
   </dl>
-</section>
-
-<section class="wrap section">
-  <h2>Why it matters here</h2>
-  <div class="cards">
-    {% for k in c.concerns %}
-    {% set s = c | sourceById(k.source) %}
-    <div class="card">
-      <h3>{{ k.title }}</h3>
-      <p>{{ k.text }}</p>
-      <a class="cite" href="{{ s.url }}" rel="noopener">Source: {{ s.publisher }}</a>
-    </div>
-    {% endfor %}
-  </div>
-</section>
-
-<section class="wrap section">
-  <h2>Timeline</h2>
-  <ol class="timeline">
-    {% for t in c.timeline %}
-    {% set s = c | sourceById(t.source) %}
-    <li>
-      <time>{{ t.date | readableDate }}</time>
-      <span>{{ t.text }} <a class="cite" href="{{ s.url }}" rel="noopener">[{{ s.publisher }}]</a></span>
-    </li>
-    {% endfor %}
-  </ol>
-</section>
-
-<section class="wrap section">
-  <h2>What you can do</h2>
-  <div class="cards">
-    {% for a in c.actions %}
-    <div class="card{% if a.until %} timely{% endif %}"{% if a.until %} data-until="{{ a.until }}"{% endif %}>
-      <h3>{{ a.title }}</h3>
-      <p>{{ a.text | mdInline | safe }}</p>
-      <a class="btn small" href="{{ a.url }}" rel="noopener">{{ a.button }}</a>
-    </div>
-    {% endfor %}
-  </div>
-</section>
-
-<section class="wrap section">
-  <h2>Officials on this project</h2>
-  {% set officials_here = officials | forCampaign(c.id) %}
-  {% if officials_here.length %}
-  <ul class="plain">
-    {% for o in officials_here %}
-    <li><a href="/officials/#{{ o.name | slugify }}">{{ o.name }}</a>, {{ o.office }}</li>
-    {% endfor %}
-  </ul>
-  {% endif %}
-  <p><a href="/officials/">See quotes and positions →</a></p>
-</section>
-
-<section class="wrap section">
-  <h2>Documents and public records</h2>
+  <details class="more-box">
+    <summary>Timeline</summary>
+    <ol class="timeline">
+      {% for t in c.timeline %}
+      {% set s = c | sourceById(t.source) %}
+      <li>
+        <time>{{ t.date | readableDate }}</time>
+        <span>{{ t.text }} <a class="cite" href="{{ s.url }}" rel="noopener">[{{ s.publisher }}]</a></span>
+      </li>
+      {% endfor %}
+    </ol>
+  </details>
   {% set posted = documents | docsForCampaign(c.id, "posted") %}
   {% set wanted = documents | docsForCampaign(c.id, "wanted") %}
-  <p>We're collecting the public records on this project: site plans, the approval, permits and studies.
-  {% if posted.length %}{{ posted.length }} posted so far.{% endif %}
-  {% if wanted.length %}{{ wanted.length }} still need someone to request them.{% endif %}</p>
-  <p><a href="/documents/">See the records list →</a></p>
+  <p class="small"><a href="/documents/">Public records</a>: {{ posted.length }} posted, {{ wanted.length }} still wanted. · <a href="/officials/">What officials have said</a></p>
 </section>
 
 <section class="wrap section">
-  <h2>Coverage and sources</h2>
-  <ul class="sources">
-    {% for s in c.sources %}
-    <li><a href="{{ s.url }}" rel="noopener">{{ s.title }}</a> <span class="muted">{{ s.publisher }}{% if s.date %}, {{ s.date | readableDate }}{% endif %}</span></li>
-    {% endfor %}
-  </ul>
+  <details class="math" id="math">
+    <summary>How we calculated this</summary>
+    <p class="muted small">Every number comes from a public source. Where we make an assumption, we say so. Found an error? <a href="mailto:{{ site.email }}?subject={{ ('Correction: ' + site.url + page.url) | urlencode }}">Report it</a> and we'll correct it.</p>
+    <ol class="notes">
+      <li id="m-homes"><strong>Compared with South Brunswick's homes.</strong> The average New Jersey home uses 662 kWh a month: 662 × 12 = 7,944 kWh a year, or 7,944 ÷ 8,760 hours = 0.907 kW on average. South Brunswick has 16,770 households: 16,770 × 0.907 kW = 15.2 MW for every home in the township.
+        <br><em>Assumption:</em> data centers size backup generators to their load plus spares, so the facility's real load is unknown. If the load equals half the backup capacity (full duplicate backup), it is 21.7 MW, about 1.4 times every home in the township. If it equals the full capacity, it is 43.4 MW, about 2.9 times. This compares with homes only, not the township's businesses.
+        <span class="src">Sources: <a href="https://www.eia.gov/electricity/sales_revenue_price/pdf/table_5A.pdf" rel="noopener">EIA, 2024 residential data (Table 5A)</a>; <a href="https://census.gov/quickfacts/fact/table/southbrunswicktownshipmiddlesexcountynewjersey/PST045223" rel="noopener">U.S. Census QuickFacts</a>. <a class="back" href="#r-homes">↑</a></span></li>
+      <li id="m-capacity"><strong>Capacity.</strong> 12 Caterpillar C175-20 engines, 5,166 horsepower each. 12 × 3,620 kW = 43,440 kW, about 43 MW. 3,620 kW is Caterpillar's <em>standby</em> rating for the C175-20 engine; its prime rating for extended running is 3,300 kW, or 39.6 MW for 12 units.
+        <span class="src">Sources: <a href="{{ permit }}">draft permit</a>, Section A and Equipment Inventory; <a href="https://www.cat.com/en_US/products/new/power-systems/electric-power/diesel-generator-sets/1000028913.html" rel="noopener">Caterpillar C175-20 ratings</a>. <a class="back" href="#r-capacity">↑</a></span></li>
+      <li id="m-testing"><strong>Testing schedule.</strong> The permit allows testing only one engine at a time between 8 a.m. and 8 p.m. Two or more engines may be tested together only between noon and 4 p.m., for no more than 30 minutes per engine in any hour, and no more than six at once. Each engine may be tested up to 28 hours a year.
+        <span class="src">Source: <a href="{{ permit }}">draft permit</a>, Section D, U1 OS Summary Ref. 1; OS1–OS12 Ref. 1. <a class="back" href="#r-testing">↑</a></span></li>
+      <li id="m-tones"><strong>Engine tones.</strong> The C175-20 has 20 cylinders and runs at 1,800 rpm, which is 30 revolutions per second. A four-stroke engine fires each cylinder every other revolution, so 20 ÷ 2 × 30 = 300 firings per second. That gives tones near 30 Hz and 300 Hz. The noise rule's octave bands are centered at 31.5 Hz, 63 Hz, 125 Hz, 250 Hz, and higher, so these fall in the 31.5 Hz and 250 Hz bands. This is a calculation from the engine's design, not a measurement.
+        <span class="src">Sources: <a href="{{ permit }}">draft permit</a>, Equipment Inventory (model and speed); <a href="https://www.cat.com/en_US/products/new/power-systems/electric-power/diesel-generator-sets/1000028913.html" rel="noopener">Caterpillar C175-20</a>; <a href="{{ site.laws.noise.url }}" rel="noopener">{{ site.laws.noise.cite }}</a>. <a class="back" href="#r-tones">↑</a></span></li>
+      <li id="m-nox"><strong>Nitrogen oxides (NOx).</strong> The permit allows each engine up to 75.28 lb of NOx per hour. 75.28 × 12 = 903 lb per hour with all 12 running. This is a permit limit, the most allowed, not a measurement.
+        <span class="src">Source: <a href="{{ permit }}">draft permit</a>, Section D, OS1–OS12 Ref. 7. <a class="back" href="#r-nox">↑</a></span></li>
+      <li id="m-coal"><strong>Coal comparison.</strong> U.S. coal plants averaged 1.5 lb of NOx per megawatt-hour (MWh) in 2017; coal has generally gotten cleaner since, which makes this comparison conservative.
+        <br>Per hour: 903 lb ÷ 1.5 lb/MWh = 602 MWh, the output of a 600 MW coal plant running for one hour.
+        <br>Per unit of electricity: 75.28 lb ÷ 3.62 MWh = 20.8 lb/MWh, and 20.8 ÷ 1.5 ≈ 14 times coal.
+        <br><em>What this does not say:</em> these generators are meant to run far fewer hours than a coal plant. The permit's annual NOx cap is 12.65 tons, based on testing hours only, compared with roughly 285 tons for a 43 MW coal plant running all year. Diesel also emits less sulfur dioxide and carbon dioxide per MWh than coal. The comparison above is about NOx, a key ingredient in smog.
+        <span class="src">Sources: <a href="https://www.eia.gov/TODAYINENERGY/detail.php?id=37752" rel="noopener">U.S. Energy Information Administration</a>; <a href="{{ permit }}">draft permit</a>, Section D, U1 OS Summary Ref. 8. <a class="back" href="#r-coal">↑</a></span></li>
+      <li id="m-health"><strong>Health effects.</strong> EPA says nitrogen oxides "contribute to the formation of air pollutants like smog," that ground-level ozone is the main component of smog, and that ozone can worsen asthma. EPA also says breathing nitrogen dioxide can aggravate asthma, and that people with asthma, children, and older adults are at greater risk. The World Health Organization's cancer agency classifies diesel engine exhaust as a cause of cancer in humans (Group 1).
+        <span class="src">Sources: <a href="https://www.epa.gov/nutrientpollution/where-occurs-air" rel="noopener">EPA, Nutrient Pollution: Air</a>; <a href="https://www.epa.gov/no2-pollution/basic-information-about-no2" rel="noopener">EPA, Basic Information about NO2</a>; <a href="https://www.iarc.who.int/wp-content/uploads/2018/07/pr213_E.pdf" rel="noopener">IARC press release 213 (2012)</a>. <a class="back" href="#r-health">↑</a></span></li>
+      <li id="m-hours"><strong>When they can run.</strong> Testing is limited to 28 hours a year per engine. The permit also allows operation during power outages and whenever PJM, the regional grid operator, issues a voltage reduction, with no hourly limit on those uses. Testing is barred on days with unhealthy air-quality forecasts; emergency and PJM-requested operation is not.
+        <span class="src">Source: <a href="{{ permit }}">draft permit</a>, Section D, U1 OS Summary Ref. 18 and 19; OS1–OS12 Ref. 1. <a class="back" href="#r-hours">↑</a></span></li>
+      <li id="m-elnino"><strong>El Niño.</strong> On October 8, 2026, NOAA said a strong-to-very-strong El Niño is likely through early 2027, with an 83% chance of exceeding every event since 1950 in October–December. NASA said the strong El Niño that began in fall 2023 "helped nudge global temperatures above previous records" in 2024. This is not a forecast for New Jersey's summer.
+        <span class="src">Sources: <a href="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml" rel="noopener">NOAA Climate Prediction Center</a>; <a href="https://www.nasa.gov/news-release/temperatures-rising-nasa-confirms-2024-warmest-year-on-record" rel="noopener">NASA, January 10, 2025</a>. <a class="back" href="#r-elnino">↑</a></span></li>
+      <li id="m-monitor"><strong>No emissions monitoring.</strong> For every emission limit, the permit lists "None" as the monitoring and recordkeeping requirement. Only hours of operation and fuel deliveries are tracked. NJDEP may request testing but is not required to.
+        <span class="src">Source: <a href="{{ permit }}">draft permit</a>, Section D, U1 OS Summary Ref. 1 and 3–18; OS1–OS12 Ref. 2–13; Section C, General Provisions 13 and 17. <a class="back" href="#r-monitor">↑</a></span></li>
+      <li id="m-deadline"><strong>Comment deadline.</strong> NJDEP extended the comment period to November 9, 2026. Comment through the online form, or by mail to Nibras Mir, NJDEP, 401 E State Street, 2nd Floor, PO Box 420, Mail Code 401-02, Trenton, NJ 08625-0420, referencing "Draft Permit Comments for PN-DC1, PI 19525 PCP250001."
+        <span class="src">Source: <a href="https://docs.stopnjdatacenters.org/2026-10-amended-public-notice-pcp250001.pdf">amended NJDEP public notice</a>. <a class="back" href="#r-deadline">↑</a></span></li>
+    </ol>
+  </details>
+
+  <details class="more-box">
+    <summary>Coverage and sources</summary>
+    <ul class="sources">
+      {% for s in c.sources %}
+      <li><a href="{{ s.url }}" rel="noopener">{{ s.title }}</a> <span class="muted">{{ s.publisher }}{% if s.date %}, {{ s.date | readableDate }}{% endif %}</span></li>
+      {% endfor %}
+    </ul>
+  </details>
 </section>
+
+</div>
+
+<script>
+  // Open "How we calculated this" when a footnote link is used.
+  (function () {
+    var d = document.getElementById("math");
+    function openFor(hash) {
+      if (d && hash && /^#m-[a-z]+$/.test(hash)) { d.open = true; var t = document.querySelector(hash); if (t) t.scrollIntoView({ block: "center" }); }
+    }
+    document.querySelectorAll('.facts-page sup a').forEach(function (a) {
+      a.addEventListener("click", function (e) { e.preventDefault(); history.replaceState(null, "", a.getAttribute("href")); openFor(a.getAttribute("href")); });
+    });
+    openFor(location.hash);
+  })();
+</script>

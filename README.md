@@ -9,7 +9,7 @@ Almost everything you'll want to change is in three files:
 | File | What it controls |
 |---|---|
 | `site.yaml` | Site name, contact email, social media links |
-| `campaigns.yaml` | The South Brunswick page: facts, concerns, timeline, actions, sources |
+| `campaigns.yaml` | The Facts page (facts, concerns, timeline, sources) and the Take Action page (`demands` = what we're asking for; `actions` = "More ways to help"). Each concern has an `area` (power, noise, air, land) that decides which section of The Facts it appears in. |
 | `officials.yaml` | The "Where Officials Stand" page |
 | `write.yaml` | The Write Your Legislators page: fact list and suggested asks (facts only, never sample sentences) |
 | `documents.yaml` | The Documents & Public Records page: every record we want and its status |
@@ -78,7 +78,8 @@ These protect the group legally and keep us credible:
 ## For technical helpers
 
 - Built with [Eleventy](https://www.11ty.dev/) into `_site/`. All files are kept in one folder on purpose (no subfolders), so the repo can be updated by drag-and-drop on github.com.
-- Pages: `index.njk`, `south-brunswick.njk`, `officials.njk`, `documents.njk`, `about.md`, `404.njk`.
+- Pages: `index.njk` (home: three points and four steps, written directly in the file), `act.njk` (Take Action, including Governor talking points), `south-brunswick.njk` (The Facts, with the "How we calculated this" notes), `comment.njk`, `write.njk`, `officials.njk`, `documents.njk` (Records), `about.md`, `404.njk`.
+- Footnote links use named ids like `/south-brunswick/#m-hours`, so adding a note doesn't break links from other pages.
 - Short text fields (action `text`, record `description` and `key_question`) accept Markdown links: `[label](https://...)`. Layout: `base.njk`. Styles: `style.css`.
 - Hosted on Cloudflare Workers (static assets); see `wrangler.jsonc`.
 - Preview locally: `npm install` then `npm start`.

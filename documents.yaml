@@ -96,7 +96,7 @@
       generating capacity. (Section A; Equipment Inventory)
     - >-
       Sets hourly and annual limits for NOx, particulate matter, carbon
-      monoxide, benzene, formaldehyde and other pollutants, but lists
+      monoxide, benzene, formaldehyde, and other pollutants, but lists
       "None" as the monitoring and recordkeeping requirement for every one
       of those limits. (Section D, U1 OS Summary Ref. 3–16; OS1–OS12 Ref. 2–13)
     - >-
@@ -152,7 +152,7 @@
   status: wanted
   campaign: south-brunswick
 
-- title: Redevelopment study, redevelopment plan and 2024 Council ordinance
+- title: Redevelopment study, redevelopment plan, and 2024 Council ordinance
   agency: South Brunswick Municipal Clerk (Township Council)
   type: Report
   description: >-
@@ -173,7 +173,7 @@
 - title: Environmental Commission review of the application
   agency: South Brunswick Municipal Clerk (Environmental Commission)
   type: Report
-  description: Any review, memo or comments the Environmental Commission provided to the Planning Board.
+  description: Any review, memo, or comments the Environmental Commission provided to the Planning Board.
   status: wanted
   campaign: south-brunswick
 
@@ -207,7 +207,7 @@
   type: Permit
   description: >-
     The application for the backup generators: number and size of
-    generators, emissions estimates and testing schedule.
+    generators, emissions estimates, and testing schedule.
   key_question: >-
     What are the generator enclosure type and rated sound level, the exhaust
     muffler grade, and the sound data for the remote radiators? The draft
@@ -229,7 +229,7 @@
 - title: Water allocation and sewer approvals
   agency: NJDEP (Water Resource Management)
   type: Permit
-  description: Any water allocation, water supply or sewer approvals for the facility.
+  description: Any water allocation, water supply, or sewer approvals for the facility.
   status: wanted
   campaign: south-brunswick
 

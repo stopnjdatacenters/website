@@ -37,17 +37,20 @@ south-brunswick:
   # Concerns about this specific site. Keep each one tied to a source.
   concerns:
     - title: Contaminated soil
+      area: land
       text: >-
         The Sierra Club New Jersey Chapter says the property contains soil
         contaminated with dieldrin and chlordane, two pesticides now banned in
         the United States, and that construction could disturb capped soil berms.
       source: sierra-club
     - title: Water
+      area: land
       text: >-
         The Sierra Club resolution notes the site is near wetlands and the
         Millstone River, which it describes as a drinking water source for the region.
       source: sierra-club
     - title: Diesel generators and air quality
+      area: air
       text: >-
         NJDEP's draft air permit covers twelve 3,620 kW diesel generators,
         about 43 MW. It sets limits on their emissions but requires no routine
@@ -56,6 +59,7 @@ south-brunswick:
         required to.
       source: draft-air-permit
     - title: Noise
+      area: noise
       text: >-
         According to Mayor Carley, the approval sets sound wall height
         standards and restricts diesel generator testing to daytime hours.
@@ -74,30 +78,37 @@ south-brunswick:
       text: About 100 people attend a public meeting on a permit for the data center at the Princeton Marriott.
       source: tapinto-hearing
     - date: 2026-10
-      text: At the request of Sen. Zwicker, Assemblywoman Drulis and Assemblyman Freiman, NJDEP extends the comment period on the air permit to November 9, 2026.
+      text: At the request of Sen. Zwicker, Assemblywoman Drulis, and Assemblyman Freiman, NJDEP extends the comment period on the air permit to November 9, 2026.
       source: patch-extension
 
-  # Things people can do right now. Keep these current.
+  # WHAT WE'RE ASKING FOR. Shown at the top of the Take Action page.
+  demands:
+    - title: No diesel generators.
+      text: >-
+        Require cleaner backup power, such as battery storage. A data center
+        isn't a hospital. Batteries can protect equipment and allow a safe
+        shutdown; keeping servers running through a multi-day outage isn't
+        worth our air.
+    - title: Until then, put "emergency" in writing.
+      text: >-
+        Cap all generator hours in the permit, emergencies included, and count
+        them in the facility's total pollution. No running for grid programs,
+        for Fair Share demand cuts, or on bad-air days.
+    - title: Measure it.
+      text: Require emissions testing and public yearly reports of generator use.
+    - title: Real noise limits for the whole facility.
+      text: >-
+        Enforceable limits on cooling equipment and generators alike,
+        including low-frequency noise, with public monitoring at nearby homes.
+    - title: Full disclosure.
+      text: >-
+        The tenant and owners, power and water use, the health risk
+        assessment, and fuel storage.
+    - title: Real notice.
+      text: Notify everyone within the area of a project's foreseeable impacts, not just 200 feet.
+
+  # Secondary actions, listed on the Take Action page. Keep these current.
   actions:
-    - title: Comment on the draft air permit by November 9
-      text: >-
-        At the request of our state legislators, NJDEP extended the public
-        comment period on the permit for the facility's 12 diesel
-        generators. Comments are due November 9, 2026. By mail, send to
-        Nibras Mir, NJDEP, 401 E State Street, 2nd Floor, PO Box 420,
-        Mail Code 401-02, Trenton, NJ 08625-0420, referencing "Draft Permit
-        Comments for PN-DC1, PI 19525 PCP250001."
-        [Read the permit and our key points](/documents/#posted).
-      url: https://dep.nj.gov/boss/permit-comment-form/
-      button: NJDEP comment form
-      until: 2026-11-09
-    - title: Write to your state legislators
-      text: >-
-        Senator Zwicker and Assembly members Drulis and Freiman represent
-        South Brunswick. Tell them, in your own words, what this project
-        means for you. We'll help you get started.
-      url: /write/
-      button: Write your letter
     - title: Sign the petition
       text: A South Brunswick resident's Change.org petition asks the township to stop the project.
       url: https://www.change.org/p/stop-the-proposed-data-center-development-in-south-brunswick-township
@@ -107,7 +118,7 @@ south-brunswick:
         Before you file an OPRA request, check our list of records we're
         looking for. Someone may already have asked. Pick one marked
         "Wanted," file it, and email us so we can mark it requested.
-        Already have records, photos or video? Send them too.
+        Already have records, photos, or video? Send them too.
       url: /documents/
       button: See the records list
     - title: Watch for NJDEP air permit notices
@@ -125,10 +136,6 @@ south-brunswick:
         notice across the whole area of a project's foreseeable impacts.
       url: https://law.justia.com/codes/new-jersey/2022/title-40/section-40-55d-12/
       button: Read the notice law
-    - title: Join the conversation
-      text: Updates, meeting reminders and discussion on our subreddit.
-      url: https://www.reddit.com/r/StopNJDataCenters/
-      button: Go to r/StopNJDataCenters
 
   sources:
     - id: patch-petition
@@ -168,6 +175,16 @@ south-brunswick:
       publisher: NJDEP
       date: 2026-08
       url: https://docs.stopnjdatacenters.org/2026-08-draft-air-permit-pcp250001.pdf
+    - id: eia-datacenters
+      title: "Office buildings with data centers use significantly more electricity than other offices"
+      publisher: U.S. Energy Information Administration
+      date: 2016-10-05
+      url: https://www.eia.gov/todayinenergy/detail.php?id=28232
+    - id: facilitiesdive-noise
+      title: "4.5-foot-thick walls needed to absorb data center noise: researcher"
+      publisher: Facilities Dive
+      date: 2026-10-01
+      url: https://www.facilitiesdive.com/news/45-foot-thick-walls-needed-to-absorb-data-center-noise-researcher/831843/
     - id: njdep-notices
       title: "Bureau of Stationary Sources: Public Notices"
       publisher: NJDEP

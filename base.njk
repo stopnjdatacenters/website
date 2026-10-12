@@ -18,10 +18,9 @@
     <div class="wrap header-inner">
       <a class="brand" href="/">Stop <span>NJ</span> Data Centers</a>
       <nav aria-label="Main">
-        <a href="/south-brunswick/" {% if page.url == "/south-brunswick/" %}aria-current="page"{% endif %}>South Brunswick</a>
-        <a href="/officials/" {% if page.url == "/officials/" %}aria-current="page"{% endif %}>Officials</a>
-        <a href="/documents/" {% if page.url == "/documents/" %}aria-current="page"{% endif %}>Documents</a>
-        <a href="/write/" {% if page.url == "/write/" %}aria-current="page"{% endif %}>Write</a>
+        <a href="/act/" {% if page.url == "/act/" %}aria-current="page"{% endif %}>Take Action</a>
+        <a href="/south-brunswick/" {% if page.url == "/south-brunswick/" %}aria-current="page"{% endif %}>The Facts</a>
+        <a href="/documents/" {% if page.url == "/documents/" %}aria-current="page"{% endif %}>Records</a>
         <a href="/about/" {% if page.url == "/about/" %}aria-current="page"{% endif %}>About</a>
       </nav>
     </div>
@@ -36,6 +35,8 @@
       <div>
         <strong>{{ site.name }}</strong>
         <p>Contact: <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+        <p class="footer-links"><a href="/act/">Take Action</a> · <a href="/comment/">Comment to NJDEP</a> · <a href="/write/">Write your legislators</a> · <a href="/south-brunswick/">The Facts</a> · <a href="/officials/">Officials</a> · <a href="/documents/">Records</a> · <a href="/about/">About</a></p>
+        <p><a href="mailto:{{ site.email }}?subject={{ ('Correction: ' + site.url + page.url) | urlencode }}&amp;body={{ 'What is wrong, and what is the correct information? A link to a source helps.' | urlencode }}">Report an error or inaccuracy</a></p>
         <p class="footer-note">This site was built with the help of AI tools.</p>
       </div>
       <ul class="social" aria-label="Social media">

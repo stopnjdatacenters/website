@@ -1,47 +1,55 @@
 ---
 layout: base.njk
 ---
-{% set c = campaigns["south-brunswick"] %}
 <section class="hero">
   <div class="wrap">
     <p class="eyebrow">South Brunswick, New Jersey</p>
     <h1>Stop the data center at 4405 Route 1</h1>
-    <p class="lede">{{ c.summary }}</p>
-    <p class="lede">We're neighbors organizing to stop it, because it's moving forward without enforceable limits or a real public voice, and to make sure every official's position is on the record.</p>
-    <div class="buttons">
-      <a class="btn primary" href="/south-brunswick/">Get the facts</a>
-      <a class="btn" href="/officials/">Where officials stand</a>
+    <p class="lede">A data center going up next to homes on Route 1 wants a state permit for 12 diesel generators, with no limit on emergency use and no monitoring of what comes out.</p>
+    <p class="deadline" data-until="2026-11-09"><strong>Comments to NJDEP are due November 9.</strong> <a href="/comment/">Here's how →</a></p>
+  </div>
+</section>
+
+<section class="wrap section">
+  <h2>Three things to know</h2>
+  <div class="three">
+    <div class="point">
+      <h3>Power</h3>
+      <p>Likely uses more electricity than every home in South Brunswick combined, around the clock. Its backup generators alone total about 43 megawatts.</p>
+      <a class="cite" href="/south-brunswick/#power">Details and sources</a>
+    </div>
+    <div class="point">
+      <h3>Noise</h3>
+      <p>Cooling equipment that runs 24/7, plus 12 diesel engines tested during the day. No one has shown whether the noise study measured low-frequency hum.</p>
+      <a class="cite" href="/south-brunswick/#noise">Details and sources</a>
+    </div>
+    <div class="point">
+      <h3>Air</h3>
+      <p>When all 12 generators run, the permit allows as much smog-forming NOx per hour as a 600-megawatt coal plant. NOx worsens asthma, and diesel exhaust causes cancer.</p>
+      <a class="cite" href="/south-brunswick/#air">Details and sources</a>
     </div>
   </div>
 </section>
 
 <section class="wrap section">
-  <div class="mission">
-    <h2>Why we're here</h2>
-    <p>Large projects with serious environmental, health and financial impacts should be decided in public. We don't oppose data centers or AI. We oppose building them in our neighborhoods without enforceable limits on noise, emissions, water and power costs, and without giving residents a real voice.</p>
-  </div>
-</section>
-
-<section class="wrap section">
-  <h2>What you can do now</h2>
-  <div class="cards">
-    {% for a in c.actions %}
-    <div class="card{% if a.until %} timely{% endif %}"{% if a.until %} data-until="{{ a.until }}"{% endif %}>
-      <h3>{{ a.title }}</h3>
-      <p>{{ a.text | mdInline | safe }}</p>
-      <a class="btn small" href="{{ a.url }}" rel="noopener">{{ a.button }}</a>
-    </div>
-    {% endfor %}
-  </div>
-</section>
-
-<section class="wrap section">
-  <h2>Follow and get involved</h2>
-  <ul class="follow">
-    {% for s in site.social %}
-    <li><a href="{{ s.url }}" rel="noopener"><strong>{{ s.name }}</strong> {{ s.label }}</a></li>
-    {% endfor %}
-    <li><a href="mailto:{{ site.email }}"><strong>Email</strong> {{ site.email }}</a></li>
-  </ul>
-  <p class="muted small-print">South Brunswick is the first campaign of Stop NJ Data Centers.</p>
+  <h2>What you can do</h2>
+  <ol class="steps-big">
+    <li data-until="2026-11-09">
+      <div><strong>Comment to NJDEP</strong> <span class="muted">by November 9</span><br>Tell the state what you think of the air permit.</div>
+      <a class="btn primary" href="/comment/">Comment</a>
+    </li>
+    <li>
+      <div><strong>Write your state legislators</strong><br>Senator Zwicker, Assemblywoman Drulis, Assemblyman Freiman.</div>
+      <a class="btn primary" href="/write/">Write</a>
+    </li>
+    <li>
+      <div><strong>Contact the Governor</strong><br>Her own law could mean more diesel burning. <a href="/act/#governor">What to say</a></div>
+      <a class="btn primary" href="{{ write.governor.form_url }}" rel="noopener">Contact</a>
+    </li>
+    <li>
+      <div><strong>Join us</strong><br>Updates, meetings, and discussion.</div>
+      <span class="joinlinks">{% for s in site.social %}<a class="btn small" href="{{ s.url }}" rel="noopener">{{ s.name }}</a> {% endfor %}<a class="btn small" href="mailto:{{ site.email }}">Email</a></span>
+    </li>
+  </ol>
+  <p class="more"><a href="/act/#demands">What we're asking for</a> · <a href="/act/">More ways to help</a> · <a href="/south-brunswick/">The facts and sources</a></p>
 </section>

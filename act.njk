@@ -1,0 +1,62 @@
+---
+layout: base.njk
+permalink: /act/
+title: Take Action
+description: What we're asking for, and how to help stop the data center at 4405 Route 1 in South Brunswick, NJ.
+---
+{% set c = campaigns["south-brunswick"] %}
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Take action</p>
+    <h1>What we're asking for</h1>
+  </div>
+</section>
+
+<section class="wrap section" id="demands">
+  <ol class="demands">
+    {% for d in c.demands %}
+    <li><strong>{{ d.title }}</strong> {{ d.text | mdInline | safe }}</li>
+    {% endfor %}
+  </ol>
+  <p class="muted small">Why these? See <a href="/south-brunswick/">the facts and sources</a>.</p>
+</section>
+
+<section class="wrap section">
+  <h2>Four ways to help</h2>
+  <ol class="steps-big">
+    <li data-until="2026-11-09">
+      <div><strong>Comment to NJDEP</strong> <span class="muted">by November 9</span><br>NJDEP says it will respond to every comment received on time.</div>
+      <a class="btn primary" href="/comment/">Comment</a>
+    </li>
+    <li>
+      <div><strong>Write your state legislators</strong><br>We'll help you start, in your own words.</div>
+      <a class="btn primary" href="/write/">Write</a>
+    </li>
+    <li id="governor">
+      <div><strong>Contact Governor Sherrill</strong><br>Things to raise, in your own words:
+        <ul class="talk">
+          <li><strong>Her law could mean more diesel.</strong> The Data Center Fair Share law she signed requires data centers to cut grid use when the grid is strained. Unless NJDEP restricts it, the easiest way to do that is to switch on diesel generators, often on the hottest days. <a class="cite" href="https://www.nj.gov/governor/news/2026/20260707a.shtml" rel="noopener">[Governor's office]</a> <a class="cite" href="/south-brunswick/#m-hours">[permit]</a></li>
+          <li><strong>She runs NJDEP.</strong> Ask her to have NJDEP count emergency use, cap generator hours, and require emissions monitoring. <a class="cite" href="/south-brunswick/#m-monitor">[details]</a></li>
+          <li><strong>No diesel.</strong> Require cleaner backup power for data centers.</li>
+        </ul>
+      </div>
+      <a class="btn primary" href="{{ write.governor.form_url }}" rel="noopener">Contact</a>
+    </li>
+    <li>
+      <div><strong>Join us</strong><br>Updates, meetings, and discussion.</div>
+      <span class="joinlinks">{% for s in site.social %}<a class="btn small" href="{{ s.url }}" rel="noopener">{{ s.name }}</a> {% endfor %}<a class="btn small" href="mailto:{{ site.email }}">Email</a></span>
+    </li>
+  </ol>
+</section>
+
+<section class="wrap section">
+  <h2>More ways to help</h2>
+  <ul class="morehelp">
+    {% for a in c.actions %}
+    <li{% if a.until %} data-until="{{ a.until }}"{% endif %}>
+      <strong>{{ a.title }}.</strong> {{ a.text | mdInline | safe }}
+      <a href="{{ a.url }}" rel="noopener">{{ a.button }} →</a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

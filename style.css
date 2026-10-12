@@ -155,3 +155,57 @@ blockquote footer { font-size: 0.88rem; color: var(--muted); }
 .starter button { font: inherit; cursor: pointer; background: none; }
 .starter .btn.primary { background: var(--brand); }
 [hidden] { display: none !important; }
+
+/* Generators callout + footnoted math */
+.callout { background: var(--surface); border: 1px solid var(--line); border-left: 5px solid var(--accent); border-radius: var(--radius); padding: 20px 22px; max-width: 50rem; }
+.callout h2 { margin-top: 0; }
+.callout p { margin: 0 0 12px; }
+.callout sup a { text-decoration: none; font-weight: 700; padding: 0 2px; }
+.callout .cta a { margin-left: 6px; }
+details.math { margin-top: 14px; border-top: 1px solid var(--line); padding-top: 10px; }
+details.math summary { cursor: pointer; font-weight: 700; color: var(--brand); }
+.notes { padding-left: 22px; font-size: 0.95rem; }
+.notes li { margin: 12px 0; }
+.notes li:target { background: color-mix(in srgb, var(--accent) 10%, transparent); border-radius: 6px; }
+.notes .src { display: block; font-size: 0.86rem; color: var(--muted); margin-top: 4px; }
+.notes .back { text-decoration: none; font-size: 0.85rem; }
+
+/* Home: permit in 30 seconds */
+.points30 { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; max-width: 50rem; }
+.points30 li { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 10px 14px; }
+.points30 strong { color: var(--text); }
+.timely-line { margin-top: 6px; }
+.asklist { padding-left: 20px; max-width: 50rem; }
+.asklist li { margin: 8px 0; }
+
+/* ---------- Home, Take Action, The Facts (reorganized layout) ---------- */
+.deadline { display: inline-block; margin: 8px 0 0; padding: 10px 14px; border-left: 4px solid var(--accent); background: var(--surface); border-radius: 6px; }
+.deadline a { margin-left: 6px; font-weight: 700; }
+.three { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 14px; }
+.point { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--brand); border-radius: var(--radius); padding: 18px; display: flex; flex-direction: column; }
+.point h3 { margin: 0 0 6px; font-size: 1.2rem; }
+.point p { margin: 0 0 12px; flex: 1; }
+.steps-big { list-style: none; counter-reset: step; padding: 0; margin: 0; max-width: 50rem; }
+.steps-big > li { counter-increment: step; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px 14px 56px; margin: 0 0 10px; position: relative; }
+.steps-big > li::before { content: counter(step); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; border-radius: 50%; background: var(--brand); color: var(--brand-ink); font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.steps-big > li > div { flex: 1 1 18rem; }
+.joinlinks { display: flex; flex-wrap: wrap; gap: 8px; }
+.more { margin-top: 14px; }
+.demands { max-width: 46rem; padding-left: 24px; }
+.demands li { margin: 0 0 12px; }
+.talk { margin: 8px 0 0; padding-left: 20px; }
+.talk li { margin: 0 0 8px; }
+.morehelp { max-width: 46rem; padding-left: 20px; }
+.morehelp li { margin: 0 0 12px; }
+.jump { font-size: 0.95rem; }
+.topic h2 { scroll-margin-top: 16px; }
+.topic p, .plainlist { max-width: 46rem; }
+.plainlist { padding-left: 20px; }
+.plainlist li { margin: 0 0 10px; }
+details.more-box { margin: 14px 0; max-width: 50rem; }
+details.more-box > summary { cursor: pointer; font-weight: 700; color: var(--brand); }
+.footer-links { font-size: 0.92rem; }
+@media (max-width: 560px) {
+  .steps-big > li { padding-left: 50px; }
+  .steps-big > li .btn.primary { width: 100%; text-align: center; }
+}
