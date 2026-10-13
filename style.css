@@ -211,3 +211,4 @@ details.more-box > summary { cursor: pointer; font-weight: 700; color: var(--bra
 }
 .stance { color: var(--muted); margin: 0 0 12px; max-width: 42rem; }
 .cosigned { margin: 0 0 12px; }
+@media (max-width: 560px) { nav { gap: 4px 14px; } nav a { font-size: 0.95rem; } }

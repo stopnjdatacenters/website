@@ -72,7 +72,7 @@ south-brunswick:
       text: South Brunswick approves the plans.
       source: patch-petition
     - date: 2026-08
-      text: NJDEP prepares a draft air permit for the facility's twelve diesel generators (dated August 2026), later released for public comment.
+      text: NJDEP drafts an air permit for the facility's 12 diesel generators, later released for public comment.
       source: draft-air-permit
     - date: 2026-09-23
       text: About 100 people attend a public meeting on a permit for the data center at the Princeton Marriott.
@@ -92,8 +92,9 @@ south-brunswick:
     - title: Until then, put "emergency" in writing.
       text: >-
         Cap all generator hours in the permit, emergencies included, and count
-        them in the facility's total pollution. No running for grid programs,
-        for Fair Share demand cuts, or on bad-air days.
+        them in the facility's total pollution. No running for grid programs
+        or Fair Share demand cuts, and none on bad-air days except during
+        power outages.
     - title: Measure it.
       text: Require emissions testing and public yearly reports of generator use.
     - title: Real noise limits for the whole facility.
