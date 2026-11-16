@@ -10,61 +10,42 @@ description: "Power, noise, air, and land: the facts and sources on the data cen
   <div class="wrap">
     <p class="eyebrow">{{ c.project }}</p>
     <h1>The facts</h1>
-    <p class="lede">{{ c.summary }}</p>
-    <p class="jump"><a href="#power">Power</a> · <a href="#noise">Noise</a> · <a href="#air">Air</a> · <a href="#land">Land and water</a> · <a href="#project">The project</a> · <a href="#math">How we calculated</a></p>
+    <p class="lede">Every fact here links to its source.</p>
   </div>
 </section>
 
 <div class="facts-page">
 
-<section class="wrap section topic" id="power">
-  <h2>Power</h2>
-  <p>A data center runs around the clock. <a class="cite" href="https://www.eia.gov/todayinenergy/detail.php?id=28232" rel="noopener">[EIA]</a> This one likely uses more electricity than every home in South Brunswick combined.<sup><a href="#m-homes" id="r-homes">1</a></sup></p>
-  <p>Its 12 backup generators total about 43 megawatts.<sup><a href="#m-capacity" id="r-capacity">2</a></sup> For scale, every home in South Brunswick together uses about 15 megawatts on average. If the backup is sized to the facility's load, as we reasonably assume, the data center draws 1.4 to 2.9 times as much power as every home in town combined, every hour of every day.<sup><a href="#m-homes">1</a></sup></p>
-  <p>New Jersey's Data Center Fair Share law "requires data centers to cut back before residential ratepayers are impacted." <a class="cite" href="https://www.nj.gov/governor/news/2026/20260707a.shtml" rel="noopener">[Governor's office]</a> Unless NJDEP restricts it, one way to cut back is to switch on the diesel generators. See <a href="#air">Air</a>.</p>
-</section>
-
-<section class="wrap section topic" id="noise">
-  <h2>Noise</h2>
-  <p>Data centers run around the clock, and so does their cooling equipment. <a class="cite" href="https://www.eia.gov/todayinenergy/detail.php?id=28232" rel="noopener">[EIA]</a> On top of that, the draft permit allows routine testing of the 12 diesel engines: one at a time between 8 a.m. and 8 p.m., and up to six at once between noon and 4 p.m.<sup><a href="#m-testing" id="r-testing">3</a></sup></p>
-  <p>Large engines like these make a deep hum, with strong tones near 30 and 300 cycles per second.<sup><a href="#m-tones" id="r-tones">4</a></sup> Low-frequency noise from large cooling systems travels farther and passes through walls and windows with little loss. Saint Louis University biology professor Kasey Fowler-Finn estimates it would take a wall about 4.5 feet thick to block a 63 Hz hum. <a class="cite" href="https://www.facilitiesdive.com/news/45-foot-thick-walls-needed-to-absorb-data-center-noise-researcher/831843/" rel="noopener">[Facilities Dive]</a> New Jersey's noise rule sets separate limits for low-frequency bands (<a href="{{ site.laws.noise.url }}" rel="noopener">{{ site.laws.noise.cite }}</a>), but no one has shown whether the developer's noise study measured them.</p>
-  {% for k in c.concerns %}{% if k.area == "noise" %}{% set s = c | sourceById(k.source) %}
-  <p>{{ k.text }} <a class="cite" href="{{ s.url }}" rel="noopener">[{{ s.publisher }}]</a></p>
-  {% endif %}{% endfor %}
-  <p class="muted small">We're asking for the noise study. <a href="/documents/">See the records list</a>.</p>
-</section>
-
-<section class="wrap section topic" id="air">
-  <div class="callout">
-    <h2>Air: a diesel power plant in our backyard</h2>
-    <p>The data center is seeking a state permit for 12 diesel generators, about 43 megawatts of capacity.<sup><a href="#m-capacity">2</a></sup> When all 12 run, the draft permit allows them to emit up to 900 pounds of nitrogen oxides (NOx) an hour.<sup><a href="#m-nox" id="r-nox">5</a></sup> That's as much per hour as a 600-megawatt coal plant, or about 14 times the average coal plant per unit of electricity.<sup><a href="#m-coal" id="r-coal">6</a></sup></p>
-    <p>NOx forms smog and worsens asthma, especially in children and older adults. Diesel exhaust causes cancer.<sup><a href="#m-health" id="r-health">7</a></sup></p>
-    <p>Sentinel will say the generators rarely run, but only testing is capped. Emergency use has no hourly limit, including whenever PJM, the regional grid operator, orders an emergency voltage reduction.<sup><a href="#m-hours" id="r-hours">8</a></sup> Grid emergencies tend to come in heat waves, the same hot, sunny days when smog forms. <a class="cite" href="https://www.power-eng.com/business/policy-and-regulation/grid-operators-issue-emergency-alerts-in-response-to-early-summer-heat-wave/" rel="noopener">[Power Engineering]</a> <a class="cite" href="https://www.epa.gov/nutrientpollution/where-occurs-air" rel="noopener">[EPA]</a> Nothing in the permit requires monitoring what comes out of these stacks.<sup><a href="#m-monitor" id="r-monitor">9</a></sup></p>
-    <p class="cta" data-until="2026-11-09"><strong>Tell NJDEP what you think by November 9.</strong> <a href="/comment/">How to comment</a><sup><a href="#m-deadline" id="r-deadline">10</a></sup></p>
+<section class="wrap section" id="status" style="padding-top:0">
+  <div class="standing">
+    <h2>Where things stand</h2>
+    <p>South Brunswick approved the building in May 2025. {% set s = c | sourceById("patch-petition") %}<a class="cite" href="{{ s.url }}" rel="noopener">[Patch]</a> The 12 diesel generators can be installed, but they can't run without an air permit from the New Jersey Department of Environmental Protection (NJDEP). <a class="cite" href="https://docs.stopnjdatacenters.org/2026-02-13-sentinel-7-day-notice.pdf" rel="noopener">[Sentinel's notice]</a> That permit isn't final. <strong>Comments are due November 9.</strong> <a href="/comment/">How to comment</a></p>
   </div>
 </section>
 
-<section class="wrap section topic" id="land">
-  <h2>Land and water</h2>
-  <ul class="plainlist">
-    {% for k in c.concerns %}{% if k.area == "land" %}{% set s = c | sourceById(k.source) %}
-    <li><strong>{{ k.title }}.</strong> {{ k.text }} <a class="cite" href="{{ s.url }}" rel="noopener">[{{ s.publisher }}]</a></li>
-    {% endif %}{% endfor %}
-    <li><strong>Notice.</strong> When public notice is required, state law (<a href="{{ site.laws.notice.url }}" rel="noopener">{{ site.laws.notice.cite }}</a>) requires mailing it only to property owners within 200 feet, plus a newspaper notice. Some site plan applications need no public notice at all.</li>
-  </ul>
-</section>
-
 <section class="wrap section" id="project">
-  <h2>The project</h2>
+  <h2>At a glance</h2>
   <dl class="facts">
     {% for f in c.facts %}
     {% set s = c | sourceById(f.source) %}
     <div>
       <dt>{{ f.label }}</dt>
-      <dd>{{ f.text }} <a class="cite" href="{{ s.url }}" rel="noopener">[{{ s.publisher }}]</a></dd>
+      <dd>{{ f.text }}{% if f.map %} · <a href="{{ f.map }}" rel="noopener">Map</a>{% endif %} <a class="cite" href="{{ s.url }}" rel="noopener">[{{ s.publisher }}]</a></dd>
     </div>
     {% endfor %}
   </dl>
+  <details class="more-box">
+    <summary>Who's who</summary>
+    <dl class="facts">
+      {% for w in c.who %}
+      {% if w.source %}{% set s = c | sourceById(w.source) %}{% endif %}
+      <div>
+        <dt>{{ w.name }}</dt>
+        <dd>{{ w.text }}{% if w.source %} <a class="cite" href="{{ s.url }}" rel="noopener">[{{ s.publisher }}]</a>{% endif %}</dd>
+      </div>
+      {% endfor %}
+    </dl>
+  </details>
   <details class="more-box">
     <summary>Timeline</summary>
     <ol class="timeline">
@@ -77,6 +58,95 @@ description: "Power, noise, air, and land: the facts and sources on the data cen
       {% endfor %}
     </ol>
   </details>
+  <p class="jump">Jump to: <a href="#power">Power</a> · <a href="#noise">Noise</a> · <a href="#air">Air</a> · <a href="#land">Land and water</a> · <a href="#math">How we calculated</a></p>
+</section>
+
+<section class="wrap section topic" id="power">
+  <h2>Power</h2>
+  <p>A data center runs around the clock. <a class="cite" href="https://www.eia.gov/todayinenergy/detail.php?id=28232" rel="noopener">[EIA]</a> Bloomberg, the tenant, says this one will draw up to 30 megawatts. <a class="cite" href="https://patch.com/new-jersey/southbrunswick/35095474/global-media-giant-confirms-it-s-behind-south-brunswick-data-center" rel="noopener">[Patch]</a> That is about twice what every home in South Brunswick uses on average. <a class="cite fn" href="#m-homes" id="r-homes">[note 1]</a></p>
+  <p>Its 12 backup generators total about 43 megawatts. <a class="cite fn" href="#m-capacity" id="r-capacity">[note 2]</a> The developer calls these 12 "Phase 1," with more planned. <a class="cite" href="https://docs.stopnjdatacenters.org/2026-03-17-russo-letter-to-township-generators-phase-1.pdf" rel="noopener">[Developer's letter]</a> Its representative told the Planning Board 8 more generators are planned, 20 in all. <a class="cite" href="https://docs.stopnjdatacenters.org/2025-04-23-pb-resolution-preliminary-site-plan.pdf#page=32" rel="noopener">[Planning Board, p. 32]</a></p>
+  <p>New Jersey's Data Center Fair Share law "requires data centers to cut back before residential ratepayers are impacted." <a class="cite" href="https://www.nj.gov/governor/news/2026/20260707a.shtml" rel="noopener">[Governor's office]</a> Unless NJDEP restricts it, one way to cut back is to switch on the diesel generators. See <a href="#air">Air</a>.</p>
+</section>
+
+<section class="wrap section topic" id="noise">
+  <h2>Noise</h2>
+  <p>Data centers run around the clock, and so does their cooling equipment. <a class="cite" href="https://www.eia.gov/todayinenergy/detail.php?id=28232" rel="noopener">[EIA]</a> On top of that, the draft permit allows routine testing of the 12 diesel engines: one at a time between 8 a.m. and 8 p.m., and up to six at once between noon and 4 p.m. <a class="cite fn" href="#m-testing" id="r-testing">[note 3]</a></p>
+  <p>Large engines like these make a deep hum, with strong tones near 30 and 300 cycles per second. <a class="cite fn" href="#m-tones" id="r-tones">[note 4]</a> Low-frequency noise from large cooling systems travels farther and passes through walls and windows with little loss. Saint Louis University biology professor Kasey Fowler-Finn estimates it would take a wall about 4.5 feet thick to block a hum of 63 cycles per second (63 Hz). <a class="cite" href="https://www.facilitiesdive.com/news/45-foot-thick-walls-needed-to-absorb-data-center-noise-researcher/831843/" rel="noopener">[Facilities Dive]</a> New Jersey's noise rule sets separate limits for low-frequency bands (<a href="{{ site.laws.noise.url }}" rel="noopener">{{ site.laws.noise.cite }}</a>). The developer's noise study reports only A-weighted levels, which discount low frequencies, and gives no low-frequency results. <a class="cite" href="https://docs.stopnjdatacenters.org/2024-10-18-lsga-acoustical-evaluation.pdf#page=7" rel="noopener">[Noise study, pp. 2, 7]</a> Its separate octave-band letter isn't public. <a class="cite" href="https://docs.stopnjdatacenters.org/2025-04-23-pb-resolution-preliminary-site-plan.pdf#page=24" rel="noopener">[Planning Board, pp. 24–25]</a></p>
+  <p>The study never modeled all the generators at full power. With all of them at half power, it predicts 57 dB(A) at the nearest homes to the north, above the state's nighttime limit of 50. <a class="cite" href="https://docs.stopnjdatacenters.org/2024-10-18-lsga-acoustical-evaluation.pdf#page=7" rel="noopener">[Noise study, p. 7]</a> That is allowed only because emergency generator noise is exempt from the rules. <a class="cite" href="https://docs.stopnjdatacenters.org/2024-10-18-lsga-acoustical-evaluation.pdf#page=2" rel="noopener">[p. 2]</a> Even without the generators, the study puts nighttime equipment noise at the hotels at 49 dB(A), against that limit of 50, assuming only two of every three rooftop chillers run at once. <a class="cite" href="https://docs.stopnjdatacenters.org/2024-10-18-lsga-acoustical-evaluation.pdf#page=5" rel="noopener">[pp. 5, 7]</a></p>
+  {% for k in c.concerns %}{% if k.area == "noise" %}{% set s = c | sourceById(k.source) %}
+  <p>{{ k.text }} <a class="cite" href="{{ s.url }}" rel="noopener">[{{ s.publisher }}]</a></p>
+  {% endif %}{% endfor %}
+  <p class="muted small">We've posted the noise study and are still asking for its octave-band letter. <a href="/documents/#wanted">See the records list</a>.</p>
+</section>
+
+<section class="wrap section topic" id="air">
+  <h2>Air</h2>
+  <div class="keyfinding" id="testing-only">
+    <p><strong>Sentinel's health risk assessment counts only scheduled testing: 28 hours a year per engine, in daylight.</strong> <a class="cite" href="https://docs.stopnjdatacenters.org/2026-03-pn-dc1-risk-assessment-report.pdf#page=10" rel="noopener">[Risk report, p. 10]</a> Even under those limits, the cancer risk from diesel soot comes in just under New Jersey's threshold: 9.86 in a million, against 10. <a class="cite" href="https://docs.stopnjdatacenters.org/2026-03-pn-dc1-risk-assessment-report.pdf#page=30" rel="noopener">[Risk report, p. 30]</a> In plain terms: if a million people breathed the air at the most-affected spot for a lifetime, about 10 more could get cancer.</p>
+    <p>The assessment leaves out power outages and grid emergencies, which the permit allows with no hourly cap. <a class="cite" href="https://docs.stopnjdatacenters.org/2026-08-draft-air-permit-pcp250001.pdf#page=17" rel="noopener">[Draft permit, pp. 17–18]</a> The fuel tanks were sized for about 72 hours of emergency power, <a class="cite" href="https://docs.stopnjdatacenters.org/2025-04-23-pb-resolution-preliminary-site-plan.pdf#page=15" rel="noopener">[Planning Board, p. 15]</a> enough by our math for all 20 planned engines at full power, <a class="cite fn" href="#m-fuel" id="r-fuel">[note 12]</a> and Sentinel's own tank filing assumes the generators could run up to 500 hours a year. <a class="cite" href="https://docs.stopnjdatacenters.org/2026-ust-air-permit-response.pdf#page=5" rel="noopener">[Tank filing, p. 5]</a></p>
+  </div>
+  <div class="callout">
+    <h3>A diesel power plant in our backyard</h3>
+    <p>The data center is seeking a state permit for 12 diesel generators, about 43 megawatts of capacity. <a class="cite fn" href="#m-capacity">[note 2]</a> When all 12 run, the draft permit allows them to emit up to 900 pounds of nitrogen oxides (NOx) an hour. <a class="cite fn" href="#m-nox" id="r-nox">[note 5]</a> That's as much per hour as a 600-megawatt coal plant, or about 14 times the average coal plant per unit of electricity. <a class="cite fn" href="#m-coal" id="r-coal">[note 6]</a></p>
+    <p>NOx forms smog and worsens asthma, especially in children and older adults. Diesel exhaust causes cancer. <a class="cite fn" href="#m-health" id="r-health">[note 7]</a></p>
+    <p>Sentinel will say the generators rarely run, but only testing is capped. Emergency use has no hourly limit, including whenever PJM, the regional grid operator, orders an emergency voltage reduction. <a class="cite fn" href="#m-hours" id="r-hours">[note 8]</a> Grid emergencies tend to come in heat waves, the same hot, sunny days when smog forms. <a class="cite" href="https://www.power-eng.com/business/policy-and-regulation/grid-operators-issue-emergency-alerts-in-response-to-early-summer-heat-wave/" rel="noopener">[Power Engineering]</a> <a class="cite" href="https://www.epa.gov/nutrientpollution/where-occurs-air" rel="noopener">[EPA]</a> Nothing in the permit requires monitoring what comes out of these stacks. <a class="cite fn" href="#m-monitor" id="r-monitor">[note 9]</a></p>
+    <p class="cta" data-until="2026-11-09"><strong>Tell NJDEP what you think by November 9.</strong> <a href="/comment/">How to comment</a> <a class="cite fn" href="#m-deadline" id="r-deadline">[note 10]</a></p>
+  </div>
+
+  <div class="explainer" id="limits">
+    <h3>How the testing limits were set</h3>
+    <p class="lead"><strong>Sentinel knew its generators would put more formaldehyde into the air than New Jersey considers safe. NJDEP offered ways to cut the pollution. Sentinel chose a testing schedule instead, which brought the numbers under the threshold on paper and does nothing when all 12 engines run in an emergency.</strong></p>
+    <p>Diesel exhaust contains formaldehyde, which irritates the eyes, nose, and throat and causes cancer. <a class="cite" href="https://www.atsdr.cdc.gov/toxfaqs/tfacts111.pdf" rel="noopener">[ATSDR]</a> New Jersey sets a health threshold for how much a facility may add to the air in an hour.</p>
+    <p>When Sentinel's consultant modeled all 12 generators running together, formaldehyde peaked at <strong>3.7 times that threshold</strong>. <a class="cite" href="https://docs.stopnjdatacenters.org/2026-03-pn-dc1-risk-assessment-report.pdf#page=39" rel="noopener">[Risk report, p. 39]</a> Levels above it reached homes and hotels up to a third of a mile away. <a class="cite" href="https://docs.stopnjdatacenters.org/2026-05-27-njdep-draft-risk-memo.pdf#page=2" rel="noopener">[NJDEP memo, p. 2]</a> NJDEP's experts confirmed the result and told the company to fix it before a permit could be written. They suggested cleaner exhaust equipment, taller smokestacks, more distance from neighbors, fewer hours, or fewer engines at once. <a class="cite" href="https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=20" rel="noopener">[Email, p. 67]</a></p>
+    <p><strong>Sentinel didn't change the equipment. It changed the testing schedule:</strong> one engine at a time, with no more than six together, and those only between noon and 4 p.m. On paper, that brought the number down to 0.81, just under the threshold. <a class="cite" href="https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=23" rel="noopener">[Email, p. 65]</a> <a class="cite" href="https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=30" rel="noopener">[p. 47]</a> The schedule became the permit's testing rules.</p>
+    <p><strong>The schedule covers testing only.</strong> In a power outage or grid emergency, all 12 can still run at once for as long as needed, which is the situation that produced the 3.7. <a class="cite fn" href="#m-hours">[note 8]</a> NJDEP's first draft said no more than six engines "shall ever operate at once." At the company's request, it became "shall be tested at once." <a class="cite" href="https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=24" rel="noopener">[Emails, pp. 62–64]</a></p>
+    <p class="muted"><em>What this does not say:</em> a level above the threshold doesn't mean someone will get sick. It means the risk is higher than the state calls "negligible." For the cancer risk, see <a href="#testing-only">above</a>. The permit requires no emissions monitoring, so the company's own logbook is the only check on the testing schedule.</p>
+    <details class="more-box">
+      <summary>Show the documents</summary>
+      <ul class="quotes">
+        <li><strong>NJDEP to Sentinel's consultant, May 27, 2026:</strong> "short-term formaldehyde risk must be addressed in order to proceed with drafting subject PCP. Please reply by 6/10/26 with a response on how to reduce the risk, including but not limited to reducing emissions via add-on controls, reduction of operating hours, limiting the number of engines run simultaneously, increasing stack height or increasing distance to property line." <a class="cite" href="https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=20" rel="noopener">[p. 67]</a></li>
+        <li><strong>NJDEP draft risk memo, May 27, 2026:</strong> "The maximum short-term noncancer risk hazard quotient (HQ) for formaldehyde is predicted to be 3.7, exceeding NJDEP negligible noncancer risk HQ threshold of 1… The area with potential exposure exceeding the 1 HQ extend up to 500m beyond property line, including sensitive receptors – hotels, office buildings, residential houses, and an appliance store." <a class="cite" href="https://docs.stopnjdatacenters.org/2026-05-27-njdep-draft-risk-memo.pdf" rel="noopener">[memo]</a></li>
+        <li><strong>Consultant to NJDEP, June 10, 2026:</strong> "The team evaluated the needs of the few multi-engine runs and has been able to reduce the operation to a level where the acute formaldehyde risk has a hazard quotient less than 1… no more than six (6) engines operating at one time, for no more than 30 minutes within any 60-minute time-period, and between the hours of noon and 4pm." <a class="cite" href="https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=23" rel="noopener">[p. 65]</a></li>
+        <li><strong>Consultant to NJDEP, June 11, 2026:</strong> "If the language says No more than six engines shall ever operate at once, that's still referring only to maintenance and testing operation, is that correct? Would this multi-engine run be a standing allowance in the permit since the risk is negligible, rather than a temporary condition we talked about?" NJDEP's revised wording: "No more than six engines shall be tested at once." <a class="cite" href="https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=24" rel="noopener">[pp. 62–63]</a></li>
+        <li><strong>Consultant to NJDEP, July 7, 2026:</strong> the maximum "hazard quotient of 0.81495." <a class="cite" href="https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=30" rel="noopener">[p. 47]</a></li>
+        <li><strong>NJDEP to the consultant, March 20, 2026:</strong> "The worst-case acute risk is all engines running at once." <a class="cite" href="https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=9" rel="noopener">[p. 785]</a></li>
+        <li><strong>Sentinel's risk report, Table 6-7:</strong> all 12 engines at full load for one hour: formaldehyde hazard quotient 3.74; acrolein 1.62. <a class="cite" href="https://docs.stopnjdatacenters.org/2026-03-pn-dc1-risk-assessment-report.pdf#page=39" rel="noopener">[p. 39]</a></li>
+      </ul>
+    </details>
+  </div>
+
+  <div class="explainer" id="cancer">
+    <h3>The cancer risk: just under the line</h3>
+    <p>Diesel soot causes cancer. <a class="cite" href="https://www.iarc.who.int/wp-content/uploads/2018/07/pr213_E.pdf" rel="noopener">[IARC]</a> NJDEP's own modeling agreed with Sentinel's: 9.89 in a million, against a threshold of 10, counting testing hours only. <a class="cite" href="https://docs.stopnjdatacenters.org/2026-05-27-njdep-draft-risk-memo.pdf#page=6" rel="noopener">[NJDEP memo, p. 6]</a> <a class="cite" href="https://docs.stopnjdatacenters.org/2026-05-27-njdep-draft-risk-memo.pdf#page=4" rel="noopener">[p. 4]</a></p>
+    <p><strong>Two open questions:</strong></p>
+    <ul>
+      <li>Added together, all the cancer-causing pollutants come to about 10.6 in a million at the same spot. Does New Jersey require adding them? <a class="cite" href="https://docs.stopnjdatacenters.org/2026-03-pn-dc1-risk-assessment-report.pdf#page=30" rel="noopener">[Risk report, Table 6-1, p. 30]</a></li>
+      <li>At the full build-out of 20 generators, our rough estimate is about 16 in a million. <a class="cite" href="#m-buildout">[how we estimated]</a></li>
+    </ul>
+    <details class="more-box">
+      <summary>Show the documents</summary>
+      <ul class="quotes">
+        <li><strong>NJDEP draft risk memo, p. 6:</strong> "The maximum cancer risk was predicted to be 9.89 in-a-million (9.89E-06) for DPM." <a class="cite" href="https://docs.stopnjdatacenters.org/2026-05-27-njdep-draft-risk-memo.pdf#page=6" rel="noopener">[memo]</a></li>
+        <li><strong>NJDEP draft risk memo, p. 4:</strong> long-term emissions are the "product of PTE hourly emissions and 28 hour/yr allowed for maintenance and testing," with "daytime operations restricted to 8am-8pm (4,380 hr/yr)." <a class="cite" href="https://docs.stopnjdatacenters.org/2026-05-27-njdep-draft-risk-memo.pdf#page=4" rel="noopener">[memo]</a></li>
+        <li><strong>Sentinel's risk report, Table 6-1:</strong> diesel particulate matter, 9.86E-06 (9.86 in a million), with the other pollutants at the same location. <a class="cite" href="https://docs.stopnjdatacenters.org/2026-03-pn-dc1-risk-assessment-report.pdf#page=30" rel="noopener">[p. 30]</a></li>
+        <li><strong>Consultant to NJDEP, March 4, 2026:</strong> "The modeling for routine operation at the currently requested hours limit still passes." <a class="cite" href="https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=6" rel="noopener">[email, full release p. 836]</a></li>
+      </ul>
+    </details>
+  </div>
+</section>
+
+
+<section class="wrap section topic" id="land">
+  <h2>Land and water</h2>
+  <ul class="plainlist">
+    {% for k in c.concerns %}{% if k.area == "land" %}{% if k.source %}{% set s = c | sourceById(k.source) %}{% endif %}
+    <li><strong>{{ k.title }}.</strong> {{ k.text | mdInline | safe }}{% if k.source %} <a class="cite" href="{{ s.url }}" rel="noopener">[{{ s.publisher }}]</a>{% endif %}</li>
+    {% endif %}{% endfor %}
+    <li><strong>Notice.</strong> When public notice is required, state law (<a href="{{ site.laws.notice.url }}" rel="noopener">{{ site.laws.notice.cite }}</a>) requires mailing it only to property owners within 200 feet, plus a newspaper notice. Some site plan applications need no public notice at all.</li>
+  </ul>
+</section>
+
+<section class="wrap section">
   {% set posted = documents | docsForCampaign(c.id, "posted") %}
   {% set wanted = documents | docsForCampaign(c.id, "wanted") %}
   <p class="small"><a href="/documents/">Public records</a>: {{ posted.length }} posted, {{ wanted.length }} still wanted. · <a href="/officials/">What officials have said</a></p>
@@ -88,29 +158,33 @@ description: "Power, noise, air, and land: the facts and sources on the data cen
     <p class="muted small">Every number comes from a public source. Where we make an assumption, we say so. Found an error? <a href="mailto:{{ site.email }}?subject={{ ('Correction: ' + site.url + page.url) | urlencode }}">Report it</a> and we'll correct it.</p>
     <ol class="notes">
       <li id="m-homes"><strong>Compared with South Brunswick's homes.</strong> The average New Jersey home uses 662 kWh a month: 662 × 12 = 7,944 kWh a year, or 7,944 ÷ 8,760 hours = 0.907 kW on average. South Brunswick has 16,770 households: 16,770 × 0.907 kW = 15.2 MW for every home in the township.
-        <br><em>Assumption:</em> data centers size backup generators to their load plus spares, so the facility's real load is unknown. If the load equals half the backup capacity (full duplicate backup), it is 21.7 MW, about 1.4 times every home in the township. If it equals the full capacity, it is 43.4 MW, about 2.9 times. This compares with homes only, not the township's businesses.
-        <span class="src">Sources: <a href="https://www.eia.gov/electricity/sales_revenue_price/pdf/table_5A.pdf" rel="noopener">EIA, 2024 residential data (Table 5A)</a>; <a href="https://census.gov/quickfacts/fact/table/southbrunswicktownshipmiddlesexcountynewjersey/PST045223" rel="noopener">U.S. Census QuickFacts</a>. <a class="back" href="#r-homes">↑</a></span></li>
+        <br>Bloomberg says the facility will peak at 30 MW: 30 ÷ 15.2 ≈ 2.0 times every home in the township. This compares the facility's peak with the homes' average, and homes only, not the township's businesses.
+        <span class="src">Sources: <a href="https://www.eia.gov/electricity/sales_revenue_price/pdf/table_5A.pdf" rel="noopener">EIA, 2024 residential data (Table 5A)</a>; <a href="https://census.gov/quickfacts/fact/table/southbrunswicktownshipmiddlesexcountynewjersey/PST045223" rel="noopener">U.S. Census QuickFacts</a>; <a href="https://patch.com/new-jersey/southbrunswick/35095474/global-media-giant-confirms-it-s-behind-south-brunswick-data-center" rel="noopener">Patch, October 28, 2026</a> (Bloomberg's 30 MW). <a class="back" href="#r-homes">↑</a></span></li>
       <li id="m-capacity"><strong>Capacity.</strong> 12 Caterpillar C175-20 engines, 5,166 horsepower each. 12 × 3,620 kW = 43,440 kW, about 43 MW. 3,620 kW is Caterpillar's <em>standby</em> rating for the C175-20 engine; its prime rating for extended running is 3,300 kW, or 39.6 MW for 12 units.
-        <span class="src">Sources: <a href="{{ permit }}">draft permit</a>, Section A and Equipment Inventory; <a href="https://www.cat.com/en_US/products/new/power-systems/electric-power/diesel-generator-sets/1000028913.html" rel="noopener">Caterpillar C175-20 ratings</a>. <a class="back" href="#r-capacity">↑</a></span></li>
+        <span class="src">Sources: <a href="{{ permit }}#page=26">draft permit (pp. 6, 26)</a>, Section A and Equipment Inventory; <a href="https://www.cat.com/en_US/products/new/power-systems/electric-power/diesel-generator-sets/1000028913.html" rel="noopener">Caterpillar C175-20 ratings</a>. <a class="back" href="#r-capacity">↑</a></span></li>
       <li id="m-testing"><strong>Testing schedule.</strong> The permit allows testing only one engine at a time between 8 a.m. and 8 p.m. Two or more engines may be tested together only between noon and 4 p.m., for no more than 30 minutes per engine in any hour, and no more than six at once. Each engine may be tested up to 28 hours a year.
-        <span class="src">Source: <a href="{{ permit }}">draft permit</a>, Section D, U1 OS Summary Ref. 1; OS1–OS12 Ref. 1. <a class="back" href="#r-testing">↑</a></span></li>
+        <span class="src">Source: <a href="{{ permit }}#page=16">draft permit (p. 16)</a>, Section D, U1 OS Summary Ref. 1; OS1–OS12 Ref. 1. <a class="back" href="#r-testing">↑</a></span></li>
       <li id="m-tones"><strong>Engine tones.</strong> The C175-20 has 20 cylinders and runs at 1,800 rpm, which is 30 revolutions per second. A four-stroke engine fires each cylinder every other revolution, so 20 ÷ 2 × 30 = 300 firings per second. That gives tones near 30 Hz and 300 Hz. The noise rule's octave bands are centered at 31.5 Hz, 63 Hz, 125 Hz, 250 Hz, and higher, so these fall in the 31.5 Hz and 250 Hz bands. This is a calculation from the engine's design, not a measurement.
-        <span class="src">Sources: <a href="{{ permit }}">draft permit</a>, Equipment Inventory (model and speed); <a href="https://www.cat.com/en_US/products/new/power-systems/electric-power/diesel-generator-sets/1000028913.html" rel="noopener">Caterpillar C175-20</a>; <a href="{{ site.laws.noise.url }}" rel="noopener">{{ site.laws.noise.cite }}</a>. <a class="back" href="#r-tones">↑</a></span></li>
+        <span class="src">Sources: <a href="{{ permit }}#page=26">draft permit (p. 26)</a>, Equipment Inventory (model and speed); <a href="https://www.cat.com/en_US/products/new/power-systems/electric-power/diesel-generator-sets/1000028913.html" rel="noopener">Caterpillar C175-20</a>; <a href="{{ site.laws.noise.url }}" rel="noopener">{{ site.laws.noise.cite }}</a>. <a class="back" href="#r-tones">↑</a></span></li>
       <li id="m-nox"><strong>Nitrogen oxides (NOx).</strong> The permit allows each engine up to 75.28 lb of NOx per hour. 75.28 × 12 = 903 lb per hour with all 12 running. This is a permit limit, the most allowed, not a measurement.
-        <span class="src">Source: <a href="{{ permit }}">draft permit</a>, Section D, OS1–OS12 Ref. 7. <a class="back" href="#r-nox">↑</a></span></li>
+        <span class="src">Source: <a href="{{ permit }}#page=19">draft permit (p. 19)</a>, Section D, OS1–OS12 Ref. 7. <a class="back" href="#r-nox">↑</a></span></li>
       <li id="m-coal"><strong>Coal comparison.</strong> U.S. coal plants averaged 1.5 lb of NOx per megawatt-hour (MWh) in 2017; coal has generally gotten cleaner since, which makes this comparison conservative.
         <br>Per hour: 903 lb ÷ 1.5 lb/MWh = 602 MWh, the output of a 600 MW coal plant running for one hour.
         <br>Per unit of electricity: 75.28 lb ÷ 3.62 MWh = 20.8 lb/MWh, and 20.8 ÷ 1.5 ≈ 14 times coal.
         <br><em>What this does not say:</em> these generators are meant to run far fewer hours than a coal plant. The permit's annual NOx cap is 12.65 tons, based on testing hours only, compared with roughly 285 tons for a 43 MW coal plant running all year. Diesel also emits less sulfur dioxide and carbon dioxide per MWh than coal. The comparison above is about NOx, a key ingredient in smog.
-        <span class="src">Sources: <a href="https://www.eia.gov/TODAYINENERGY/detail.php?id=37752" rel="noopener">U.S. Energy Information Administration</a>; <a href="{{ permit }}">draft permit</a>, Section D, U1 OS Summary Ref. 8. <a class="back" href="#r-coal">↑</a></span></li>
+        <span class="src">Sources: <a href="https://www.eia.gov/TODAYINENERGY/detail.php?id=37752" rel="noopener">U.S. Energy Information Administration</a>; <a href="{{ permit }}#page=16">draft permit (p. 16)</a>, Section D, U1 OS Summary Ref. 8. <a class="back" href="#r-coal">↑</a></span></li>
       <li id="m-health"><strong>Health effects.</strong> EPA says nitrogen oxides "contribute to the formation of air pollutants like smog," that ground-level ozone is the main component of smog, and that ozone can worsen asthma. EPA also says breathing nitrogen dioxide can aggravate asthma, and that people with asthma, children, and older adults are at greater risk. The World Health Organization's cancer agency classifies diesel engine exhaust as a cause of cancer in humans (Group 1).
         <span class="src">Sources: <a href="https://www.epa.gov/nutrientpollution/where-occurs-air" rel="noopener">EPA, Nutrient Pollution: Air</a>; <a href="https://www.epa.gov/no2-pollution/basic-information-about-no2" rel="noopener">EPA, Basic Information about NO2</a>; <a href="https://www.iarc.who.int/wp-content/uploads/2018/07/pr213_E.pdf" rel="noopener">IARC press release 213 (2012)</a>. <a class="back" href="#r-health">↑</a></span></li>
       <li id="m-hours"><strong>When they can run.</strong> Testing is limited to 28 hours a year per engine. The permit also allows operation during power outages and whenever PJM, the regional grid operator, issues a voltage reduction, with no hourly limit on those uses. It also allows up to 30 days a year of operation when power is disrupted by construction, repair, or maintenance at the facility. Testing is barred on days with unhealthy air-quality forecasts; emergency and PJM-requested operation is not.
-        <span class="src">Source: <a href="{{ permit }}">draft permit</a>, Section D, U1 OS Summary Ref. 18 and 19; OS1–OS12 Ref. 1. <a class="back" href="#r-hours">↑</a></span></li>
+        <span class="src">Source: <a href="{{ permit }}#page=17">draft permit (pp. 16–18)</a>, Section D, U1 OS Summary Ref. 18 and 19; OS1–OS12 Ref. 1. <a class="back" href="#r-hours">↑</a></span></li>
       <li id="m-monitor"><strong>No emissions monitoring.</strong> For every emission limit, the permit lists "None" as the monitoring and recordkeeping requirement. Only hours of operation and fuel deliveries are tracked. NJDEP may request testing but is not required to.
-        <span class="src">Source: <a href="{{ permit }}">draft permit</a>, Section D, U1 OS Summary Ref. 1 and 3–18; OS1–OS12 Ref. 2–13; Section C, General Provisions 13 and 17. <a class="back" href="#r-monitor">↑</a></span></li>
+        <span class="src">Source: <a href="{{ permit }}#page=16">draft permit (pp. 8, 16–19)</a>, Section D, U1 OS Summary Ref. 1 and 3–18; OS1–OS12 Ref. 2–13; Section C, General Provisions 13 and 17. <a class="back" href="#r-monitor">↑</a></span></li>
       <li id="m-deadline"><strong>Comment deadline.</strong> NJDEP extended the comment period to November 9, 2026. Comment through the online form, or by mail to Nibras Mir, NJDEP, 401 E State Street, 2nd Floor, PO Box 420, Mail Code 401-02, Trenton, NJ 08625-0420, referencing "Draft Permit Comments for PN-DC1, PI 19525 PCP250001."
         <span class="src">Source: <a href="https://docs.stopnjdatacenters.org/2026-10-amended-public-notice-pcp250001.pdf">amended NJDEP public notice</a>. <a class="back" href="#r-deadline">↑</a></span></li>
+    <li id="m-buildout"><strong>Full build-out (our estimate).</strong> Sentinel's risk report puts the diesel particulate cancer risk from testing 12 engines at 9.86 in a million, against New Jersey's threshold of 10. The developer says these 12 are "Phase 1," and its representative told the Planning Board the full build-out is 20. If eight more identical engines were placed near the first twelve and tested on the same schedule, long-term exposure would grow roughly in proportion: 9.86 × 20 ÷ 12 ≈ 16 in a million. Where new engines go and how tall their stacks are would change this, so treat it as an estimate, not a finding.
+        <span class="src">Sources: <a href="https://docs.stopnjdatacenters.org/2026-03-pn-dc1-risk-assessment-report.pdf#page=30" rel="noopener">risk report, Table 6‑1, p. 30</a>; <a href="https://docs.stopnjdatacenters.org/2026-03-17-russo-letter-to-township-generators-phase-1.pdf" rel="noopener">developer's letter, March 17, 2026</a>; <a href="https://docs.stopnjdatacenters.org/2025-04-23-pb-resolution-preliminary-site-plan.pdf#page=32" rel="noopener">Planning Board resolution, ¶79, p. 32</a>.</span></li>
+      <li id="m-fuel"><strong>Fuel supply (our estimate).</strong> The developer testified that the tanks are "sized to provide approximately 72 hours of fuel for the emergency generators," without saying how many. Sentinel's revised emissions inventory (October 2025) lists fuel use of 245.8 gallons an hour per engine at full power. 400,000 gallons ÷ (20 × 245.8) ≈ 81 hours, or about 73 hours if roughly 90% of the tank is usable, which matches the testimony. For the first 12 engines, the same fuel lasts about 136 hours, or more than five days.
+        <span class="src">Sources: <a href="https://docs.stopnjdatacenters.org/2025-04-23-pb-resolution-preliminary-site-plan.pdf#page=15">Planning Board resolution, p. 15</a>; Sentinel's revised emissions inventory, Attachment B (OPRA 389866). <a class="back" href="#r-fuel">↑</a></span></li>
     </ol>
   </details>
 
@@ -133,7 +207,7 @@ description: "Power, noise, air, and land: the facts and sources on the data cen
     function openFor(hash) {
       if (d && hash && /^#m-[a-z]+$/.test(hash)) { d.open = true; var t = document.querySelector(hash); if (t) t.scrollIntoView({ block: "center" }); }
     }
-    document.querySelectorAll('.facts-page sup a').forEach(function (a) {
+    document.querySelectorAll('.facts-page a.fn').forEach(function (a) {
       a.addEventListener("click", function (e) { e.preventDefault(); history.replaceState(null, "", a.getAttribute("href")); openFor(a.getAttribute("href")); });
     });
     openFor(location.hash);

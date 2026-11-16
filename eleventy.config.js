@@ -80,7 +80,13 @@ export default function (eleventyConfig) {
 
   // Allow [links](https://...) in short text fields.
   const md = markdownIt({ html: false, linkify: false });
-  eleventyConfig.addFilter("mdInline", (s) => (s ? md.renderInline(String(s).trim()) : ""));
+  // Source links written in parentheses, "([Source, p. 3](url); [Other](url))",
+  // render as bracketed citations so every page uses one style.
+  const bracketCites = (html) =>
+    html.replace(/\(((?:<a href="[^"]+">[^<]+<\/a>(?:;\s*)?)+)\)/g, (m, inner) =>
+      inner.replace(/<a href="([^"]+)">([^<]+)<\/a>;?\s*/g, (x, href, text) => `<a class="cite" href="${href}">[${/^pp?\. /.test(text) ? text : text.charAt(0).toUpperCase() + text.slice(1)}]</a> `).trim()
+    );
+  eleventyConfig.addFilter("mdInline", (s) => (s ? bracketCites(md.renderInline(String(s).trim())) : ""));
 
   // Sort statements newest first.
   eleventyConfig.addFilter("newestFirst", (items) =>

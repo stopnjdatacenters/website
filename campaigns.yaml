@@ -15,8 +15,12 @@ south-brunswick:
 
   # Key facts, shown as a list on the South Brunswick page.
   facts:
+    - label: Nearest home
+      text: About 150 feet (45 meters) north of the facility, according to Sentinel's risk report
+      source: risk-report
     - label: Location
       text: 4405 US Route 1, South Brunswick (Middlesex County)
+      map: https://www.google.com/maps/search/?api=1&query=4405+US+Route+1+South+Brunswick+NJ
       source: draft-air-permit
     - label: Site
       text: About 143 acres of the former Princeton Nurseries site
@@ -24,31 +28,48 @@ south-brunswick:
     - label: Building size
       text: About 341,000 square feet
       source: princeton-perspectives
-    - label: Developer
-      text: Sentinel Data Centers, the company named on NJDEP's draft air permit for the facility
+
+  # Who's who. One line each, shown collapsed under "At a glance."
+  who:
+    - name: Sentinel Data Centers
+      text: The developer named on the state's draft air permit.
       source: draft-air-permit
-    - label: Applicant
-      text: WRV Nurseries South Brunswick LLC applied to the Planning Board to build the data center
+    - name: WRV Nurseries South Brunswick LLC
+      text: Applied to the township to build the data center.
       source: dcd
-    - label: Approval
-      text: Approved by South Brunswick in May 2025
-      source: patch-petition
+    - name: Russo Development
+      text: Wrote to the township on the applicant's behalf, calling the 12 generators "Phase 1."
+      source: russo-letter
+    - name: ALL4
+      text: Sentinel's consultant, which wrote the health risk report.
+      source: risk-report
+    - name: Bloomberg L.P.
+      text: The data center's tenant, which Bloomberg confirmed in October 2026. Also listed as operator of the fuel tanks.
+      source: patch-bloomberg
+    - name: NJDEP
+      text: The New Jersey Department of Environmental Protection, which decides the air permit.
 
   # Concerns about this specific site. Keep each one tied to a source.
   concerns:
-    - title: Contaminated soil
+    - title: Runoff
       area: land
       text: >-
-        The Sierra Club New Jersey Chapter says the property contains soil
-        contaminated with dieldrin and chlordane, two pesticides now banned in
-        the United States, and that construction could disturb capped soil berms.
-      source: sierra-club
-    - title: Water
+        A tributary of Heathcote Brook is on the southwest part of the site,
+        near wetlands and the Millstone River
+        ([Planning Board, p. 11](https://docs.stopnjdatacenters.org/2025-04-23-pb-resolution-preliminary-site-plan.pdf#page=11);
+        [Sierra Club](https://www.sierraclub.org/sites/default/files/2025-03/resolution-regarding-a-proposed-data-center-at-the-princeton-nurseries-redevelopemt-property_0.pdf)).
+        The site sits on soil contaminated with the banned pesticide dieldrin,
+        most of which will stay in place under the building and pavement
+        ([pp. 20–22](https://docs.stopnjdatacenters.org/2025-04-23-pb-resolution-preliminary-site-plan.pdf#page=20)). Up to 410,000 gallons of diesel will be
+        stored underground ([tank registration](https://docs.stopnjdatacenters.org/2025-11-21-njdep-ust-registration-summary.pdf)). The township approved
+        eight stormwater basins; we're asking how runoff and any fuel leaks
+        will be kept out of the brook.
+    - title: Contaminated berm
       area: land
       text: >-
-        The Sierra Club resolution notes the site is near wetlands and the
-        Millstone River, which it describes as a drinking water source for the region.
-      source: sierra-club
+        The existing berm near homes "consists of Dieldrin-impacted soil"
+        capped with a foot of clean fill. The developer agreed to use only
+        clean fill to extend it ([Planning Board, pp. 20–21](https://docs.stopnjdatacenters.org/2025-04-23-pb-resolution-preliminary-site-plan.pdf#page=20)).
     - title: Diesel generators and air quality
       area: air
       text: >-
@@ -68,9 +89,18 @@ south-brunswick:
 
   # Timeline, oldest first.
   timeline:
+    - date: 2025-03-26
+      text: The Planning Board grants preliminary site plan approval.
+      source: pb-prelim-site-plan
     - date: 2025-05
       text: South Brunswick approves the plans.
       source: patch-petition
+    - date: 2026-03-17
+      text: The developer tells the township the 12 generators are "Phase 1," with more planned.
+      source: russo-letter
+    - date: 2026-05-27
+      text: NJDEP's draft risk memo finds formaldehyde at 3.7 times the state's threshold when all 12 generators run.
+      source: njdep-risk-memo
     - date: 2026-08
       text: NJDEP drafts an air permit for the facility's 12 diesel generators, later released for public comment.
       source: draft-air-permit
@@ -81,8 +111,56 @@ south-brunswick:
       text: At the request of Sen. Zwicker, Assemblywoman Drulis, and Assemblyman Freiman, NJDEP extends the comment period on the air permit to November 9, 2026.
       source: patch-extension
 
+  # WHAT THE RECORDS SHOW. Shown at the top of the Records page.
+  # Keep to five or fewer. Each one must link to the page that proves it.
+    - date: 2026-10-28
+      text: Bloomberg confirms it is the data center's tenant.
+      source: patch-bloomberg
+    - date: 2026-11-02
+      text: Sen. Zwicker and Rep. Watson Coleman ask NJDEP not to issue the permit in its current form.
+      source: princeton-info-halt
+  findings:
+    - title: The health numbers count only scheduled testing, and the cancer risk barely passes.
+      text: >-
+        9.86 in a million against a threshold of 10
+        ([risk report, p. 30](https://docs.stopnjdatacenters.org/2026-03-pn-dc1-risk-assessment-report.pdf#page=30)). Outages and grid emergencies
+        aren't counted ([how it works](/south-brunswick/#testing-only)).
+    - title: The 12 generators are "Phase 1."
+      text: >-
+        The developer says more are planned
+        ([letter](https://docs.stopnjdatacenters.org/2026-03-17-russo-letter-to-township-generators-phase-1.pdf)).
+        Its representative told the Planning Board the total is 20
+        ([p. 32](https://docs.stopnjdatacenters.org/2025-04-23-pb-resolution-preliminary-site-plan.pdf#page=32)).
+    - title: The testing limits were fitted to pass a health test, and they cover testing only.
+      text: >-
+        [How it happened](/south-brunswick/#limits).
+    - title: Bloomberg L.P. is the tenant.
+      text: >-
+        Bloomberg confirmed it in October 2026 ([Patch](https://patch.com/new-jersey/southbrunswick/35095474/global-media-giant-confirms-it-s-behind-south-brunswick-data-center)). NJDEP's
+        tank registration already listed it as operator of the diesel tanks
+        ([p. 6](https://docs.stopnjdatacenters.org/2025-11-21-njdep-ust-registration-summary.pdf#page=6)).
+    - title: The nearest home is about 150 feet away.
+      text: >-
+        ([Risk report, p. 20](https://docs.stopnjdatacenters.org/2026-03-pn-dc1-risk-assessment-report.pdf#page=20))
+    - title: The tank count doesn't match.
+      text: >-
+        The developer told the township eight tanks holding 400,000 gallons
+        ([letter](https://docs.stopnjdatacenters.org/2026-03-17-russo-letter-to-township-generators-phase-1.pdf)).
+        Its state registration lists nine tanks holding 410,000 gallons
+        ([pp. 1–5](https://docs.stopnjdatacenters.org/2025-11-21-njdep-ust-registration-summary.pdf#page=1)).
+    - title: The noise study never modeled the generators at full power.
+      text: >-
+        At half power, all generators together are predicted above the state's
+        nighttime limit at the nearest homes; emergency noise is exempt
+        ([noise study, pp. 4, 7](https://docs.stopnjdatacenters.org/2024-10-18-lsga-acoustical-evaluation.pdf#page=7)).
+
   # WHAT WE'RE ASKING FOR. Shown at the top of the Take Action page.
   demands:
+    - title: Pause new data centers.
+      text: >-
+        Stop new approvals until New Jersey has rules that protect the people
+        living next to them, starting with health tests that count emergency
+        use.
     - title: No diesel generators.
       text: >-
         Require cleaner backup power. A data center isn't a hospital.
@@ -139,6 +217,16 @@ south-brunswick:
       button: Read the notice law
 
   sources:
+    - id: patch-bloomberg
+      title: "Global Media Giant Is NJ Data Center's Tenant"
+      publisher: Patch
+      date: 2026-10-28
+      url: https://patch.com/new-jersey/southbrunswick/35095474/global-media-giant-confirms-it-s-behind-south-brunswick-data-center
+    - id: princeton-info-halt
+      title: "Lawmakers call for halt to South Brunswick data center"
+      publisher: Princeton Info
+      date: 2026-11-09
+      url: https://princetoninfo.com/business/assemblywoman-joins-opposition-to-south-brunswick-data-center/
     - id: patch-petition
       title: "Petition Seeks To Stop Proposed Data Center Development In South Brunswick"
       publisher: Patch
@@ -195,6 +283,35 @@ south-brunswick:
       title: "Nutrient Pollution: Where It Occurs (Air)"
       publisher: EPA
       url: https://www.epa.gov/nutrientpollution/where-occurs-air
+    - id: pb-prelim-site-plan
+      title: "Planning Board resolution, preliminary site plan approval (adopted April 23, 2025)"
+      publisher: South Brunswick Planning Board
+      date: 2025-04-23
+      url: https://docs.stopnjdatacenters.org/2025-04-23-pb-resolution-preliminary-site-plan.pdf
+    - id: russo-letter
+      title: "Russo Development letter to the township on generators and fuel (March 17, 2026)"
+      publisher: Russo Development
+      date: 2026-03-17
+      url: https://docs.stopnjdatacenters.org/2026-03-17-russo-letter-to-township-generators-phase-1.pdf
+    - id: risk-report
+      title: "Risk Assessment Report, PN-DC 1 (ALL4, March 2026)"
+      publisher: Sentinel / ALL4
+      date: 2026-03
+      url: https://docs.stopnjdatacenters.org/2026-03-pn-dc1-risk-assessment-report.pdf
+    - id: njdep-risk-memo
+      title: "Facility-Wide Risk Assessment, draft memo (May 27, 2026)"
+      publisher: NJDEP
+      date: 2026-05-27
+      url: https://docs.stopnjdatacenters.org/2026-05-27-njdep-draft-risk-memo.pdf
+    - id: ust-registration
+      title: "Underground storage tank registration, PN-DC 1 (November 21, 2025)"
+      publisher: NJDEP
+      date: 2025-11-21
+      url: https://docs.stopnjdatacenters.org/2025-11-21-njdep-ust-registration-summary.pdf
+    - id: njdep-emails
+      title: "NJDEP email records on the air permit (OPRA release)"
+      publisher: NJDEP
+      url: https://docs.stopnjdatacenters.org/2026-10-opra-406238-njdep-emails-redacted.pdf
     - id: njdep-notices
       title: "Bureau of Stationary Sources: Public Notices"
       publisher: NJDEP

@@ -9,10 +9,10 @@ Almost everything you'll want to change is in three files:
 | File | What it controls |
 |---|---|
 | `site.yaml` | Site name, contact email, social media links |
-| `campaigns.yaml` | The Facts page (facts, concerns, timeline, sources) and the Take Action page (`demands` = what we're asking for; `actions` = "More ways to help"). Each concern has an `area` (power, noise, air, land) that decides which section of The Facts it appears in. |
+| `campaigns.yaml` | The Facts page (facts, concerns, timeline, sources) and the Take Action page (`demands` = what we're asking for; `actions` = "More ways to help"). Each concern has an `area` (power, noise, air, land) that decides which section of The Facts it appears in. `findings` = "What the records show" at the top of the Records page (five or fewer, each linked to its page). |
 | `officials.yaml` | The "Where Officials Stand" page |
 | `write.yaml` | The Write Your Legislators page: fact list and suggested asks (facts only, never sample sentences) |
-| `documents.yaml` | The Documents & Public Records page: every record we want and its status |
+| `documents.yaml` | The Records page: every record we have or want and its status. Posted records need a `group` (njdep or township) and a one-line `summary` backed by a key point with a page number. |
 
 To edit on github.com: open the file, click the **pencil icon**, make your change, then click **Commit changes**.
 
@@ -63,7 +63,7 @@ Documents are stored in Cloudflare R2 (not in this repository) and served from h
 1. Redact residents' personal details (home addresses, phone numbers, emails, signatures).
 2. Name the file lowercase with dashes, date first: `2025-05-planning-board-resolution.pdf`.
 3. Cloudflare: **R2 > stopnjdatacenters-docs > Upload**.
-4. In `documents.yaml`: set `status: posted`, and add `url` and `size`.
+4. In `documents.yaml`: set `status: posted`, and add `url`, `size`, `group` and `summary`. Link key points to exact pages by adding `#page=N` to the PDF link.
 
 ## Rules for what goes on the site
 

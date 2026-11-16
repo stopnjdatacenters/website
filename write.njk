@@ -94,9 +94,10 @@ description: Tell South Brunswick's state legislators, in your own words, what t
 
     <div class="buttons">
       <button type="button" class="btn primary" id="w-open">Open in my email app</button>
+      <button type="button" class="btn" id="w-print">Print my letter</button>
       <button type="button" class="btn" id="w-copy">Copy letter</button>
     </div>
-    <p class="muted small">The email goes to all three legislators, with <strong>{{ site.email }}</strong> as a blind copy so we can count how many letters are sent. We don't publish letters or names. If your email app doesn't open, or cuts off a long letter, use "Copy letter" and paste it into a new email.</p>
+    <p class="muted small">The email goes to all three legislators, with <strong>{{ site.email }}</strong> as a blind copy so we can count how many letters are sent. We don't publish letters or names. If your email app doesn't open, or cuts off a long letter, use "Copy letter" and paste it into a new email. "Print my letter" prints one copy for each legislator, addressed to their district office, ready to sign and mail.</p>
     <p class="small" id="w-status" role="status"></p>
   </form>
 </section>
@@ -105,11 +106,11 @@ description: Tell South Brunswick's state legislators, in your own words, what t
 (function () {
   var to = [{% for o in reps %}"{{ o.contact.email }}"{% if not loop.last %},{% endif %}{% endfor %}];
   var bcc = "{{ site.email }}";
+  var recips = [{% for o in reps %}{ name: "{{ o.name }}", office: "{{ o.office }}", mail: "{{ o.contact.mail }}", greet: "{{ o.office.split(',')[0].replace('State ', '').split(' ')[0] }} {{ o.name.split(' ') | last }}" }{% if not loop.last %},{% endif %}{% endfor %}];
   function val(id) { return (document.getElementById(id).value || "").trim(); }
-  function letter() {
+  function letter(greet) {
     var parts = [];
-    var greet = "Dear Senator Zwicker, Assemblywoman Drulis, and Assemblyman Freiman,";
-    parts.push(greet);
+    parts.push(greet || "Dear Senator Zwicker, Assemblywoman Drulis, and Assemblyman Freiman,");
     ["w-who", "w-worry", "w-life"].forEach(function (id) { if (val(id)) parts.push(val(id)); });
     var asks = Array.prototype.slice.call(document.querySelectorAll(".w-ask:checked")).map(function (c) { return "- " + c.value; });
     if (val("w-ask-other")) asks.push("- " + val("w-ask-other"));
@@ -131,6 +132,20 @@ description: Tell South Brunswick's state legislators, in your own words, what t
       "&subject=" + encodeURIComponent(subject()) + "&body=" + encodeURIComponent(letter());
     window.location.href = href;
     status("Opening your email app. Read it over before you send.");
+  });
+  document.getElementById("w-print").addEventListener("click", function () {
+    if (!val("w-who") && !val("w-worry") && !val("w-life")) { status("Add a few words in your own voice first."); return; }
+    var out = document.getElementById("printout");
+    if (!out) { out = document.createElement("div"); out.id = "printout"; document.body.appendChild(out); }
+    out.innerHTML = "";
+    var today = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+    recips.forEach(function (r) {
+      var page = document.createElement("div"); page.className = "pletter";
+      var head = document.createElement("p"); head.textContent = today + "\n\n" + r.name + "\n" + r.office + "\n" + r.mail.replace(/, (?=[^,]+, NJ)/, "\n");
+      var body = document.createElement("p"); body.textContent = letter("Dear " + r.greet + ",");
+      page.appendChild(head); page.appendChild(body); out.appendChild(page);
+    });
+    window.print();
   });
   document.getElementById("w-copy").addEventListener("click", function () {
     var text = "To: " + to.join(", ") + "\nBcc: " + bcc + "\nSubject: " + subject() + "\n\n" + letter();

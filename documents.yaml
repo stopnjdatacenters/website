@@ -37,6 +37,12 @@
 #   url           https://docs.stopnjdatacenters.org/ + file name
 #   size          e.g. "2 MB"
 #   campaign      south-brunswick
+#   group         for posted records: njdep or township (which heading it goes under)
+#   summary       for posted records: ONE short line saying why it matters.
+#                 Every summary must be backed by a key point with a page number.
+#
+# Page links: add #page=N to a PDF link to open it at that page, e.g.
+#   [p. 65](https://docs.stopnjdatacenters.org/file.pdf#page=65)
 #
 # Posting a document:
 #   1. Redact residents' personal details (home addresses, phone numbers,
@@ -46,12 +52,57 @@
 #   3. Cloudflare: R2 > stopnjdatacenters-docs > Upload.
 #   4. Here: set status to posted and fill in url and size.
 
-# ---------- Posted ----------
+# ---------- Posted: NJDEP air permit file ----------
 
-- title: NJDEP public notice for the draft air permit (amended, comments due November 9, 2026)
+- title: NJDEP draft air permit for the diesel generators (PCP250001)
+  group: njdep
+  agency: NJDEP (Bureau of Stationary Sources)
+  type: Permit
+  date: 2026-08
+  summary: No emissions monitoring, and no limit on how long all 12 engines can run in an emergency.
+  description: >-
+    Draft preconstruction permit and certificate to operate for the
+    facility's backup generators, released for public comment. NJDEP
+    extended the comment period to November 9, 2026.
+  key_points:
+    - >-
+      Covers twelve 3,620 kW Caterpillar diesel generators, about 43 MW of
+      generating capacity. (Section A; Equipment Inventory)
+    - >-
+      Sets hourly and annual limits for NOx, particulate matter, carbon
+      monoxide, benzene, formaldehyde, and other pollutants, but lists
+      "None" as the monitoring and recordkeeping requirement for every one
+      of those limits. (Section D, U1 OS Summary Ref. 3–16; OS1–OS12 Ref. 2–13)
+    - >-
+      Testing: one engine at a time between 8 a.m. and 8 p.m.; two or more
+      only between noon and 4 p.m., no more than six at once. These limits
+      apply to testing only. (Section D, U1 OS Summary Ref. 1)
+    - >-
+      Allows operation during power outages, during construction or repair
+      power disruptions (up to 30 days a year), and when PJM issues a
+      voltage reduction, with no hourly cap on outages or PJM events.
+      (Section D, U1 OS Summary Ref. 18)
+  open_questions:
+    - >-
+      The annual limits equal 12 engines × 28 testing hours × the hourly
+      limit (for NOx: 12 × 28 × 75.28 lb ÷ 2,000 = 12.65 tons). Do they
+      apply to emergency operation? If so, how is compliance shown?
+    - >-
+      The permit caps heat input at 33.67 MMBtu/hr per engine. NJDEP's own
+      permit writer calculated 36.16 from the manufacturer's data
+      ([emails, p. 661](https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=13)).
+      Which is right?
+  status: posted
+  url: https://docs.stopnjdatacenters.org/2026-08-draft-air-permit-pcp250001.pdf
+  size: 0.9 MB
+  campaign: south-brunswick
+
+- title: NJDEP public notice for the draft air permit (amended)
+  group: njdep
   agency: NJDEP (Bureau of Stationary Sources)
   type: Permit
   date: 2026-10
+  summary: Comments due November 9, 2026. Says the health risk is "negligible."
   description: >-
     NJDEP's notice inviting public comment on the draft air permit for
     PN-DC1, amended to extend the comment deadline to November 9, 2026.
@@ -67,61 +118,533 @@
       issues of concern and submit all arguments and factual grounds or
       materials supporting their position during the public comment period."
     - >-
-      NJDEP says written comments carry the same weight as oral comments at
-      the September 23 hearing, and that it will answer all timely comments
-      in a Response to Comment document.
-    - >-
-      Commenters who give a mailing or email address will be notified of
-      NJDEP's final decision.
-    - >-
       The notice states that a health risk assessment found the health risk
-      to be "negligible."
+      to be "negligible." That finding covers testing only; see the risk
+      assessment report and NJDEP's draft risk memo below.
   status: posted
   url: https://docs.stopnjdatacenters.org/2026-10-amended-public-notice-pcp250001.pdf
   size: 0.2 MB
   campaign: south-brunswick
 
-
-- title: NJDEP draft air permit for the diesel generators (PCP250001)
-  agency: NJDEP (Bureau of Stationary Sources)
-  type: Permit
-  date: 2026-08
+- title: NJDEP email records on the air permit (OPRA release)
+  group: njdep
+  agency: NJDEP
+  type: Correspondence
+  date: 2026
+  summary: How the testing limits were set to pass a health test, in the company's and NJDEP's own words.
   description: >-
-    Draft preconstruction permit and certificate to operate for the
-    facility's backup generators, released for public comment. NJDEP
-    extended the comment period to November 9, 2026.
+    865 pages of emails between NJDEP, Sentinel Data Centers, and its
+    consultant ALL4, released under OPRA. Much of it repeats the same
+    threads, so we pulled the key emails into a 38-page excerpt; each page
+    is stamped with its page number in the full release. We removed a resident's personal information and expired
+    meeting and file-sharing links; nothing else was changed.
   key_points:
     - >-
-      Covers twelve 3,620 kW Caterpillar diesel generators, about 43 MW of
-      generating capacity. (Section A; Equipment Inventory)
+      May 27, 2026, NJDEP to ALL4: "short-term formaldehyde risk must be
+      addressed in order to proceed," listing "add-on controls, reduction of
+      operating hours, limiting the number of engines run simultaneously,
+      increasing stack height or increasing distance to property line."
+      ([p. 67](https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=20))
     - >-
-      Sets hourly and annual limits for NOx, particulate matter, carbon
-      monoxide, benzene, formaldehyde, and other pollutants, but lists
-      "None" as the monitoring and recordkeeping requirement for every one
-      of those limits. (Section D, U1 OS Summary Ref. 3–16; OS1–OS12 Ref. 2–13)
+      June 10, ALL4 to NJDEP: "The team evaluated the needs of the few
+      multi-engine runs and has been able to reduce the operation to a level
+      where the acute formaldehyde risk has a hazard quotient less than 1,"
+      proposing no more than six engines, 30 minutes at a time, noon to 4 p.m.
+      ([p. 65](https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=23))
     - >-
-      What is tracked: hours of operation (hour meter and log) and fuel
-      quality from delivery paperwork. (Section D, U1 OS Summary Ref. 1, 17, 18)
+      June 10–11: NJDEP's draft wording "No more than six engines shall ever
+      operate at once" became "shall be tested at once" after ALL4 asked
+      whether it referred "only to maintenance and testing operation."
+      ALL4 also asked whether the allowance could be "a standing allowance
+      in the permit… rather than a temporary condition we talked about."
+      ([pp. 62–64](https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=24))
     - >-
-      Compliance with engine emission standards is shown by keeping the
-      manufacturer's certification. No routine stack testing is required.
-      (Section D, OS1–OS12 Ref. 16, 21) NJDEP may request testing and may
-      change permit conditions to protect health. (Section C, General
-      Provisions 13 and 17)
+      July 7: with the new schedule, the modeled result was "a hazard
+      quotient of 0.81495."
+      ([p. 47](https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=30))
+    - >-
+      March 20, NJDEP to ALL4: "The worst-case acute risk is all engines
+      running at once."
+      ([p. 785](https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=9))
+    - >-
+      March 2, NJDEP to Sentinel: information "due by January 1, 2026 is
+      still not received… Process to begin denial of subject PCP may begin
+      shortly." April 7: "subject PCP is technically deficient."
+      ([p. 837](https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=5),
+      [p. 661](https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=13))
+    - >-
+      April 14, ALL4 to NJDEP: "Does Sentinel have the opportunity to see
+      public questions/comments and/or who asked them?"
+      ([p. 652](https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=14))
+    - >-
+      May 29, ALL4 to NJDEP: "The nine USTs at PN-DC 1… are still in the
+      process of being installed."
+      ([p. 428](https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=21))
   open_questions:
     - >-
-      The annual limits equal 12 engines × 28 testing hours × the hourly
-      limit (for NOx: 12 × 28 × 75.28 lb ÷ 2,000 = 12.65 tons). Do they
-      apply to emergency operation, which has no hourly cap? If so, how is
-      compliance shown?
-    - >-
-      The Equipment Inventory lists installation dates between March and
-      June 2026, before this draft permit, for 8 of the 12 generators. The
-      other 4 are dated November 1, 2026. Were any generators installed
-      before a permit was issued?
+      ALL4's April meeting notes say the generators "can otherwise be fully
+      installed. This include connecting them electrically, exhaust duct
+      work." NJDEP's inspector replied, "I cannot put anything in writing
+      regarding the installation process." How far did installation go
+      before a permit?
+      ([pp. 546–548](https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=19))
+  index:
+    - date: 2026-02-20
+      who: "ALL4 to NJDEP"
+      what: "Says the application will ask that each generator be tested one at a time."
+      pages: "853"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=3
+    - date: 2026-02-20
+      who: "Township planning director to a resident"
+      what: "Promises to review the 12-versus-20-generator discrepancy with \"the appropriate parties.\""
+      pages: "856"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=4
+    - date: 2026-03-02
+      who: "NJDEP to Sentinel"
+      what: "Information \"due by January 1, 2026 is still not received\u2026 Process to begin denial of subject PCP may begin shortly.\""
+      pages: "837"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=5
+    - date: 2026-03-04
+      who: "NJDEP and ALL4"
+      what: "NJDEP: engines running together is \"the worst-case acute risk scenario.\" ALL4: the modeling \"at the currently requested hours limit still passes.\""
+      pages: "836"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=6
+    - date: 2026-03-10
+      who: "NJDEP to ALL4"
+      what: "Emission numbers \"appear inconsistent\" with the manufacturer's specifications; the mark-up is \"deficient.\""
+      pages: "764"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=7
+    - date: 2026-03-20
+      who: "NJDEP to ALL4"
+      what: "\"I do not understand\" (on reporting only four pollutants). \"The worst-case acute risk is all engines running at once.\""
+      pages: "784–785"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=8
+    - date: 2026-03-25
+      who: "NJDEP to ALL4"
+      what: "The revised application is \"not received.\""
+      pages: "763"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=10
+    - date: 2026-03-27
+      who: "NJDEP to ALL4"
+      what: "The revision was filed \"as a new activity\" by mistake."
+      pages: "673"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=11
+    - date: 2026-03-31
+      who: "ALL4 to NJDEP"
+      what: "The duplicate application was \"inadvertently created.\""
+      pages: "669"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=12
+    - date: 2026-04-07
+      who: "NJDEP to ALL4"
+      what: "\"Subject PCP is technically deficient\": heat input and fuel use don't match the manufacturer's data."
+      pages: "661"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=13
+    - date: 2026-04-14
+      who: "ALL4 to NJDEP"
+      what: "\"Does Sentinel have the opportunity to see public questions/comments and/or who asked them?\""
+      pages: "652"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=14
+    - date: 2026-04-16
+      who: "ALL4 to NJDEP"
+      what: "Sentinel is \"hoping to fully install and start them up this summer.\""
+      pages: "635"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=15
+    - date: 2026-05-01
+      who: "ALL4 meeting notes"
+      what: "Bloomberg listed on the project team. The generators \"can otherwise be fully installed. This include connecting them electrically, exhaust duct work.\""
+      pages: "547–548"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=16
+    - date: 2026-05-01
+      who: "ALL4 to NJDEP"
+      what: "Multi-engine runs: \"There would only be three, in the commissioning phase.\""
+      pages: "516"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=18
+    - date: 2026-05-05
+      who: "NJDEP inspector to ALL4"
+      what: "\"I cannot put anything in writing regarding the installation process.\""
+      pages: "546"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=19
+    - date: 2026-05-27
+      who: "NJDEP to ALL4"
+      what: "Formaldehyde risk \"must be addressed in order to proceed\"; suggests controls, taller stacks, more distance, fewer hours, or fewer engines."
+      pages: "67"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=20
+    - date: 2026-05-28
+      who: "NJDEP and ALL4"
+      what: "Tank paperwork \"still deficient\"; \"The nine USTs\u2026 are still in the process of being installed.\""
+      pages: "428–429"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=21
+    - date: 2026-06-10
+      who: "ALL4 to NJDEP"
+      what: "\"Has been able to reduce the operation to a level where the acute formaldehyde risk has a hazard quotient less than 1.\""
+      pages: "65"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=23
+    - date: 2026-06-11
+      who: "ALL4 and NJDEP"
+      what: "\"Shall ever operate at once\" becomes \"shall be tested at once\"; ALL4 asks for \"a standing allowance\u2026 rather than a temporary condition.\""
+      pages: "62–64"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=24
+    - date: 2026-07-01
+      who: "NJDEP modeler and ALL4"
+      what: "NJDEP finds ALL4's \"worst case\" wasn't the worst case; ALL4: \"You are correct.\""
+      pages: "49–51"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=27
+    - date: 2026-07-07
+      who: "ALL4 to NJDEP"
+      what: "New result: \"a hazard quotient of 0.81495.\""
+      pages: "47"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=30
+    - date: 2026-08-11
+      who: "ALL4 to NJDEP"
+      what: "ALL4's red-line of the permit's testing condition, which the draft permit uses."
+      pages: "15"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=31
+    - date: 2026-08-17
+      who: "NJDEP and ALL4"
+      what: "Generators corrected to 3,620 kW; \"The pre-draft permit is accepted.\""
+      pages: "11–12"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=32
+    - date: 2026-09-22
+      who: "ALL4 to NJDEP"
+      what: "The applicant arranges the hearing venue and security; a Russo Development staffer will be \"representing the applicant.\""
+      pages: "4–7"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=34
+    - date: 2026-09-24
+      who: "ALL4 to NJDEP"
+      what: "Asks whether the hearing recording will be \"available to the applicant.\""
+      pages: "1"
+      url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf#page=38
+  excerpt_url: https://docs.stopnjdatacenters.org/2026-10-key-emails-excerpt.pdf
+  excerpt_label: Key emails · 38 pages · 1 MB
   status: posted
-  url: https://docs.stopnjdatacenters.org/2026-08-draft-air-permit-pcp250001.pdf
-  size: 0.9 MB
+  url: https://docs.stopnjdatacenters.org/2026-10-opra-406238-njdep-emails-redacted.pdf
+  size: 61 MB
+  campaign: south-brunswick
+
+- title: Sentinel's risk assessment report (ALL4, March 2026)
+  group: njdep
+  agency: NJDEP (filed by PN-DC1 / ALL4)
+  type: Report
+  date: 2026-03
+  summary: The company's own numbers show formaldehyde at 3.74 times the state's threshold when all 12 engines run.
+  description: >-
+    The air dispersion modeling and health risk assessment Sentinel's
+    consultant filed with NJDEP. We removed the exact coordinates of the
+    nearest home.
+  key_points:
+    - >-
+      All 12 engines at full load for one hour: formaldehyde hazard quotient
+      3.74 and acrolein 1.62, against a threshold of 1; 1.68 for formaldehyde
+      at the nearest sensitive receptor, a hotel. (Table 6‑7,
+      [p. 39](https://docs.stopnjdatacenters.org/2026-03-pn-dc1-risk-assessment-report.pdf#page=39))
+    - >-
+      The report calls that scenario one that "does not reflect any planned
+      testing operations."
+      ([p. 38](https://docs.stopnjdatacenters.org/2026-03-pn-dc1-risk-assessment-report.pdf#page=38))
+    - >-
+      The nearest home is 45 meters (about 150 feet) north of the facility.
+      (Table 5‑1, [p. 20](https://docs.stopnjdatacenters.org/2026-03-pn-dc1-risk-assessment-report.pdf#page=20))
+    - >-
+      Diesel particulate cancer risk: 9.86 in a million, against a
+      threshold of 10. (Table 6‑1,
+      [p. 30](https://docs.stopnjdatacenters.org/2026-03-pn-dc1-risk-assessment-report.pdf#page=30))
+  open_questions:
+    - >-
+      Added together, the cancer risks in Table 6‑1 come to about 10.6 in a
+      million at the same spot. Does NJDEP's guidance require adding them?
+  status: posted
+  url: https://docs.stopnjdatacenters.org/2026-03-pn-dc1-risk-assessment-report.pdf
+  size: 15 MB
+  campaign: south-brunswick
+
+- title: NJDEP draft facility-wide risk memo (May 27, 2026)
+  group: njdep
+  agency: NJDEP (Bureau of Evaluation and Planning)
+  type: Report
+  date: 2026-05-27
+  summary: NJDEP's experts confirmed the formaldehyde problem, reaching homes up to a third of a mile away.
+  description: Draft internal memo summarizing NJDEP's own modeling of the generators. Marked draft.
+  key_points:
+    - >-
+      "The maximum short-term noncancer risk hazard quotient (HQ) for
+      formaldehyde is predicted to be 3.7, exceeding NJDEP negligible
+      noncancer risk HQ threshold of 1."
+      ([p. 1](https://docs.stopnjdatacenters.org/2026-05-27-njdep-draft-risk-memo.pdf#page=1))
+    - >-
+      "The area with potential exposure exceeding the 1 HQ extend up to 500m
+      beyond property line, including sensitive receptors – hotels, office
+      buildings, residential houses, and an appliance store."
+      ([p. 2](https://docs.stopnjdatacenters.org/2026-05-27-njdep-draft-risk-memo.pdf#page=2))
+  open_questions:
+    - We are requesting NJDEP's final risk memo.
+  status: posted
+  url: https://docs.stopnjdatacenters.org/2026-05-27-njdep-draft-risk-memo.pdf
+  size: 1.3 MB
+  campaign: south-brunswick
+
+- title: ALL4 response to NJDEP's conditions on the risk modeling (March 10, 2026)
+  group: njdep
+  agency: NJDEP (filed by ALL4)
+  type: Correspondence
+  date: 2026-03-10
+  summary: NJDEP required the all-engines-at-once worst case and asked that nearby hotels, an assisted living facility, and condominiums be modeled.
+  key_points:
+    - >-
+      NJDEP asked for "all twelve (12) engines operating all at once at 100%
+      load for one hour." The consultant modeled it
+      ([pp. 2–3](https://docs.stopnjdatacenters.org/2026-03-10-all4-response-to-risk-conditional-approval.pdf#page=2)).
+    - >-
+      Four hotels, an assisted living facility, and a condominium complex were
+      added as receptors only after NJDEP asked
+      ([item 7, p. 3](https://docs.stopnjdatacenters.org/2026-03-10-all4-response-to-risk-conditional-approval.pdf#page=3)).
+  status: posted
+  url: https://docs.stopnjdatacenters.org/2026-03-10-all4-response-to-risk-conditional-approval.pdf
+  size: 0.4 MB
+  campaign: south-brunswick
+
+- title: Developer's letter to the township on generators and fuel (March 17, 2026)
+  group: njdep
+  agency: South Brunswick Planning Department (from Russo Development)
+  type: Correspondence
+  date: 2026-03-17
+  summary: The developer calls the 12 generators "Phase 1," with more planned.
+  description: >-
+    Russo Development, writing "on behalf of the Applicant," answering a
+    resident's questions about generator counts and fuel. We removed the
+    resident's name.
+  key_points:
+    - >-
+      "The NJDEP BOSS application corresponds to Phase 1, which includes 12
+      backup generators, while prior testimony referenced the full build-out
+      of the campus, which contemplates additional generators in future
+      phases."
+    - >-
+      "The project includes eight (8) 50,000-gallon tanks (400,000 gallons
+      total)… and remains the planned configuration."
+  open_questions:
+    - >-
+      Sentinel's state tank registration, filed four months earlier, lists
+      nine tanks holding 410,000 gallons. Which is right?
+  status: posted
+  url: https://docs.stopnjdatacenters.org/2026-03-17-russo-letter-to-township-generators-phase-1.pdf
+  size: 0.2 MB
+  campaign: south-brunswick
+
+- title: NJDEP underground tank registration (November 21, 2025)
+  group: njdep
+  agency: NJDEP (Bureau of Underground Storage Tanks)
+  type: Permit
+  date: 2025-11-21
+  summary: Lists Bloomberg L.P. as the tank operator, and nine tanks, not eight.
+  description: >-
+    Sentinel's filing to register the facility's underground diesel tanks.
+    We removed insurance, license, and login details.
+  key_points:
+    - >-
+      "Contact Type: UST Facility Operator… Organization Name: Bloomberg
+      L.P." The tank owner is listed as WRV-RS South Brunswick Leasehold LLC.
+      ([p. 6](https://docs.stopnjdatacenters.org/2025-11-21-njdep-ust-registration-summary.pdf#page=6))
+    - >-
+      Nine tanks, 410,000 gallons in total.
+      ([pp. 1–5](https://docs.stopnjdatacenters.org/2025-11-21-njdep-ust-registration-summary.pdf#page=1))
+  status: posted
+  url: https://docs.stopnjdatacenters.org/2025-11-21-njdep-ust-registration-summary.pdf
+  size: 0.1 MB
+  campaign: south-brunswick
+
+- title: Sentinel's response to NJDEP about the diesel tanks (2026)
+  group: njdep
+  agency: NJDEP (filed by ALL4)
+  type: Correspondence
+  date: 2026
+  summary: The company's own tank math assumes the generators could run 500 hours a year.
+  key_points:
+    - >-
+      "One 10,000 gal UST was inadvertently excluded from the Request; the
+      planned USTs for PN-DC 1 total nine in number."
+      ([p. 1](https://docs.stopnjdatacenters.org/2026-ust-air-permit-response.pdf#page=1))
+    - >-
+      "Maximum throughput based upon 12 emergency generators operating 500
+      hours per year."
+      ([p. 5](https://docs.stopnjdatacenters.org/2026-ust-air-permit-response.pdf#page=5))
+  status: posted
+  url: https://docs.stopnjdatacenters.org/2026-ust-air-permit-response.pdf
+  size: 3.3 MB
+  campaign: south-brunswick
+
+- title: Sentinel's notice to install generators before the permit (February 13, 2026)
+  group: njdep
+  agency: NJDEP (filed by Sentinel)
+  type: Correspondence
+  date: 2026-02-13
+  summary: The legal basis for installing the generators early, as long as they don't run.
+  key_points:
+    - >-
+      Asks to bring the generators on site "but not operate them, before
+      approval of the Application, beginning March 9, 2026," under
+      [N.J.A.C. 7:27-8.24](https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-7-27-8-24).
+  status: posted
+  url: https://docs.stopnjdatacenters.org/2026-02-13-sentinel-7-day-notice.pdf
+  size: 0.3 MB
+  campaign: south-brunswick
+
+- title: Other NJDEP filings
+  group: njdep
+  agency: NJDEP
+  type: Other
+  date: 2026
+  summary: Emissions inventory, tank permit question, and a duplicate application cancelled by mistake.
+  key_points:
+    - >-
+      [Emissions inventory, March 2026](https://docs.stopnjdatacenters.org/2026-03-pn-dc1-emissions-inventory.pdf)
+      (lists the generators at 3,500 kW; the draft permit says 3,620 kW
+      because the lower figure subtracted the fan load)
+    - >-
+      [Tank air-permit applicability request, April 16, 2026](https://docs.stopnjdatacenters.org/2026-04-16-sentinel-tank-applicability-request.pdf)
+      (says eight tanks)
+    - >-
+      [Cancellation of PCP260001, March 31, 2026](https://docs.stopnjdatacenters.org/2026-03-31-njdep-cancellation-pcp260001.pdf)
+      (a duplicate application the consultant filed by mistake, not a second project)
+  status: posted
+  campaign: south-brunswick
+
+# ---------- Posted: South Brunswick Planning Board ----------
+
+- title: Planning Board resolution, preliminary site plan (adopted April 23, 2025)
+  group: township
+  agency: South Brunswick Planning Board
+  type: Resolution
+  date: 2025-04-23
+  summary: 20 generators at full build-out, 400,000 gallons of diesel, and noise checked only after opening.
+  description: >-
+    The Board's 64-page written decision, summarizing every hearing,
+    witness, and public comment. We removed residents' names and addresses.
+  key_points:
+    - >-
+      The applicant's representative, Mr. Russo: "At a full build out of the facility there
+      are 20 generators." (¶79,
+      [p. 32](https://docs.stopnjdatacenters.org/2025-04-23-pb-resolution-preliminary-site-plan.pdf#page=32))
+    - >-
+      "Eight 50,000 gallon tanks, with a cumulative capacity of 400,000
+      gallons are sized to provide approximately 72 hours of fuel." (¶23,
+      [p. 15](https://docs.stopnjdatacenters.org/2025-04-23-pb-resolution-preliminary-site-plan.pdf#page=15))
+    - >-
+      Sentinel's sound engineer "confirmed that in an emergency situation,
+      the noise regulations exempt generator noise." (¶73,
+      [p. 30](https://docs.stopnjdatacenters.org/2025-04-23-pb-resolution-preliminary-site-plan.pdf#page=30))
+    - >-
+      Post-construction noise tests "shall not be a condition of final site
+      plan approval, building permits, or a certificate of occupancy."
+      ([p. 63](https://docs.stopnjdatacenters.org/2025-04-23-pb-resolution-preliminary-site-plan.pdf#page=63))
+    - >-
+      The Redevelopment Plan, as quoted by the Board: generators "should be
+      used only in emergencies or for testing purposes," and a non-diesel
+      fuel source "is encouraged." (Conclusion 9,
+      [p. 41](https://docs.stopnjdatacenters.org/2025-04-23-pb-resolution-preliminary-site-plan.pdf#page=41))
+    - >-
+      Sentinel's acoustic engineers testified that octave-band
+      (low-frequency) data was used; that octave-band letter has not been made public.
+      (¶52–54, [pp. 24–25](https://docs.stopnjdatacenters.org/2025-04-23-pb-resolution-preliminary-site-plan.pdf#page=24))
+    - >-
+      Most of the dieldrin-contaminated topsoil will stay in place under the
+      building and pavement as a cap. (¶39–44,
+      [pp. 20–22](https://docs.stopnjdatacenters.org/2025-04-23-pb-resolution-preliminary-site-plan.pdf#page=20))
+  open_questions:
+    - >-
+      The Board closed the hearing without hearing the neighbors' air
+      emissions expert. (¶94–95,
+      [pp. 35–36](https://docs.stopnjdatacenters.org/2025-04-23-pb-resolution-preliminary-site-plan.pdf#page=35))
+  status: posted
+  url: https://docs.stopnjdatacenters.org/2025-04-23-pb-resolution-preliminary-site-plan.pdf
+  size: 17 MB
+  campaign: south-brunswick
+
+- title: Acoustical evaluation of the data center (Lewis S. Goodfriend & Associates, October 18, 2024)
+  group: township
+  agency: South Brunswick Planning Board (prepared for the developer)
+  type: Report
+  date: 2024-10-18
+  summary: The noise study never modeled the generators at full power, and nighttime compliance at the hotels rests on a 1-decibel margin.
+  description: >-
+    The developer's noise consultant's report to the Planning Board. We
+    removed one neighboring property's lot and block number.
+  key_points:
+    - >-
+      It modeled all 20 generators of the full build-out, not the 12 in the
+      air permit. ([p. 4](https://docs.stopnjdatacenters.org/2024-10-18-lsga-acoustical-evaluation.pdf#page=4))
+    - >-
+      The generator scenarios were one engine at full power, or all of them
+      together at half power. No scenario has all generators at full power,
+      the emergency case. ([p. 4](https://docs.stopnjdatacenters.org/2024-10-18-lsga-acoustical-evaluation.pdf#page=4))
+    - >-
+      With all generators at half power, it predicts 57 dB(A) at the nearest
+      homes to the north: under the 65 daytime limit, but above the 50
+      nighttime limit. The exemption covers generators "in use during an
+      electrical outage." ([pp. 2, 7](https://docs.stopnjdatacenters.org/2024-10-18-lsga-acoustical-evaluation.pdf#page=7))
+    - >-
+      Constant equipment noise at the hotels to the east is predicted at 49
+      dB(A) at night, against a limit of 50. That assumes only two of every
+      three rooftop chillers run at once, with compressor covers on all of
+      them. ([pp. 5, 7](https://docs.stopnjdatacenters.org/2024-10-18-lsga-acoustical-evaluation.pdf#page=5))
+    - >-
+      It reports only A-weighted results, which discount low frequencies. It
+      lists the state's low-frequency limits but gives no results for them.
+      The recommended silencers cut the least at 63 Hz.
+      ([pp. 2, 4, 7](https://docs.stopnjdatacenters.org/2024-10-18-lsga-acoustical-evaluation.pdf#page=2))
+    - >-
+      Baseline sound was measured once, over 24 hours in late March, at 35 to
+      52 degrees. ([p. 3](https://docs.stopnjdatacenters.org/2024-10-18-lsga-acoustical-evaluation.pdf#page=3))
+  open_questions:
+    - >-
+      The developer's representative told the Planning Board the generators
+      are tested "one at a time." The noise study evaluated testing all of
+      them at once. Which is the plan?
+      ([Planning Board resolution, p. 32](https://docs.stopnjdatacenters.org/2025-04-23-pb-resolution-preliminary-site-plan.pdf#page=32))
+    - >-
+      The figures are dated October 3, 2024, which suggests an earlier
+      version. What changed?
+      ([pp. 10–11](https://docs.stopnjdatacenters.org/2024-10-18-lsga-acoustical-evaluation.pdf#page=10))
+  status: posted
+  url: https://docs.stopnjdatacenters.org/2024-10-18-lsga-acoustical-evaluation.pdf
+  size: 0.4 MB
+  campaign: south-brunswick
+
+- title: Planning staff memos on the final site plan (May 22, 2025)
+  group: township
+  agency: South Brunswick Planning Department
+  type: Report
+  date: 2025-05-22
+  summary: Water use is low; the township's planner counts nine diesel tanks, not eight.
+  key_points:
+    - >-
+      Water use 4,250 gallons a day; sewer flow 5,900 gallons a day.
+      ([p. 2](https://docs.stopnjdatacenters.org/2025-05-22-planning-memos-final-site-plan.pdf#page=2))
+    - >-
+      "On the west side of the building a total of 9 underground fuel tanks
+      are proposed."
+      ([p. 3](https://docs.stopnjdatacenters.org/2025-05-22-planning-memos-final-site-plan.pdf#page=3))
+  status: posted
+  url: https://docs.stopnjdatacenters.org/2025-05-22-planning-memos-final-site-plan.pdf
+  size: 0.2 MB
+  campaign: south-brunswick
+
+- title: Other Planning Board resolutions
+  group: township
+  agency: South Brunswick Planning Board
+  type: Resolution
+  date: 2025
+  summary: Final site plan approval and the subdivision that created the data center lot.
+  key_points:
+    - >-
+      [Final site plan, adopted July 9, 2025](https://docs.stopnjdatacenters.org/2025-07-09-pb-resolution-final-site-plan.pdf)
+      (approval voted May 28, 2025)
+    - >-
+      [Final subdivision, adopted February 26, 2025](https://docs.stopnjdatacenters.org/2025-02-26-pb-resolution-final-subdivision.pdf)
+    - >-
+      [Preliminary subdivision, adopted December 3, 2024](https://docs.stopnjdatacenters.org/2024-12-03-pb-resolution-preliminary-subdivision.pdf):
+      a neighbor told the Board he "lived adjacent to the subject Property"
+      ([p. 5](https://docs.stopnjdatacenters.org/2024-12-03-pb-resolution-preliminary-subdivision.pdf#page=5))
+  status: posted
   campaign: south-brunswick
 
 # ---------- South Brunswick Township ----------
@@ -135,14 +658,6 @@
   status: wanted
   campaign: south-brunswick
 
-- title: Planning Board resolution approving the data center
-  agency: South Brunswick Municipal Clerk (Planning Board)
-  type: Resolution
-  date: 2025-05
-  description: The Board's written approval, including every condition it attached.
-  status: wanted
-  campaign: south-brunswick
-
 - title: Minutes and any video or audio of the Planning Board hearings
   agency: South Brunswick Municipal Clerk (Planning Board)
   type: Minutes
@@ -152,21 +667,28 @@
   status: wanted
   campaign: south-brunswick
 
-- title: Redevelopment study, redevelopment plan, and 2024 Council ordinance
+- title: Redevelopment study, Redevelopment Plan, and Amended Redevelopment Plan (Ordinance 2024-29)
   agency: South Brunswick Municipal Clerk (Township Council)
   type: Report
   description: >-
     The study that designated the Princeton Nurseries site for
-    redevelopment, the plan itself, and the ordinance the Council adopted in 2024.
+    redevelopment, the plan itself (adopted August 7, 2024), and the amended
+    plan adopted by Ordinance 2024-29 on December 4, 2024.
+  key_question: >-
+    Section 4.13, as quoted by the Planning Board, says generators "should
+    be used only in emergencies or for testing purposes." What exactly does
+    the plan require?
   status: wanted
   campaign: south-brunswick
 
-- title: Redeveloper agreement and any tax agreement (PILOT)
+- title: Redeveloper agreement and any tax agreement (PILOT) with WRV RS South Brunswick Urban Renewal, LLC
   agency: South Brunswick Municipal Clerk (Township Council)
   type: Agreement
   description: >-
     Any agreement between the township and the developer, including any
-    payment-in-lieu-of-taxes (PILOT) agreement, if one exists.
+    payment-in-lieu-of-taxes (PILOT) agreement, if one exists. The developer's
+    March 2026 letter names the applicant as an "Urban Renewal" company, a
+    structure commonly used for PILOT agreements.
   status: wanted
   campaign: south-brunswick
 
@@ -186,21 +708,46 @@
   status: wanted
   campaign: south-brunswick
 
-- title: Noise study and any noise compliance or monitoring reports
+- title: Remaining noise studies (Lewis S. Goodfriend & Associates)
   agency: South Brunswick Municipal Clerk (Planning Board)
   type: Report
   description: >-
-    The developer's noise study, plus any reports required by the approval
-    to show the facility meets noise limits.
+    "Octave Band Sound Level Results," January 29, 2025, and "Addition of
+    Indoor Pump Noise Letter," March 14, 2025. Titles from the Planning Board
+    resolution. The October 2024 acoustical evaluation is posted above.
   key_question: >-
-    Did the study test the low-frequency octave-band limits (31.5 Hz and
-    63 Hz) in [N.J.A.C. 7:29-1.2](https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-7-29-1-2)
-    at the nearest homes, at the nighttime limits, or only the overall dBA
-    level? Low frequencies travel farther.
+    The October 2024 report gives only A-weighted results. Did the octave-band
+    letter test the low-frequency limits (31.5 Hz and 63 Hz) in
+    [N.J.A.C. 7:29-1.2](https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-7-29-1-2)
+    at the nearest homes, at the nighttime limits?
   status: wanted
   campaign: south-brunswick
 
 # ---------- NJ Department of Environmental Protection ----------
+
+- title: Utility Impact Narrative (Bohler Engineering, May 2024)
+  agency: South Brunswick Municipal Clerk (Planning Board)
+  type: Report
+  description: Listed in the Planning Board resolution among the application documents.
+  key_question: How much electricity will the facility draw?
+  status: wanted
+  campaign: south-brunswick
+
+- title: Environmental Impact Statement (Bohler Engineering, revised January 2025)
+  agency: South Brunswick Municipal Clerk (Planning Board)
+  type: Report
+  description: Required by the Redevelopment Plan; challenged by the neighbors' experts at the hearings.
+  status: wanted
+  campaign: south-brunswick
+
+- title: Site plans, Revision 13 (June 19, 2025)
+  agency: South Brunswick Municipal Clerk (Planning Board)
+  type: Site plan
+  description: >-
+    All 73 sheets. We have them, but they list neighbors' names, so we're
+    removing that before posting.
+  status: received
+  campaign: south-brunswick
 
 - title: Air permit application for the diesel generators
   agency: NJDEP (Air Quality)
@@ -233,15 +780,16 @@
   status: wanted
   campaign: south-brunswick
 
-- title: Health risk assessment for the generators
-  agency: NJDEP (Air Quality)
+- title: NJDEP's final risk memo and the modeling behind it
+  agency: NJDEP (Bureau of Evaluation and Planning)
   type: Report
   description: >-
-    The assessment NJDEP cites in its public notice as finding the health
-    risk "negligible." It isn't included with the draft permit or notice.
+    The final version of the May 27, 2026 draft memo; NJDEP's January 5,
+    2026 conditional approval letter; and ALL4's July 1, 2026 revised
+    modeling protocol, report, and files.
   key_question: >-
-    Did it model all 12 engines running at once during a long outage, or
-    only routine testing?
+    Did NJDEP model all 12 engines running at once in an outage or grid
+    emergency, as the permit allows?
   status: wanted
   campaign: south-brunswick
 
