@@ -16,7 +16,7 @@ south-brunswick:
   # Key facts, shown as a list on the South Brunswick page.
   facts:
     - label: Nearest home
-      text: About 150 feet (45 meters) north of the facility, according to Sentinel's risk report
+      text: About 150 feet (45 meters) north of the facility
       source: risk-report
     - label: Location
       text: 4405 US Route 1, South Brunswick (Middlesex County)
@@ -82,9 +82,8 @@ south-brunswick:
     - title: Noise
       area: noise
       text: >-
-        According to Mayor Carley, the approval sets sound wall height
-        standards and restricts diesel generator testing to daytime hours.
-        Residents will want to see how that is enforced.
+        Mayor Carley says the approval sets sound wall heights and limits
+        generator testing to daytime.
       source: princeton-perspectives
 
   # Timeline, oldest first.
@@ -142,12 +141,12 @@ south-brunswick:
     - title: The nearest home is about 150 feet away.
       text: >-
         ([Risk report, p. 20](https://docs.stopnjdatacenters.org/2026-03-pn-dc1-risk-assessment-report.pdf#page=20))
-    - title: The tank count doesn't match.
+    - title: Nine diesel tanks hold 410,000 gallons.
       text: >-
-        The developer told the township eight tanks holding 400,000 gallons
+        Eight hold 50,000 gallons and one holds 10,000
+        ([tank registration, pp. 1–5](https://docs.stopnjdatacenters.org/2025-11-21-njdep-ust-registration-summary.pdf#page=1)).
+        The developer's letter to the township lists only the eight
         ([letter](https://docs.stopnjdatacenters.org/2026-03-17-russo-letter-to-township-generators-phase-1.pdf)).
-        Its state registration lists nine tanks holding 410,000 gallons
-        ([pp. 1–5](https://docs.stopnjdatacenters.org/2025-11-21-njdep-ust-registration-summary.pdf#page=1)).
     - title: The noise study never modeled the generators at full power.
       text: >-
         At half power, all generators together are predicted above the state's
